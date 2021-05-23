@@ -1,1 +1,1 @@
-abecadło
+placki
