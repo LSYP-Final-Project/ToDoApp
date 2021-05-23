@@ -2,8 +2,8 @@
 
 Authors:
 * [Karolina](https://github.com/KarolAdam)
-* [Patrycja]()
+* [Patrycja](https://github.com/PatrycjaPaczkowska/)
 * [Bartek](https://github.com/byte210)
 * [Igor](https://github.com/IggyTRPD)
-* [Jacek]()
+* [Jacek](https://github.com/kruzyk)
 * [Kamil](https://github.com/kamilponiatowski)
