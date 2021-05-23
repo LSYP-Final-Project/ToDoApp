@@ -7,4 +7,4 @@
 7. git push, za pierwszym razem git push --set-upstream origin nazwa-brancha
 8. po spushowaniu zmian wchodzimy na [github naszego repo](https://github.com/LSYP-Final-Project/ToDoApp)
 9. Tworzymy pull request, przypisujemy wszystkich w grupie do CR, po otrzymaniu dwoch CRek mergujemy do mastera
-10. 
+10. Test
