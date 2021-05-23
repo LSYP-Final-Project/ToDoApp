@@ -1,3 +1,4 @@
+0. npm i
 1. git checkout master 
 2. git pull
 3. git checkout -b "#numerIssue/nazwa-brancha-powiazana-z-nazwa-taska" - Przełącza na brancha o nazwie "#numerIssue/nazwa-brancha-powiazana-z-nazwa-taska"
