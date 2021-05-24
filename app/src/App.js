@@ -1,11 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.css'
+import ExampleServices from './ExampleServices'
 import './App.css';
 import { NavBar } from './core/components/NavBar';
 
 function App() {
   return (
-    <div>
-      <NavBar />
+    <div className="App">
+      <ExampleServices/>
     </div>
   );
 }
