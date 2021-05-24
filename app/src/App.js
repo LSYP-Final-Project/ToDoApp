@@ -1,9 +1,12 @@
+import 'bootstrap/dist/css/bootstrap.css'
+import ExampleServices from './ExampleServices'
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <ExampleServices/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
