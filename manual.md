@@ -10,3 +10,8 @@
 8. po spushowaniu zmian wchodzimy na [github naszego repo](https://github.com/LSYP-Final-Project/ToDoApp)
 9. Tworzymy pull request, przypisujemy wszystkich w grupie do CR, po otrzymaniu dwoch CRek mergujemy do mastera
 10. Test
+
+### uruchomienie środowiska
+jeśli nie znajdujemy sie w folderze app, to w terminalu `cd app` i następnie
+`json-server --watch data.json --port 3030` //odpalenia json-server na porcie 3030
+`npm start`
