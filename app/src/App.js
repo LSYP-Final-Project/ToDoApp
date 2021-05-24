@@ -5,8 +5,11 @@ import { NavBar } from './core/components/NavBar';
 
 function App() {
   return (
-    <div className="App">
-      <ExampleServices/>
+    <div>
+      <NavBar />
+        <div class="App">
+          {/* <ExampleServices/> */}
+        </div>
     </div>
   );
 }
