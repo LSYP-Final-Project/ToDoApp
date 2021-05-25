@@ -1,0 +1,19 @@
+import React from 'react'
+import {UserCard} from '../components/UserCard'
+
+
+export const UsersList = (props) => {
+
+    return (
+        <div className="mt-3">
+            <h2>Users</h2>
+            <div className="row row-cols-sm-2 mt-3">
+                {props.users.map((user, index) =>
+                    <div className="col mb-4" key={index}>
+                        <UserCard user={user} />
+                    </div>
+                )}
+            </div>
+        </div>
+    )
+}
