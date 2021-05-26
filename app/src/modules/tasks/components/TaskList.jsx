@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TaskCard from "./TaskCard";
 import DetailsTask from "./DetailsTask";
+import { useSelector } from "react-redux";
+import { getAllTodos } from "../../../redux/reducers/todos";
+// import { getAllTodoses } from '../../../redux/selectors';
 
 const comments = [
 	{ id: 1, userId: 2, taskId: 1, content: "Good job!", createdAt: 1621853932 },
@@ -46,16 +49,18 @@ const tasks = [
 
 const TaskList = () => {
 	const [selectedTaskId, setSelectedTaskId] = useState(null);
-	console.log(selectedTaskId);
+	// console.log(selectedTaskId);
+
+	// const [tasksTab, setTasksTab] = useState();
+	const tasksTab = useSelector(getAllTodos);
 
 	return (
 		<div className="row">
 			<div className="list-group col-6">
-				{tasks.map((t) => (
+				{tasksTab?.map((t) => (
 					<TaskCard key={t.id} task={t} setSelectedTaskId={setSelectedTaskId} />
 				))}
 			</div>
-
 		</div>
 	);
 };

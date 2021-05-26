@@ -1,4 +1,4 @@
-import { ADD_TODO,  } from "../actionTypes";
+import { ADD_TODO } from "../actionTypes";
 
 // const comments = [
 // 	{ id: 1, userId: 2, taskId: 1, content: "Good job!", createdAt: 1621853932 },
@@ -43,19 +43,49 @@ import { ADD_TODO,  } from "../actionTypes";
 // ];
 
 const initialState = {
-  tasks: []
+	tasks: [
+		{
+			sprintId: 1,
+			description: "Description Lorem ipsum dolor sit amet.",
+			userId: 1,
+			id: 1,
+			title: "Zrobić Karpatkę",
+			status: "inprogress",
+			createdAt: 1621508357,
+		},
+		{
+			sprintId: 1,
+			description: "Description Lorem ipsum dolor sit amet.",
+			userId: 1,
+			id: 2,
+			title: "Zostać mistrzem Reacta",
+			status: "done",
+			createdAt: 1621858957,
+		},
+		{
+			sprintId: 1,
+			description: "Description Lorem ipsum dolor sit amet.",
+			userId: 1,
+			id: 3,
+			title: "Zrobić naleśniki z musem truskawkowym",
+			status: "todo",
+			createdAt: 1621940377,
+		},
+	],
 };
 
 const todos = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_TODO: { 
-       return {
-          tasks: [...state, action.payload.draft]
-       }   
-    }
-    default:
-      return state;
-  }
-}
+	switch (action.type) {
+		case ADD_TODO: {
+			return {
+				tasks: [...state, action.payload.draft],
+			};
+		}
+		default:
+			return state;
+	}
+};
+export default todos;
 
-export default todos
+// selectors
+export const getAllTodos = (state) => state.todos.tasks;

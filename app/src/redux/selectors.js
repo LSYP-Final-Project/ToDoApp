@@ -27,3 +27,9 @@ export const getTodosByVisibilityFilter = (store, visibilityFilter) => {
       return allTodos;
   }
 };
+
+
+export const getAllTodoses = (state) => {
+	return state.tasks;
+};
+
