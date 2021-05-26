@@ -9,7 +9,7 @@ const TaskView = () => {
 			<SearchTasks />
 			<TaskList />
 		</div>
-	);
+	); 
 };
 
 export default TaskView;

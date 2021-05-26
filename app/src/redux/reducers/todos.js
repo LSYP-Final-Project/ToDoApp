@@ -1,38 +1,57 @@
-import { ADD_TODO, TOGGLE_TODO } from "../actionTypes";
+import { ADD_TODO,  } from "../actionTypes";
+
+// const comments = [
+// 	{ id: 1, userId: 2, taskId: 1, content: "Good job!", createdAt: 1621853932 },
+// 	{ id: 1, userId: 2, taskId: 1, content: "Easy job!", createdAt: 1621853954 },
+// 	{ id: 1, userId: 2, taskId: 1, content: "Be careful", createdAt: 1621853953 },
+// 	{ id: 2, userId: 1, taskId: 2, content: "Bad job.", createdAt: 1621853964 },
+// 	{ id: 2, userId: 1, taskId: 2, content: "Great!", createdAt: 1621853912 },
+// 	{ id: 2, userId: 1, taskId: 2, content: "Error on MainPage!", createdAt: 1621853951 },
+// 	{ id: 3, userId: 3, taskId: 3, content: "Nothing special...", createdAt: 1621853942 },
+// 	{ id: 3, userId: 3, taskId: 3, content: "That was so  good...", createdAt: 1621853954 },
+// 	{ id: 3, userId: 3, taskId: 3, content: "Um....", createdAt: 1621853955 },
+// ];
+
+// const tasks = [
+// 	{
+// 		sprintId: 1,
+// 		description: "Description Lorem ipsum dolor sit amet.",
+// 		userId: 1,
+// 		id: 1,
+// 		title: "Zrobić Karpatkę",
+// 		status: "inprogress",
+// 		createdAt: 1621508357,
+// 	},
+// 	{
+// 		sprintId: 1,
+// 		description: "Description Lorem ipsum dolor sit amet.",
+// 		userId: 1,
+// 		id: 2,
+// 		title: "Zostać mistrzem Reacta",
+// 		status: "done",
+// 		createdAt: 1621858957,
+// 	},
+// 	{
+// 		sprintId: 1,
+// 		description: "Description Lorem ipsum dolor sit amet.",
+// 		userId: 1,
+// 		id: 3,
+// 		title: "Zrobić naleśniki z musem truskawkowym",
+// 		status: "todo",
+// 		createdAt: 1621940377,
+// 	},
+// ];
 
 const initialState = {
-  allIds: [],
-  byIds: {}
+  tasks: []
 };
 
 const todos = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_TODO: {
-      const { id, content } = action.payload;
-      return {
-        ...state,
-        allIds: [...state.allIds, id],
-        byIds: {
-          ...state.byIds,
-          [id]: {
-            content,
-            completed: false
-          }
-        }
-      };
-    }
-    case TOGGLE_TODO: {
-      const { id } = action.payload;
-      return {
-        ...state,
-        byIds: {
-          ...state.byIds,
-          [id]: {
-            ...state.byIds[id],
-            completed: !state.byIds[id].completed
-          }
-        }
-      };
+    case ADD_TODO: { 
+       return {
+          tasks: [...state, action.payload.draft]
+       }   
     }
     default:
       return state;
