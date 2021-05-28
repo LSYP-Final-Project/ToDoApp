@@ -1,11 +1,4 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-
-const RowFlex = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
-`;
 
 const SearchTasks = () => {
 	const [searchText, setSearchText] = useState("");
@@ -35,25 +28,25 @@ const SearchTasks = () => {
 					Search
 				</button>
 			</div>
-			<RowFlex className="mb-5">
-				<RowFlex>
-					<h5 className="col-6">Filter by:</h5>
-					<select className="form-select col-6" >
+			<div className="row mb-5">
+				<div className="col-sm mb-3">
+					<p>Filter by:</p>
+					<select className="form-select">
 						<option defaultValue value="">
-                  Select filter type
+							Select filter type
 						</option>
 						<option value="title">Title</option>
 						<option value="userId">UserId</option>
 						<option value="Status">Status</option>
 					</select>
-				</RowFlex>
-				<RowFlex>
-					<h5 className="col-4">Sort by:</h5>
-					<button className="btn btn-outline-primary mx-1">Name</button>
+				</div>
+				<div className="col-sm">
+					<p>Sort by:</p>
+					<button className="btn btn-outline-primary mr-1">Name</button>
 					<button className="btn btn-outline-primary mx-1">UserId</button>
-					<button className="btn btn-outline-primary mx-1">Completed</button>
-				</RowFlex>
-			</RowFlex>
+					<button className="btn btn-outline-primary ml-1">Completed</button>
+				</div>
+			</div>
 		</>
 	);
 };
