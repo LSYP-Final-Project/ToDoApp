@@ -1,22 +1,23 @@
 import React from "react";
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { selectTaskId } from '../../../redux/actions';
 
-const TaskCard = ({task, setSelectedTaskId}) => {
+const TaskCard = ({task}) => {
+   const dispatch = useDispatch();
 
-	const onTaskCardClick = (e) => {
-		e.preventDefault();
-      setSelectedTaskId(task.id);
+	const onTaskCardClick = () => {
+      dispatch(selectTaskId(task.id));
 	};
 
 	return (
-		<div
+		<Link to={`/tasks/${task.id}`}
 			className={`list-group-item list-group-item-action`}
 			onClick={onTaskCardClick}
 		>
-         <Link to={`/tasks/${task.id}`}>
 			{task.title} (created by {task.userId}) - <span className="fst-italic">{task.status}</span>
-         </Link>
-		</div>
+
+		</Link>
 	);
 };
 
