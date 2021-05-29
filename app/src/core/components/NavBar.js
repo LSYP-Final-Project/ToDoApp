@@ -9,7 +9,7 @@ function NavBar() {
             <nav className="navbar navbar-expand-md navbar-dark bg-primary mb-3">
                 
                 <div className="container">
-                    <a className="navbar-brand" href="#">To Do App</a>
+                    <Link className="navbar-brand" to='/'>To Do App</Link>
                     
                     <button className="navbar-toggler" type="button" onClick={() => setCollapsed(prev => !prev)} data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
