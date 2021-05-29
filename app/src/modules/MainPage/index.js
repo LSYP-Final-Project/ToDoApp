@@ -1,3 +1,3 @@
-export {default as Card} from './components/Card'
+export {default as TaskList} from './components/TaskList'
 export {default as MainPage} from './containers/MainPage'
-export {default as CardsView} from './containers/CardsView.jsx'
+export {default as TasksView} from './containers/TasksView'

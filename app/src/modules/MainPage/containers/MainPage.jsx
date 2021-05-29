@@ -1,11 +1,11 @@
 import React from 'react'
-import { Card, CardsView } from '../'
+import { TasksView } from '../'
 
 export default function MainPage() {
     return (
-        <div>
+        <div className="px-2">
             <header><h2>MainPage</h2></header>
-            <CardsView />
+            <TasksView />
         </div >
     )
 }
