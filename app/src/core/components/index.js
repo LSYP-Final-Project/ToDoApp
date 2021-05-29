@@ -1,4 +1,1 @@
-import React from 'react';
-import NavBar from './NavBar';
-
-export default NavBar;
+export {default as NavBar} from './NavBar'
