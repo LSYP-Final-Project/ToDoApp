@@ -10,18 +10,18 @@ function RegisterForm() {
                     <form>
                         <div className="row mb-3">
                             <div className="col">
-                                <label className="form-label">Email</label>
-                                <input className="form-control" name="email" type="text" />
+                                <label className="form-label" for="inputEmail">Email</label>
+                                <input className="form-control" name="email" type="text" id="inputEmail" required />
                             </div>
                         </div>
                         <div className="row mb-3">
                             <div className="col">
-                                <label className="form-label">Password</label>
-                                <input className="form-control" name="password" type="password" />
+                                <label className="form-label" for="inputPassword">Password</label>
+                                <input className="form-control" name="password" type="password" id="inputPassword" required />
                             </div>
                             <div className="col">
-                                <label className="form-label">Confirm Password</label>
-                                <input className="form-control" name="confirmPassword" type="password" />
+                                <label className="form-label" for="inputConfirmPassword">Confirm Password</label>
+                                <input className="form-control" name="confirmPassword" type="password" id="inputConfirmPassword" required />
                             </div>
                         </div>
                         <div className="d-grid gap-2 d-md-block">
