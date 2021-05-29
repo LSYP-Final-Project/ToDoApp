@@ -1,5 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, SET_FILTER, GET_USERS } from "./actionTypes";
-import Axios from "axios";
+import { ADD_TODO, TOGGLE_TODO, SET_FILTER, GET_USERS, SELECT_USER } from "./actionTypes";
 import { UsersService } from "../services";
 
 let nextTodoId = 0;
@@ -32,4 +31,4 @@ export const fetchUsers = () => {
       payload: users
     })
   }
-}
+};
