@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import CommentsCard from "./CommentsCard";
 import { getOneTodo } from "../../../redux/reducers/todos";
 import { useSelector } from "react-redux";
@@ -11,12 +12,17 @@ const Container = styled.div`
 `;
 
 const DetailsTask = () => {
+	const history = useHistory()
 	const task = useSelector(getOneTodo);
 	const date = new Date(task.createdAt);
 
 
 	const comments = useSelector(getTaskComments);
 	console.log(comments);
+
+	function goBack() {
+		history.goBack();
+	}
 
 	return (
 		<Container className="container mt-3">
@@ -28,7 +34,7 @@ const DetailsTask = () => {
 					<h6>Created by: {task.userId}</h6>
 					<h6>Created at: {date.toLocaleDateString()}</h6>
 					<h6>Status: {task.status}</h6>
-					<Link to="/tasks/" ><button className="btn btn-primary mt-4">Go back</button></Link>
+					<Link onClick={goBack} ><button className="btn btn-primary mt-4">Go back</button></Link>
 				</div>
 				<div className="container col-sm">
 					<div className="card">
@@ -36,8 +42,8 @@ const DetailsTask = () => {
 
 						<div className="list-group list-group-flush">
 							{comments.map((c) => (
-						<CommentsCard key={c.createdAt} comment={c} />
-					))}
+								<CommentsCard key={c.createdAt} comment={c} />
+							))}
 						</div>
 						<div className="card-body text-center">
 							<button className="btn btn-primary">Add Comment</button>
