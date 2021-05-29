@@ -1,5 +1,5 @@
 import { Route, Switch } from 'react-router';
-import {NavBar} from './core/components';
+import {NavBar, PageNotFound} from './core/components';
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css';
 import {MainContainer} from './core/styledComponents'
@@ -19,6 +19,7 @@ function App() {
           <Route exact path="/users" component={UsersView} />
           <Route exact path="/tasks/" component={TaskView} />
           <Route exact path="/tasks/:task_id/" component={DetailsTask} />
+          <Route component={PageNotFound} />
         </Switch>
       </MainContainer>
     </>
