@@ -1,4 +1,6 @@
-import { ADD_TODO, TOGGLE_TODO, SET_FILTER } from "./actionTypes";
+import { ADD_TODO, TOGGLE_TODO, SET_FILTER, GET_USERS } from "./actionTypes";
+import Axios from "axios";
+import { UsersService } from "../services";
 
 let nextTodoId = 0;
 
@@ -15,4 +17,19 @@ export const toggleTodo = id => ({
   payload: { id }
 });
 
-export const setFilter = filter => ({ type: SET_FILTER, payload: { filter } });
+export const setFilter = filter => ({ 
+  type: SET_FILTER,
+  payload: { filter }
+});
+
+export const fetchUsers = () => {
+  
+  return async (dispatch, getState) => {
+    const users = await UsersService.getUsers()
+
+    dispatch({
+      type: GET_USERS,
+      payload: users
+    })
+  }
+}
