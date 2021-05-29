@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+a:hover{
+  color: white;
+  opacity: 0.9;
+}
+
+.errorMessage{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-20%,-50%);
+}
