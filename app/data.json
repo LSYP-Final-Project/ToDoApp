@@ -41048,6 +41048,7 @@
     {
       "id": 1,
       "name" : "END GAME",
+      "status": "ONGOING",
       "tasks": [
         {
           "description": "Jako zalogowany na widoku sprints moge dodać zadanie do sprintu, lub je usunac do backloga",
@@ -41066,6 +41067,7 @@
     {
       "id": 2,
       "name": "INFINITY WAR",
+      "status": "FINISHED",
       "tasks": [
         {
           "description": "As Thor I go for the head",
@@ -41088,6 +41090,7 @@
     {
       "id": 3,
       "name": "AGE OF ULTRON",
+      "status": "FINISHED",
       "tasks": [
         {
           "description": "Jako zalogowany wybierając zadanie z (dowolnej) listy przechodzę na ekran szczegółów",
@@ -41110,6 +41113,7 @@
     {
       "id": 4,
       "name": "CIVIL WAR",
+      "status": "FINISHED",
       "tasks": [
         {
           "description": "Jako zalogowany na widoku kanban widze zadania w kolumnach wg. statusu (przeciąganie zadań niewymagane)",
@@ -41136,6 +41140,7 @@
     {
       "id": 5,
       "name": "AVENGERS",
+      "status": "FINISHED",
       "tasks": [
         {
           "description": "Jako gość mogę założyć profil użytkownika (User) używając imienia, email i hasła",

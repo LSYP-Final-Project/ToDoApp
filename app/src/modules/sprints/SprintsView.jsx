@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StyledAddButton, StyledFinishedContainer, StyledOngoingContainer } from './index';
 import { useDispatch, useSelector } from 'react-redux'
+import { fetchSprints } from '../../redux/actions';
 
 
 function SprintsView(props) {
     const dispatch = useDispatch()
-    const users = useSelector(state => state.sprints)
+    const sprints = useSelector(state => state.sprints)
 
-
+    useEffect(() => {
+        dispatch(fetchSprints())
+    }, [])
 
     return (
         <div>
