@@ -4,25 +4,22 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
 function RegisterForm() {
-    // form validation rules 
+    // INFO: form validation rules 
     const validationSchema = Yup.object().shape({
         email: Yup.string()
             .required('Email is required')
             .email('Email is invalid'),
         password: Yup.string()
-            .min(6, 'Password must be at least 6 characters')
+            .min(7, 'Password must be at least 7 characters')
             .required('Password is required'),
         confirmPassword: Yup.string()
             .oneOf([Yup.ref('password'), null], 'Passwords must match')
-            .required('Confirm Password is required'),
+            .required('Please confirm password'),
     });
 
-    const formOptions = { resolver: yupResolver(validationSchema) };
-
-    const { register, handleSubmit, reset, formState } = useForm({
-        formOptions
+    const { register, handleSubmit, reset, formState: { errors } } = useForm({
+        resolver: yupResolver(validationSchema)
     });
-    const { errors } = formState;
 
     const onSubmit = (data, e) => {
         // e.target.reset(); // reset after form submit
@@ -43,26 +40,28 @@ function RegisterForm() {
             <div className="card m-3 w-75">
                 <h5 className="card-header">Create account</h5>
                 <div className="card-body">
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form onSubmit={handleSubmit(onSubmit)} className="needs-validation">
                         <div className="row mb-3">
                             <div className="col">
+                                {/* TODO: extract Input to class component */}
                                 <label className="form-label" htmlFor="email">Email</label>
                                 <input {...register("email", { required: true })} className={`form-control ${errors.email ? 'is-invalid' : ''}`} name="email" type="text" id="email" />
-                                {errors.email && <p className="invalid-feedback">This is required</p>}
-                                <div className="invalid-feedback">{errors.email?.message}</div>
+                                {errors.email && <p className="invalid-feedback">{errors.email?.message}</p>}
                             </div>
                         </div>
                         <div className="row mb-3">
                             <div className="col">
                                 <label className="form-label" htmlFor="password">Password</label>
-                                <input className="form-control" name="password" type="password" id="password" {...register("password", { required: true })} />
+                                <input className={`form-control ${errors.password ? 'is-invalid' : ''}`} name="password" type="password" id="password" {...register("password", { required: true })} />
+                                {errors.password && <p className="invalid-feedback">{errors.password?.message}</p>}
                             </div>
                             <div className="col">
                                 <label className="form-label" htmlFor="confirmPassword">Confirm Password</label>
-                                <input className="form-control" name="confirmPassword" type="password" id="confirmPassword" {...register("confirmPassword", { required: true })} />
+                                <input className={`form-control ${errors.confirmPassword ? 'is-invalid' : ''}`} name="confirmPassword" type="password" id="confirmPassword" {...register("confirmPassword", { required: true })} />
+                                {errors.confirmPassword && <p className="invalid-feedback">{errors.confirmPassword?.message}</p>}
                             </div>
                         </div>
-                        <div className="d-grid gap-2 d-md-block">
+                        <div className="d-grid gap-2 d-md-flex">
                             <button className="btn btn-primary" type="submit">Register</button>
                             <button className="btn btn-secondary" type="button" onClick={() => reset()}>Reset</button>
                         </div>
