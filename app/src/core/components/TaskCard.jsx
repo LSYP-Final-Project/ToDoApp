@@ -1,35 +1,32 @@
-import React from "react";
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { selectTaskId } from '../../redux/actions';
+import React from "react"
+import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { selectTaskId } from '../../redux/actions'
+import { convertMsToLocalDate } from '../helpers/functions/timeAndDate'
 
-function convertTimeToLocalDate(time) {
-	const date = new Date(time)
-	return date.toLocaleDateString()
-}
 
-const TaskCard = ({ task }) => {
-	const dispatch = useDispatch();
+const TaskCard = ({ task: { id, userId, title, description, createdAt, } }) => {
+	const dispatch = useDispatch()
 
 	const onTaskCardClick = () => {
-		dispatch(selectTaskId(task.id));
+		dispatch(selectTaskId(id))
 	};
 
 	return (
 		<>
-			{task &&
+			{id &&
 				<Link
-					to={`/tasks/${task.id}`}
+					to={`/tasks/${id}`}
 					className={`card list-group-item list-group-item-action border-dark border-top mb-2`}
 					onClick={onTaskCardClick}
 				>
 					<div className="card-body">
 						<div className="d-flex justify-content-between">
-							<h5 className="card-title">{task.title}</h5>
-							<time datetime="2018-07-07">{convertTimeToLocalDate(task.createdAt)}</time>
+							<h5 className="card-title">{title}</h5>
+							{createdAt && <time datetime="2018-07-07">{convertMsToLocalDate(createdAt)}</time>}
 						</div>
-						<h6 className="card-subtitle mb-2 text-muted">{task.userId}</h6>
-						<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<h6 className="card-subtitle mb-2 text-muted">{userId}</h6>
+						<p className="card-text">{description}</p>
 					</div>
 				</Link>
 			}
