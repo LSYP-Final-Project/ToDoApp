@@ -22,17 +22,8 @@ function RegisterForm() {
     });
 
     const onSubmit = (data, e) => {
-        // e.target.reset(); // reset after form submit
         alert('SUCCESS!! :-)\n\n' + JSON.stringify(data));
         // TODO: change path to login
-        // axios({
-        //     method: 'POST',
-        //     url: 'http://127.0.0.1:5000/signup',
-        //     data: data
-        // })
-        // setLoggedUser(true)
-        //     .then(res => console.log(res))
-        //     .catch(err => console.error(err))
     };
 
     return (
