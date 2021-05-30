@@ -51,7 +51,7 @@ const initialState = {
 			id: 1,
 			title: "Zrobić Karpatkę",
 			status: "inprogress",
-			createdAt: 1621508357,
+			createdAt: 1522390525501,
 		},
 		{
 			sprintId: 1,
@@ -60,7 +60,7 @@ const initialState = {
 			id: 2,
 			title: "Zostać mistrzem Reacta",
 			status: "done",
-			createdAt: 1621858957,
+			createdAt: 1622390525501,
 		},
 		{
 			sprintId: 1,
@@ -69,7 +69,7 @@ const initialState = {
 			id: 3,
 			title: "Zrobić naleśniki z musem truskawkowym",
 			status: "todo",
-			createdAt: 1621940377,
+			createdAt: 1612190585501,
 		},
 	],
    selectedId: null
@@ -97,6 +97,8 @@ export default todos;
 
 // selectors
 export const getAllTodos = (state) => state.todos.tasks;
+export const getUserTasks = (state) => state.todos.tasks.filter(t => t.userId === 1) // podmienić na state.user.userId
+export const getLatestTasks = (state) => state.todos.tasks.sort((a,b) => a.createdAt + b.createdAt)
 export const getOneTodo = (state) => {
    return state.todos.tasks.find(t => t.id === state.todos.selectedId);
 };
