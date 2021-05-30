@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CommentsCard from "./CommentsCard";
 import { getTodo } from "../../../redux/reducers/todos";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getTaskComments } from "../../../redux/reducers/comments";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { fetchComments } from "../../../redux/reducers/comments";
 
 const Container = styled.div`
 	max-width: 768px;
 `;
 
 const DetailsTask = () => {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(fetchComments());
+	}, []);
+
 	const task = useSelector(getTodo);
+
 	const date = new Date(task.createdAt);
 
-
 	const comments = useSelector(getTaskComments);
-	console.log(comments);
 
 	return (
 		<Container className="container mt-3">
@@ -28,7 +34,9 @@ const DetailsTask = () => {
 					<h6>Created by: {task.userId}</h6>
 					<h6>Created at: {date.toLocaleDateString()}</h6>
 					<h6>Status: {task.status}</h6>
-					<Link to="/tasks/" ><button className="btn btn-primary mt-4">Go back</button></Link>
+					<Link to="/tasks/">
+						<button className="btn btn-primary mt-4">Go back</button>
+					</Link>
 				</div>
 				<div className="container col-sm">
 					<div className="card">
@@ -36,8 +44,8 @@ const DetailsTask = () => {
 
 						<div className="list-group list-group-flush">
 							{comments.map((c) => (
-						<CommentsCard key={c.createdAt} comment={c} />
-					))}
+								<CommentsCard key={c.createdAt} comment={c} />
+							))}
 						</div>
 						<div className="card-body text-center">
 							<button className="btn btn-primary">Add Comment</button>

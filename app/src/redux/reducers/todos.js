@@ -1,5 +1,19 @@
+import { TodosService } from "../../services";
+
 export const SELECT_TASK_ID = "SELECT_TASK_ID";
 export const ADD_TODO = "ADD_TODO";
+export const GET_TODOS = "GET_TODOS";
+
+export const fetchTodos = () => {
+	return async (dispatch, getState) => {
+		const todos = await TodosService.getTodos();
+
+		dispatch({
+			type: GET_TODOS,
+			payload: todos,
+		});
+	};
+};
 
 export const selectTaskId = (id) => ({
 	type: SELECT_TASK_ID,
@@ -9,40 +23,18 @@ export const selectTaskId = (id) => ({
 });
 
 const initialState = {
-	tasks: [
-		{
-			sprintId: 1,
-			description: "Description Lorem ipsum dolor sit amet.",
-			userId: 1,
-			id: 1,
-			title: "Zrobić Karpatkę",
-			status: "inprogress",
-			createdAt: 1621508357,
-		},
-		{
-			sprintId: 1,
-			description: "Description Lorem ipsum dolor sit amet.",
-			userId: 2,
-			id: 2,
-			title: "Zostać mistrzem Reacta",
-			status: "done",
-			createdAt: 1621858957,
-		},
-		{
-			sprintId: 1,
-			description: "Description Lorem ipsum dolor sit amet.",
-			userId: 3,
-			id: 3,
-			title: "Zrobić naleśniki z musem truskawkowym",
-			status: "todo",
-			createdAt: 1621940377,
-		},
-	],
+	tasks: [],
 	selectedId: null,
 };
 
 const todos = (state = initialState, action) => {
 	switch (action.type) {
+		case GET_TODOS: {
+			return {
+				...state,
+				tasks: action.payload,
+			};
+		}
 		case ADD_TODO: {
 			return {
 				...state,

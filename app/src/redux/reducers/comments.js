@@ -1,6 +1,19 @@
+import { CommentsService } from "../../services";
 import { SELECT_TASK_ID } from "./todos";
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const SELECT_COMMENT_ID = 'SELECT_COMMENT_ID';
+export const GET_COMMENTS = 'GET_COMMENTS';
+
+export const fetchComments = () => {
+	return async (dispatch, getState) => {
+		const comments = await CommentsService.getComments();
+
+		dispatch({
+			type: GET_COMMENTS,
+			payload: comments,
+		});
+	};
+};
 
 //actions
 export const addComment = draft => ({
@@ -19,22 +32,18 @@ export const addComment = draft => ({
 
 
 const initialState = {
-	comments: [
-      { id: 1, userId: 2, taskId: 1, content: "Good job!", createdAt: 1621853932 },
-      { id: 1, userId: 2, taskId: 1, content: "Easy job!", createdAt: 1621853954 },
-      { id: 1, userId: 2, taskId: 1, content: "Be careful", createdAt: 1621853953 },
-      { id: 2, userId: 1, taskId: 2, content: "Bad job.", createdAt: 1621853964 },
-      { id: 2, userId: 1, taskId: 2, content: "Great!", createdAt: 1621853912 },
-      { id: 2, userId: 1, taskId: 2, content: "Error on MainPage!", createdAt: 1621853951 },
-      { id: 3, userId: 3, taskId: 3, content: "Nothing special...", createdAt: 1621853942 },
-      { id: 3, userId: 3, taskId: 3, content: "That was so  good...", createdAt: 1621853954 },
-      { id: 3, userId: 3, taskId: 3, content: "Um....", createdAt: 1621853955 },
-   ],
+	comments: [],
    selectedId: null
 };
 
 const comments = (state = initialState, action) => {
 	switch (action.type) {
+      case GET_COMMENTS: {
+			return {
+            ...state,
+				comments: action.payload,
+			};
+		}
 		case ADD_COMMENT: {
 			return {
             ...state,
