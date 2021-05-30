@@ -2,13 +2,13 @@ import React from 'react'
 import { StyledOngoingSprint } from '.'
 import { STATUSES } from '../../constants';
 
-const SprintOngoingTab = (props) => {
+const SprintOngoingTab = ({ sprints }) => {
     return (
         <div>
-            {props.sprints?.map(({name, status, id}) => 
-                status === STATUSES.ONGOING && 
-                <div className = 'ongoing-sprint' key={id}>
-                    <StyledOngoingSprint name={name}/>
+            {sprints.length && sprints.map(({ name, status, id }) =>
+                status === STATUSES.ONGOING &&
+                <div className='ongoing-sprint'>
+                    <StyledOngoingSprint key={id}>{name}</StyledOngoingSprint>
                 </div>
             )}
         </div>
