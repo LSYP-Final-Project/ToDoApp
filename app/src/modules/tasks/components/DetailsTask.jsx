@@ -1,11 +1,10 @@
 import React from "react";
-import { useHistoryRouter } from '../../../core/hooks/useHistoryRouter'
-import CommentsCard from "./CommentsCard";
-import { getOneTodo } from "../../../redux/reducers/todos";
-import { useSelector } from "react-redux";
-import { getTaskComments } from "../../../redux/reducers/comments";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useHistoryRouter } from 'Core/hooks/useHistoryRouter'
+import { getTaskComments } from "Redux/reducers/comments";
+import { getOneTodo } from "Redux/reducers/todos";
+import CommentsCard from "./CommentsCard";
 
 const Container = styled.div`
 	max-width: 768px;
@@ -14,12 +13,13 @@ const Container = styled.div`
 const DetailsTask = () => {
 	const { goBack } = useHistoryRouter();
 	const task = useSelector(getOneTodo);
-	const date = new Date(task.createdAt);
+	const date = new Date(task?.createdAt);
 
 
 	const comments = useSelector(getTaskComments);
 	console.log(comments);
 
+	if (!task) return
 
 	return (
 		<Container className="container mt-3">
@@ -31,7 +31,7 @@ const DetailsTask = () => {
 					<h6>Created by: {task.userId}</h6>
 					<h6>Created at: {date.toLocaleDateString()}</h6>
 					<h6>Status: {task.status}</h6>
-					<Link onClick={goBack} ><button className="btn btn-primary mt-4">Go back</button></Link>
+					<button onClick={goBack} className="btn btn-primary mt-4">Go back</button>
 				</div>
 				<div className="container col-sm">
 					<div className="card">

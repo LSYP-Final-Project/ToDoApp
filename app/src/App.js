@@ -1,11 +1,11 @@
 import { Route, Switch } from 'react-router';
-import {NavBar, PageNotFound} from './core/components';
+import {NavBar, PageNotFound} from 'Core/components';
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css';
-import {MainContainer} from './core/styledComponents'
+import {MainContainer} from 'Core/styledComponents'
 import { UsersView } from './users-section/containers/UsersView';
-import { MainPage } from './modules/MainPage';
-import { DetailsTask, TaskView } from "./modules/tasks";
+import { MainPage } from 'Modules/MainPage';
+import { DetailsTask, TaskView } from "Modules/tasks";
 import ExampleServices from './ExampleServices'
 
 function App() {

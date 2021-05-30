@@ -1,5 +1,5 @@
 import React from 'react'
-import { TasksView } from '../'
+import { TasksView } from '..'
 
 export default function MainPage() {
     return (

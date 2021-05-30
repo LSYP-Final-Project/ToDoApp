@@ -1,7 +1,7 @@
 import React from 'react'
 import { TaskList } from '..'
 import { useSelector } from "react-redux";
-import { getAllTodos } from "../../../redux/reducers/todos";
+import { getAllTodos } from "Redux/reducers/todos";
 
 export default function TasksView() {
     const tasks = useSelector(getAllTodos);

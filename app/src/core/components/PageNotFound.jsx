@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SvgPageNotFound } from '../svg'
+import { SvgPageNotFound } from 'Core/svg'
 
 const PageNotFound = () => (
     <div className="container">
@@ -8,7 +8,7 @@ const PageNotFound = () => (
             <div className="d-flex justify-content-center">
                 <Link to="/" className="btn btn-primary btn-lg" aria-label="Back to Home Page">
                     <div className="d-flex align-items-center">
-                        <span class="material-icons me-2">home</span>
+                        <span className="material-icons me-2">home</span>
                         Take Me Home
                     </div>
                 </Link>
