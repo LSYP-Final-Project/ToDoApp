@@ -1,4 +1,6 @@
 import { ADD_TODO, TOGGLE_TODO, SET_FILTER, SELECT_TASK_ID, ADD_COMMENT, SELECT_COMMENT_ID } from "./actionTypes";
+import Axios from "axios";
+import { UsersService } from "../services";
 
 let nextTodoId = new Date();
 
@@ -39,3 +41,21 @@ export const addComment = draft => ({
      id
    }
  });
+
+export const setFilter = filter => ({ 
+  type: SET_FILTER,
+  payload: { filter }
+});
+
+export const fetchUsers = () => {
+  
+  return async (dispatch, getState) => {
+    const users = await UsersService.getUsers()
+
+    dispatch({
+      type: GET_USERS,
+      payload: users
+    })
+  }
+}
+
