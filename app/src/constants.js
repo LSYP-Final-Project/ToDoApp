@@ -3,4 +3,9 @@ export const VISIBILITY_FILTERS = {
     COMPLETED: "completed",
     INCOMPLETE: "incomplete"
   };
+
+  export const STATUSES = {
+    ONGOING: 'ONGOING',
+    FINISHED: 'FINISHED'
+  }
   

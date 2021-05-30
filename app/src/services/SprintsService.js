@@ -7,7 +7,7 @@ const SprintsServices = class {
     }
 
     getSprint(id) {
-        return axios.get(`/sprints${id}`)
+        return axios.get(`/sprints/${id}`)
             .then(({ data }) => data)
     }
 

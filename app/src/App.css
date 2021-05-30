@@ -37,12 +37,12 @@
   }
 }
 
-a{
+.errorMessage a{
   text-decoration: none;
   color: white;
 }
 
-a:hover{
+.errorMessage a:hover{
   color: white;
   opacity: 0.9;
 }

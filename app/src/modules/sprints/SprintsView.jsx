@@ -3,14 +3,16 @@ import { StyledAddButton, StyledFinishedContainer, StyledOngoingContainer, Style
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchSprints } from '../../redux/actions';
 import SprintOngoingTab from './SprintOngoingTab';
+import getAllSprints from '../../redux/reducers/sprints';
 
 
 function SprintsView(props) {
     const dispatch = useDispatch()
-    const sprints = useSelector(state => state.sprints)
+    const sprints = useSelector(getAllSprints)
 
     useEffect(() => {
         dispatch(fetchSprints())
+        
     }, [])
 
     return (
@@ -36,7 +38,6 @@ function SprintsView(props) {
                         <StyledOngoingContainer>
                             <p>ongoing</p>
                             <SprintOngoingTab sprints={sprints}/>
-                            {/* wstawić funkcję drukującą ongoing sprints */}
 
                         </StyledOngoingContainer>
 
