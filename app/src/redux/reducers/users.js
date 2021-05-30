@@ -1,13 +1,25 @@
-import { GET_USERS, SELECT_USER} from "../actionTypes";
+import { GET_USERS, GET_USER } from "../actionTypes";
 
-const initState = []
+const initState = {
+    items: [],
+    selectedUser: {}
+}
+
 const usersReducer = (
     state = initState,
     action
 ) => {
     switch (action.type) {
         case GET_USERS:
-            return action.payload
+            return {
+                ...state,
+                items: action.payload
+            }
+        case GET_USER:
+            return {
+                ...state,
+                selectedUser: action.payload
+            }
         default:
             return state
     }

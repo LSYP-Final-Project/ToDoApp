@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, SET_FILTER, GET_USERS, SELECT_USER } from "./actionTypes";
+import { ADD_TODO, TOGGLE_TODO, SET_FILTER, GET_USERS, GET_USER } from "./actionTypes";
 import { UsersService } from "../services";
 
 let nextTodoId = 0;
@@ -29,6 +29,18 @@ export const fetchUsers = () => {
     dispatch({
       type: GET_USERS,
       payload: users
+    })
+  }
+};
+
+export const fetchUser = (id) => {
+
+  return async (dispatch) => {
+    const user = await UsersService.getUser(id)
+
+    dispatch({
+      type: GET_USER,
+      payload: user
     })
   }
 };

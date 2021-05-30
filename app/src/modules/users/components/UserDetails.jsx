@@ -1,34 +1,36 @@
 import React from 'react'
+import { useHistory } from 'react-router'
 
-export default class UserDetails extends React.Component {
-    state = {}
+export const UserDetails = (props) => {
 
-    render() {
-        return (
-            <div className="card mt-3">
-                
-                <div className="card-header bg-white">
-                    <h4>User's details - <b>Leanne Graham</b></h4>
-                    <span>&amp;times</span>
-                </div>
-        
-                <div className="card-body">
-                    <dl>
-                        <dt>Username:</dt>
-                        <dd aria-label="Playlist Name">Name</dd>
-        
-                        <dt>Phone number:</dt>
-                        <dd>66666666</dd>
-        
-                        <dt>Website:</dt>
-                        <dd>wedjeoijd.com</dd>
+    const { push } = useHistory()
 
-                        <dt>Company:</dt>
-                        <dd>Google</dd>
-                    </dl>
-                </div>
-        
+    return (
+        <div className="card mt-3">
+
+            <div className="card-header bg-white d-flex align-items-center">
+                <h4 className="me-auto">
+                    User's details - <b>{props.user.name}</b>
+                </h4>
+                <button className="btn btn-sm btn-close" onClick={() => push('/users')} />
             </div>
-        )
-    }
+
+            <div className="card-body">
+                <dl>
+                    <dt>Username:</dt>
+                    <dd aria-label="User Name">{props.user.username}</dd>
+
+                    <dt>Phone number:</dt>
+                    <dd aria-label="User phone number">{props.user.phone}</dd>
+
+                    <dt>Website:</dt>
+                    <dd aria-label="User website">{props.user.website}</dd>
+
+                    <dt>Company:</dt>
+                    <dd aria-label="User company">{props.user.company.name}</dd>
+                </dl>
+            </div>
+
+        </div>
+    )
 }

@@ -1,11 +1,10 @@
 import React from 'react'
-import { useHistory } from 'react-router'
+import { useDispatch } from 'react-redux';
+import { fetchUser } from '../../../redux/actions';
 import { UserBadge } from '../styled-components/UserBadge';
 
 
 export const UserCard = (props) => {
-    
-    const { push } = useHistory()
 
     const getUserInitials = (name) => {
 
@@ -21,7 +20,7 @@ export const UserCard = (props) => {
 
     return (
         <div className="card">
-            <div className="card-body row">
+            <div className="card-body row align-items-center">
                 <div className="col-3">
                     <UserBadge>
                         {getUserInitials(props.user.name)}
@@ -38,11 +37,12 @@ export const UserCard = (props) => {
                 </div>       
                 <div className="col-2">                    
                     <button className="btn btn-sm btn-outline-primary w-100"
-                            onClick={() => push(`/users/${props.user.id}/details`)}>
+                            onClick={() => props.showUserDetails(props.user.id)}>
                         Details
                     </button>
 
-                    <button className="btn btn-sm btn-primary mt-3 w-100">
+                    <button className="btn btn-sm btn-primary mt-3 w-100"
+                            onClick={() => props.showUserTasks(props.user.id)}>
                         Tasks
                     </button>
                 </div>             

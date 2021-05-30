@@ -7,9 +7,12 @@ export const UsersList = (props) => {
     return (
         <div>
             <div className="row row-cols-sm-1 mt-3">
-                {props.users.map((user, index) =>
+                {props.users.items.map((user, index) =>
                     <div className="col mb-4" key={index}>
-                        <UserCard user={user} />
+                        <UserCard user={user}
+                                  showUserDetails={props.showUserDetails}
+                                  showUserTasks={props.showUserTasks}
+                        />
                     </div>
                 )}
             </div>
