@@ -3,13 +3,16 @@ import { useHistory } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import Swal from 'sweetalert2'
 import { useDispatch, useSelector } from 'react-redux'
 import { addUser, fetchUsers } from '../../redux/actions'
 import { getUsers } from '../../redux/selectors'
+import UsersServices from '../../services/UsersService'
 
 function RegisterForm() {
     const dispatch = useDispatch()
     const users = useSelector(getUsers)
+    const history = useHistory();
 
     useEffect(() => {
         dispatch(fetchUsers())
@@ -35,7 +38,37 @@ function RegisterForm() {
     });
 
     const onSubmit = (data, e) => {
-        dispatch(addUser(data))
+        const fullData = {
+            ...data,
+            username: "",
+            address: {
+                street: "",
+                suite: "",
+                city: "",
+                zipcode: "",
+                geo: {
+                    lat: "",
+                    lng: ""
+                }
+            },
+            phone: "",
+            website: "",
+            company: {
+                name: "",
+                catchPhrase: "",
+                bs: ""
+            }
+        }
+
+        dispatch(addUser(fullData))
+        UsersServices.postUser(fullData)
+
+        Swal.fire(
+            'Success',
+            'Your account is created',
+            'success'
+        )
+            .then(() => { history.push("/home") })
     };
 
     return (
