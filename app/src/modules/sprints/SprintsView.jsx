@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
-import { StyledAddButton, StyledFinishedContainer, StyledOngoingContainer } from './index';
+import { StyledAddButton, StyledFinishedContainer, StyledOngoingContainer, StyledOngoingSprint } from './index';
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchSprints } from '../../redux/actions';
+import SprintOngoingTab from './SprintOngoingTab';
 
 
 function SprintsView(props) {
@@ -34,7 +35,7 @@ function SprintsView(props) {
                     <div className="col-2">
                         <StyledOngoingContainer>
                             <p>ongoing</p>
-
+                            <SprintOngoingTab sprints={sprints}/>
                             {/* wstawić funkcję drukującą ongoing sprints */}
 
                         </StyledOngoingContainer>
