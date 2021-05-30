@@ -25,7 +25,7 @@ const initState = {
 }
 const sprintsReducer = (state = initState, action) => {
     debugger;
-    switch (action.type) { 
+    switch (action?.type) { 
         case GET_SPRINTS:
             return action.payload
         default:
