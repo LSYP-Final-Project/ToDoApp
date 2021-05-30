@@ -24,7 +24,14 @@ function RegisterForm() {
             .required('Name is required'),
         email: Yup.string()
             .required('Email is required')
-            .email('Email is invalid'),
+            .email('Email is invalid')
+            .test('test-uniqueEmail', '', function (value, context) {
+                if (users.find(user => user.email === value)) {
+                    return this.createError({ message: 'User with that email already exist' });
+                } else {
+                    return true;
+                }
+            }),
         password: Yup.string()
             .min(7, 'Password must be at least 7 characters')
             .required('Password is required'),
