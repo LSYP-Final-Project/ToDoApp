@@ -1,13 +1,14 @@
 import React from 'react'
-import StyledAddButton from './StyledAddButton.style'
-import StyledFinishedContainer from './StyledFinishedContainer.style'
-import StyledOngoingContainer from './StyledOngoingContainer.style'
-import StyledText from './StyledText.style'
+import { StyledAddButton, StyledFinishedContainer, StyledOngoingContainer } from './index';
+import { useDispatch, useSelector } from 'react-redux'
+
+
+function SprintsView(props) {
+    const dispatch = useDispatch()
+    const users = useSelector(state => state.sprints)
 
 
 
-
-function SprintsView() {
     return (
         <div>
             <div className="container-fluid">
