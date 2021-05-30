@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistoryRouter } from '../../../core/hooks/useHistoryRouter'
 import CommentsCard from "./CommentsCard";
 import { getOneTodo } from "../../../redux/reducers/todos";
 import { useSelector } from "react-redux";
@@ -12,7 +12,7 @@ const Container = styled.div`
 `;
 
 const DetailsTask = () => {
-	const history = useHistory()
+	const { goBack } = useHistoryRouter();
 	const task = useSelector(getOneTodo);
 	const date = new Date(task.createdAt);
 
@@ -20,9 +20,6 @@ const DetailsTask = () => {
 	const comments = useSelector(getTaskComments);
 	console.log(comments);
 
-	function goBack() {
-		history.goBack();
-	}
 
 	return (
 		<Container className="container mt-3">
