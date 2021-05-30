@@ -1,4 +1,22 @@
-import { ADD_COMMENT, SELECT_TASK_ID } from "../actionTypes";
+import { SELECT_TASK_ID } from "./todos";
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const SELECT_COMMENT_ID = 'SELECT_COMMENT_ID';
+
+//actions
+export const addComment = draft => ({
+   type: ADD_COMMENT,
+   payload: {
+     draft
+   }
+ });
+
+ export const selectCommentId = id => ({
+   type: SELECT_COMMENT_ID,
+   payload: {
+     id
+   }
+ });
+
 
 const initialState = {
 	comments: [

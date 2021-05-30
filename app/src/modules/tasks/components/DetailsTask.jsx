@@ -1,6 +1,6 @@
 import React from "react";
 import CommentsCard from "./CommentsCard";
-import { getOneTodo } from "../../../redux/reducers/todos";
+import { getTodo } from "../../../redux/reducers/todos";
 import { useSelector } from "react-redux";
 import { getTaskComments } from "../../../redux/reducers/comments";
 import styled from "styled-components";
@@ -11,7 +11,7 @@ const Container = styled.div`
 `;
 
 const DetailsTask = () => {
-	const task = useSelector(getOneTodo);
+	const task = useSelector(getTodo);
 	const date = new Date(task.createdAt);
 
 
