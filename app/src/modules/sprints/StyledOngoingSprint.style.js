@@ -8,6 +8,10 @@ const StyledOngoingSprint = styled.div`
     height: 50px;
     background-color: #f2b5b5;
     border: 1px solid #F79696;
+    text-align: center;
+    padding-top: 10px;
+    color: white;
+    font-weight: 700;
 
     margin-bottom: 2.5px;
 
