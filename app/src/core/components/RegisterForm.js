@@ -1,14 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import Swal from 'sweetalert2'
+import { useDispatch, useSelector } from 'react-redux'
+import { addUser, fetchUsers } from '../../redux/actions'
+import { getUsers } from '../../redux/selectors'
+import UsersServices from '../../services/UsersService'
 
 function RegisterForm() {
+    const dispatch = useDispatch()
+    const users = useSelector(getUsers)
+    const history = useHistory();
+
+    useEffect(() => {
+        dispatch(fetchUsers())
+    }, [])
+
     // INFO: form validation rules 
     const validationSchema = Yup.object().shape({
+        name: Yup.string()
+            .required('Name is required'),
         email: Yup.string()
             .required('Email is required')
-            .email('Email is invalid'),
+            .email('Email is invalid')
+            .test('test-uniqueEmail', '', function (value, context) {
+                if (users.find(user => user.email === value)) {
+                    return this.createError({ message: 'User with that email already exist' });
+                } else {
+                    return true;
+                }
+            }),
         password: Yup.string()
             .min(7, 'Password must be at least 7 characters')
             .required('Password is required'),
@@ -22,8 +45,37 @@ function RegisterForm() {
     });
 
     const onSubmit = (data, e) => {
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(data));
-        // TODO: change path to login
+        const fullData = {
+            ...data,
+            username: "",
+            address: {
+                street: "",
+                suite: "",
+                city: "",
+                zipcode: "",
+                geo: {
+                    lat: "",
+                    lng: ""
+                }
+            },
+            phone: "",
+            website: "",
+            company: {
+                name: "",
+                catchPhrase: "",
+                bs: ""
+            }
+        }
+
+        dispatch(addUser(fullData))
+        UsersServices.postUser(fullData)
+
+        Swal.fire(
+            'Success',
+            'Your account is created',
+            'success'
+        )
+            .then(() => { history.push("/home") })
     };
 
     return (
@@ -35,6 +87,13 @@ function RegisterForm() {
                         <div className="row mb-3">
                             <div className="col">
                                 {/* TODO: extract Input to class component */}
+                                <label className="form-label" htmlFor="name">Name</label>
+                                <input {...register("name", { required: true })} className={`form-control ${errors.name ? 'is-invalid' : ''}`} name="name" type="text" id="name" />
+                                {errors.name && <p className="invalid-feedback">{errors.name?.message}</p>}
+                            </div>
+                        </div>
+                        <div className="row mb-3">
+                            <div className="col">
                                 <label className="form-label" htmlFor="email">Email</label>
                                 <input {...register("email", { required: true })} className={`form-control ${errors.email ? 'is-invalid' : ''}`} name="email" type="text" id="email" />
                                 {errors.email && <p className="invalid-feedback">{errors.email?.message}</p>}
