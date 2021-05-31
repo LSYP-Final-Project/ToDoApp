@@ -8,7 +8,7 @@ const SearchTasks = (setSearchText, setFilterType) => {
 	};
 
 	const onSearch = () => {
-		if (searchText.length === 0) return;
+		if (searchInput.length === 0) return;
       setSearchText(searchInput);
 		setSearchInput("");
 	};
