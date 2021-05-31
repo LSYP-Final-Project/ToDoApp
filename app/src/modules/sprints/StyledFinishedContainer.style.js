@@ -6,6 +6,7 @@ box-sizing: border-box;
     height: 250px;
     border: 1px solid #8BE78B;
     position: relative;
+    padding-top: 52px;
     
     &::after{
         content: '';

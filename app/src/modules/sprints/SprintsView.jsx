@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react'
-import { StyledAddButton, StyledFinishedContainer, StyledOngoingContainer, StyledOngoingSprint } from './index';
+import { StyledAddButton, StyledFinishedContainer, StyledOngoingContainer, StyledOngoingSprint, StyledFinishedSprint } from './index';
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchSprints } from '../../redux/actions';
 import SprintOngoingTab from './SprintOngoingTab';
+import SprintFinishedTab from './SprintsFinishedTab';
 import { getAllSprints } from '../../redux/reducers/sprints';
 
 
 function SprintsView(props) {
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
     const sprints = useSelector(getAllSprints)
 
     useEffect(() => {
-        // dispatch(fetchSprints())
+        dispatch(fetchSprints())
 
     }, [])
 
@@ -43,7 +44,7 @@ function SprintsView(props) {
 
                         <StyledFinishedContainer>
                             <p>finished</p>
-
+                            <SprintFinishedTab sprints={sprints} />
                             {/* wstawić funkcję drukującą finished sprints */}
 
                         </StyledFinishedContainer>
