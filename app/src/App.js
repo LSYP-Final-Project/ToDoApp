@@ -7,6 +7,8 @@ import NavBar from './core/components/index';
 import RegisterForm from './core/components/RegisterForm';
 import SprintsView from './modules/sprints/SprintsView';
 import PageDoesNotExist from './core/components/PageDoesNotExist';
+import DetailsTask from "./modules/tasks/components/DetailsTask";
+import TaskView from './modules/tasks/containers/TaskView';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
       <Switch>
         <Route path='/' exact={true} to="/users" />
         <Route path='/users' component={UsersView} />
+        <Route exact path="/tasks/" component={TaskView} />
+        <Route exact path="/tasks/:task_id/" component={DetailsTask} />
         <Route path='/sprints' component={SprintsView} />
         <Route path='/register' component={RegisterForm} />
         <Route path='*' component={PageDoesNotExist} />

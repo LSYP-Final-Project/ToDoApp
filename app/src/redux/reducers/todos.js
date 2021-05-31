@@ -1,42 +1,60 @@
-import { ADD_TODO, TOGGLE_TODO } from "../actionTypes";
+import { TodosService } from "../../services";
+
+export const SELECT_TASK_ID = "SELECT_TASK_ID";
+export const ADD_TODO = "ADD_TODO";
+export const GET_TODOS = "GET_TODOS";
+
+export const fetchTodos = () => {
+	return async (dispatch, getState) => {
+		const todos = await TodosService.getTodos();
+
+		dispatch({
+			type: GET_TODOS,
+			payload: todos,
+		});
+	};
+};
+
+export const selectTaskId = (id) => ({
+	type: SELECT_TASK_ID,
+	payload: {
+		id,
+	},
+});
 
 const initialState = {
-  allIds: [],
-  byIds: {}
+	tasks: [],
+	selectedId: null,
 };
 
 const todos = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_TODO: {
-      const { id, content } = action.payload;
-      return {
-        ...state,
-        allIds: [...state.allIds, id],
-        byIds: {
-          ...state.byIds,
-          [id]: {
-            content,
-            completed: false
-          }
-        }
-      };
-    }
-    case TOGGLE_TODO: {
-      const { id } = action.payload;
-      return {
-        ...state,
-        byIds: {
-          ...state.byIds,
-          [id]: {
-            ...state.byIds[id],
-            completed: !state.byIds[id].completed
-          }
-        }
-      };
-    }
-    default:
-      return state;
-  }
-}
+	switch (action.type) {
+		case GET_TODOS: {
+			return {
+				...state,
+				tasks: action.payload,
+			};
+		}
+		case ADD_TODO: {
+			return {
+				...state,
+				tasks: [...state, action.payload.draft],
+			};
+		}
+		case SELECT_TASK_ID: {
+			return {
+				...state,
+				selectedId: action.payload.id,
+			};
+		}
+		default:
+			return state;
+	}
+};
+export default todos;
 
-export default todos
+// selectors
+export const getAllTodos = (state) => state.todos.tasks;
+export const getTodo = (state) => {
+	return state.todos.tasks.find((t) => t.id === state.todos.selectedId);
+};
