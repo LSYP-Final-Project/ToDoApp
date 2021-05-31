@@ -26,6 +26,13 @@ const StyledOngoingSprint = styled.div`
         background-color: lightgrey;
     }
 
+    &:hover{
+        ::after{
+            background-color: #8BE78B;
+        }
+        
+    }
+
     z-index: 10;
 `
 
