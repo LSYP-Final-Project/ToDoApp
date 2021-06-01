@@ -3,5 +3,6 @@ import visibilityFilter from "./visibilityFilter";
 import todos from "./todos";
 import users from './users';
 import sprints from './sprints'
+import comments from "./comments";
 
-export default combineReducers({ todos, visibilityFilter, users, sprints});
+export const rootReducer = combineReducers({ todos, comments, visibilityFilter, users, sprints});
