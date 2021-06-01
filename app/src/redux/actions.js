@@ -1,6 +1,6 @@
-import { SET_FILTER, ADD_USER, GET_USERS } from "./actionTypes";
+import { ADD_TODO, TOGGLE_TODO, SET_FILTER, ADD_USER, GET_USERS, GET_SPRINTS } from "./actionTypes";
 import Axios from "axios";
-import { UsersService } from "../services";
+import { UsersService, SprintsService } from "../services";
 
 export const setFilter = filter => ({
   type: SET_FILTER,
@@ -15,6 +15,17 @@ export const fetchUsers = () => {
     dispatch({
       type: GET_USERS,
       payload: users
+    })
+  }
+}
+
+export const fetchSprints = () => {
+  return async(dispatch, getState) => {
+    const sprints = await SprintsService.getSprints();
+
+    dispatch({
+      type: GET_SPRINTS,
+      payload: sprints
     })
   }
 }

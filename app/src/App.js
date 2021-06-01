@@ -13,7 +13,6 @@ import TaskView from './modules/tasks/containers/TaskView';
 function App() {
   return (
     <>
-      {/* <ExampleServices/> */}
       <NavBar />
 
       <Switch>
@@ -24,8 +23,6 @@ function App() {
         <Route path='/sprints' component={SprintsView} />
         <Route path='/register' component={RegisterForm} />
         <Route path='*' component={PageDoesNotExist} />
-        {/* <Route path='/tasks' component={SprintsView}/> */}
-        {/* <Route path='/sprints' component={SprintsView}/> */}
       </Switch>
     </>
   );
