@@ -1,8 +1,6 @@
 import { GET_SPRINTS } from '../actionTypes';
 
-const initState = [
-    
-]
+const initState = []
 
 const sprintsReducer = (state = initState, action) => {
     switch (action.type) { 

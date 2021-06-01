@@ -12,6 +12,7 @@ const StyledOngoingSprint = styled.div`
     padding-top: 10px;
     color: white;
     font-weight: 700;
+    cursor: pointer;
 
     margin-bottom: 2.5px;
 

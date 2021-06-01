@@ -3,6 +3,7 @@ import { StyledOngoingSprint } from '.'
 import { STATUSES } from '../../constants';
 
 const SprintOngoingTab = ({ sprints }) => {
+    
     return (
         <div>
             {sprints.length && sprints.map(({ name, status, id }) =>
