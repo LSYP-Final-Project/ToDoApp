@@ -1,12 +1,11 @@
 import React from 'react'
-import { TaskCard } from 'Core/components'
 
-export default function TasksList({ title, tasks }) {
+export default function DataList({ title, data, Card }) {
     return (
         <article className="main-page__task-list card shadow-sm border-light rounded-0">
             <div className="card-body">
                 <h3 className="card-title">{title}</h3>
-                {tasks?.length && tasks.map(t => <TaskCard key={t.id} task={t} />)}
+                {data?.length && data.map(t => <Card key={t.id} data={t} />)}
             </div>
         </article>
     )

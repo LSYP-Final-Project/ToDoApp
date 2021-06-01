@@ -5,7 +5,7 @@ import { selectTaskId } from 'Redux/actions'
 import { convertMsToLocalDate } from 'Core/helpers/functions/timeAndDate'
 
 
-const TaskCard = ({ task: { id, userId, title, description, createdAt, } }) => {
+const TaskCard = ({ data: { id, userId, title, description, createdAt, } }) => {
 	const dispatch = useDispatch()
 
 	const onTaskCardClick = () => {
