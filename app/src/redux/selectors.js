@@ -27,3 +27,7 @@ export const getTodosByVisibilityFilter = (store, visibilityFilter) => {
       return allTodos;
   }
 };
+
+export const getUsers = state => state.users;
+
+export const getUser = state => state.users.selectedUser;
