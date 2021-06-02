@@ -36403,6 +36403,10 @@
         {
           "description": "Jako zalogowany na widoku sprints moge dodać sprint",
           "points": "3"
+        },
+        {
+          "description": "Jako zalogowany na ekranie szczegółów zadania widzę komentarze (Comment - id, userId, content, createdAt) do zadania",
+          "points": "4"
         }
       ]
     },
@@ -36472,10 +36476,6 @@
         {
           "description": "Jako zalogowany na ekranie szczegółów zadania mogę dodawać komentarze(Comment) do zadania",
           "points": "3"
-        },
-        {
-          "description": "Jako zalogowany na ekranie szczegółów zadania widzę komentarze (Comment - id, userId, content, createdAt) do zadania",
-          "points": "4"
         }
       ]
     },

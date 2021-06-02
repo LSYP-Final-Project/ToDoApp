@@ -6,6 +6,7 @@ import SprintOngoingTab from './SprintOngoingTab';
 import SprintFinishedTab from './SprintsFinishedTab';
 import { getAllSprints } from '../../redux/reducers/sprints';
 import Modali, { useModali } from 'modali';
+import { selectedSprintId } from '../../redux/reducers/sprints';
 
 
 function SprintsView(props) {
@@ -16,6 +17,7 @@ function SprintsView(props) {
 
     useEffect(() => {
         dispatch(fetchSprints())
+        dispatch(selectedSprintId());
 
     }, [])
 
