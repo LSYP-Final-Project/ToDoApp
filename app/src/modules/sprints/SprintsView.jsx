@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { StyledAddButton, StyledFinishedContainer, StyledOngoingContainer, StyledOngoingSprint, StyledFinishedSprint } from './index';
+import { Sprints, StyledAddButton, StyledFinishedContainer, StyledOngoingContainer, StyledOngoingSprint, StyledFinishedSprint } from './index';
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchSprints } from '../../redux/actions';
 import SprintOngoingTab from './SprintOngoingTab';
@@ -8,24 +8,8 @@ import { getAllSprints } from '../../redux/reducers/sprints';
 import Modali, { useModali } from 'modali';
 
 
-function SprintsView(props, handleClick) {
-    const [completeExample, toggleCompleteModal] = useModali({
-        animated: true,
-        title: 'Are you sure?',
-        message: 'Deleting this user will be permanent.',
-        buttons: [
-          <Modali.Button
-            label="Abort"
-            isStyleCancel
-            onClick={() => toggleCompleteModal()}
-          />,
-          <Modali.Button
-            label="Add Sprint"
-            isStyleDestructive
-            onClick={() => alert('should be adding now')}
-          />,
-        ],
-      });
+function SprintsView(props) {
+    
     const dispatch = useDispatch()
     const sprints = useSelector(getAllSprints)
     
@@ -40,16 +24,15 @@ function SprintsView(props, handleClick) {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-2">
-                        <StyledAddButton onClick={toggleCompleteModal}>
+                        <StyledAddButton>
                             <div className="plusSignWrapper">
                                 <div className='plusSign'></div>
                             </div>
                             <p>Add Sprint</p>
                         </StyledAddButton>
-                        <Modali.Modal {...completeExample} />
                     </div>
                     <div className="col-4 text-center"><h1 className='text-secondary task-title'>
-                        
+                        WYBIERZ SPRINT
                     </h1></div>
                     <div className='col-1'></div>
                     <div className="col-4 text-center"><h1 className='text-secondary'>BACKLOG</h1></div>
@@ -73,11 +56,11 @@ function SprintsView(props, handleClick) {
 
                     </div>
                     <div className="col-4 border border-darken-1">
-
+                        <Sprints  />
                     </div>
                     <div className='col-1'></div>
                     <div className="col-4 border border-darken-1">
-
+                        
                     </div>
                     <div className='col-1'></div>
                 </div>
