@@ -8,7 +8,7 @@ const SprintOngoingTab = ({ sprints }) => {
     const dispatch = useDispatch();
 
     const onSprintClick = (name, id) => {
-        document.querySelector('.task-title').innerHTML = name
+        document.querySelector('.task-title').innerText = name
         dispatch(selectedSprintId(id))
     }
 
