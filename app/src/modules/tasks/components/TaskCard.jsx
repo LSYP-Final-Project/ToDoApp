@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { selectTaskId } from 'Redux/actions';
+import { selectTaskId } from 'Redux/reducers/todos';
 
 const TaskCard = ({ task }) => {
 	const dispatch = useDispatch();

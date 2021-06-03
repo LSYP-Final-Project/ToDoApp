@@ -10,7 +10,7 @@ const CommentCard = ({ data: { id, userId, content, createdAt, } }) => {
 					<div className="card-body">
 						<div className="d-flex justify-content-between">
 							<h5 className="card-title">{userId}</h5>
-							{createdAt && <time dateTime="2018-07-07">{convertMsToLocalDate(createdAt)}</time>}
+							{createdAt && <time>{convertMsToLocalDate(createdAt)}</time>}
 						</div>
 						<p className="card-text">{content}</p>
 					</div>

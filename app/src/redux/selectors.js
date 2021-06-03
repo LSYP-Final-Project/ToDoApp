@@ -28,8 +28,5 @@ export const getTodosByVisibilityFilter = (store, visibilityFilter) => {
   }
 };
 
-
-export const getAllTodoses = (state) => {
-	return state.tasks;
-};
-
+export const getSprintsState = store => store.sprints;
+export const getUsers = store => store.users;

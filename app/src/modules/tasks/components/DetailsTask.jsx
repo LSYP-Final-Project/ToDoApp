@@ -1,35 +1,31 @@
-import React from "react";
-import styled from "styled-components";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistoryRouter } from 'Core/hooks/useHistoryRouter'
-import { getTaskComments } from "Redux/reducers/comments";
-import { getOneTodo } from "Redux/reducers/todos";
+import { convertMsToLocalDate } from 'Core/helpers/functions/timeAndDate'
+import { getTaskComments, fetchComments } from "Redux/reducers/comments";
+import { getTodo } from "Redux/reducers/todos";
 import CommentsCard from "./CommentsCard";
-
-const Container = styled.div`
-	max-width: 768px;
-`;
 
 const DetailsTask = () => {
 	const { goBack } = useHistoryRouter();
-	const task = useSelector(getOneTodo);
-	const date = new Date(task?.createdAt);
-
-
 	const comments = useSelector(getTaskComments);
-	console.log(comments);
+	const task = useSelector(getTodo);
+
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(fetchComments());
+	}, []);
 
 	if (!task) return
-
 	return (
-		<Container className="container mt-3">
+		<>
 			<p className="display-6">Details:</p>
 			<div className="row">
 				<div className="col-sm mb-4">
 					<h5>{task.title}</h5>
 					<h6>{task.description}</h6>
 					<h6>Created by: {task.userId}</h6>
-					<h6>Created at: {date.toLocaleDateString()}</h6>
+					<h6>Created at: {convertMsToLocalDate(task.createdAt)}</h6>
 					<h6>Status: {task.status}</h6>
 					<button onClick={goBack} className="btn btn-primary mt-4">Go back</button>
 				</div>
@@ -48,7 +44,7 @@ const DetailsTask = () => {
 					</div>
 				</div>
 			</div>
-		</Container>
+		</>
 	);
 };
 

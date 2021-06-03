@@ -1,46 +1,26 @@
-import { ADD_TODO, SELECT_TASK_ID } from "../actionTypes";
+import { TodosService } from "Services";
 
-// const comments = [
-// 	{ id: 1, userId: 2, taskId: 1, content: "Good job!", createdAt: 1621853932 },
-// 	{ id: 1, userId: 2, taskId: 1, content: "Easy job!", createdAt: 1621853954 },
-// 	{ id: 1, userId: 2, taskId: 1, content: "Be careful", createdAt: 1621853953 },
-// 	{ id: 2, userId: 1, taskId: 2, content: "Bad job.", createdAt: 1621853964 },
-// 	{ id: 2, userId: 1, taskId: 2, content: "Great!", createdAt: 1621853912 },
-// 	{ id: 2, userId: 1, taskId: 2, content: "Error on MainPage!", createdAt: 1621853951 },
-// 	{ id: 3, userId: 3, taskId: 3, content: "Nothing special...", createdAt: 1621853942 },
-// 	{ id: 3, userId: 3, taskId: 3, content: "That was so  good...", createdAt: 1621853954 },
-// 	{ id: 3, userId: 3, taskId: 3, content: "Um....", createdAt: 1621853955 },
-// ];
+export const SELECT_TASK_ID = "SELECT_TASK_ID";
+export const ADD_TODO = "ADD_TODO";
+export const GET_TODOS = "GET_TODOS";
 
-// const tasks = [
-// 	{
-// 		sprintId: 1,
-// 		description: "Description Lorem ipsum dolor sit amet.",
-// 		userId: 1,
-// 		id: 1,
-// 		title: "Zrobić Karpatkę",
-// 		status: "inprogress",
-// 		createdAt: 1621508357,
-// 	},
-// 	{
-// 		sprintId: 1,
-// 		description: "Description Lorem ipsum dolor sit amet.",
-// 		userId: 1,
-// 		id: 2,
-// 		title: "Zostać mistrzem Reacta",
-// 		status: "done",
-// 		createdAt: 1621858957,
-// 	},
-// 	{
-// 		sprintId: 1,
-// 		description: "Description Lorem ipsum dolor sit amet.",
-// 		userId: 1,
-// 		id: 3,
-// 		title: "Zrobić naleśniki z musem truskawkowym",
-// 		status: "todo",
-// 		createdAt: 1621940377,
-// 	},
-// ];
+export const fetchTodos = () => {
+	return async (dispatch, getState) => {
+		const todos = await TodosService.getTodos();
+
+		dispatch({
+			type: GET_TODOS,
+			payload: todos,
+		});
+	};
+};
+
+export const selectTaskId = (id) => ({
+	type: SELECT_TASK_ID,
+	payload: {
+		id,
+	},
+});
 
 const initialState = {
 	tasks: [
@@ -77,16 +57,22 @@ const initialState = {
 
 const todos = (state = initialState, action) => {
 	switch (action.type) {
+		case GET_TODOS: {
+			return {
+				...state,
+				tasks: action.payload,
+			};
+		}
 		case ADD_TODO: {
 			return {
-            ...state,
+				...state,
 				tasks: [...state, action.payload.draft],
 			};
 		}
-      case SELECT_TASK_ID: {
+		case SELECT_TASK_ID: {
 			return {
 				...state,
-            selectedId: action.payload.id
+				selectedId: action.payload.id,
 			};
 		}
 		default:
@@ -99,6 +85,6 @@ export default todos;
 export const getAllTodos = (state) => state.todos.tasks;
 export const getUserTasks = (state) => state.todos.tasks.filter(t => t.userId === 1) // podmienić na state.user.userId
 export const getLatestTasks = (state) => state.todos.tasks.sort((a,b) => a.createdAt + b.createdAt)
-export const getOneTodo = (state) => {
+export const getTodo = (state) => {
    return state.todos.tasks.find(t => t.id === state.todos.selectedId);
 };

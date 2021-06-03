@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 
-const SearchTasks = () => {
-	const [searchText, setSearchText] = useState("");
+const SearchTasks = (setSearchText, setFilterType) => {
+	const [searchInput, setSearchInput] = useState("");
 
 	const onInputSearch = (e) => {
-		setSearchText(e.target.value);
+		setSearchInput(e.target.value);
 	};
 
 	const onSearch = () => {
-		if (searchText.length === 0) return;
-		console.log(searchText);
-		setSearchText("");
+		if (searchInput.length === 0) return;
+      setSearchText(searchInput);
+		setSearchInput("");
 	};
 
 	return (
@@ -20,7 +20,7 @@ const SearchTasks = () => {
 					className="form-control"
 					type="text"
 					placeholder="Type something"
-					value={searchText}
+					value={searchInput}
 					onChange={onInputSearch}
 					autoFocus={true}
 				/>

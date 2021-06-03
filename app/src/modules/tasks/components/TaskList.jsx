@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllTodos, fetchTodos } from "Redux/reducers/todos";
 import TaskCard from "./TaskCard";
-import { useSelector } from "react-redux";
-import { getAllTodos } from "Redux/reducers/todos";
 
-const TaskList = () => {
+const TaskList = (filterType) => {
+	const dispatch = useDispatch();
 	const tasksTab = useSelector(getAllTodos);
+
+	useEffect(() => {
+		dispatch(fetchTodos());
+	}, []);
+
+	console.log(filterType);
 
 	return (
 		<div>
