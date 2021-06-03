@@ -54,3 +54,12 @@
   transform: translate(-20%,-50%);
 }
 
+.register-link{
+  color: lightgray;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.register-link:hover{
+  color: white;
+}

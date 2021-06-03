@@ -17,7 +17,7 @@ const SprintOngoingTask = styled.div`
 
     .points-1{
         min-width: 40px;
-        background-color: #AAEEAA;
+        background-color: #D1E7DD;
         font-weight: 700;
         color: black;
         text-align: center;
@@ -26,7 +26,7 @@ const SprintOngoingTask = styled.div`
     }
     .points-2{
         min-width: 40px;
-        background-color: #FBFB74;
+        background-color: #FFE69C;
         font-weight: 700;
         color: black;
         text-align: center;
@@ -35,7 +35,7 @@ const SprintOngoingTask = styled.div`
     }
     .points-3{
         min-width: 40px;
-        background-color: #F79C9C;
+        background-color: #FECBA1;
         font-weight: 700;
         color: black;
         text-align: center;
@@ -44,7 +44,7 @@ const SprintOngoingTask = styled.div`
     }
     .points-4{
         min-width: 40px;
-        background-color: #F77171;
+        background-color: #F1AEB5;
         font-weight: 700;
         color: black;
         text-align: center;
@@ -53,7 +53,7 @@ const SprintOngoingTask = styled.div`
     }
     .points-5{
         min-width: 40px;
-        background-color: #E34242;
+        background-color: #EA868F;
         font-weight: 700;
         color: black;
         text-align: center;

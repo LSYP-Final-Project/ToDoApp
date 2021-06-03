@@ -5,7 +5,7 @@ const StyledOngoingContainer = styled.div`
     box-sizing: border-box;
     width: 200px;
     height: 250px;
-    border: 1px solid #F79696;
+    border: 1px solid #DC3545;
     position: relative;
     margin-bottom: 10px;
     padding-top: 49.5px;
@@ -14,7 +14,7 @@ const StyledOngoingContainer = styled.div`
         content: '';
         width: 200px;
         height: 50px;
-        background-color: #F79696;
+        background-color: #DC3545;
         position: absolute;
         top: -1px;
         left: -1px;

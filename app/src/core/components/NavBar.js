@@ -30,7 +30,7 @@ function NavBar() {
                             </li>
                         </ul>
                     </div>
-                    <NavLink className='d-flex' to='/register'>REGISTER</NavLink>
+                    <NavLink className='d-flex register-link' to='/register'>REGISTER</NavLink>
                 </div>
             </nav>
         </div>
