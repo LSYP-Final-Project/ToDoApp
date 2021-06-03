@@ -1,8 +1,15 @@
 import { TodosService } from "Services";
 
+
 export const SELECT_TASK_ID = "SELECT_TASK_ID";
 export const ADD_TODO = "ADD_TODO";
 export const GET_TODOS = "GET_TODOS";
+export const TODOS_ERROR = "TODOS_ERROR";
+
+export const setTodos = (todos) => ({
+		type: GET_TODOS,
+		payload: todos,
+});
 
 export const fetchTodos = (searchText, filterType) => {
 	return async (dispatch, getState) => {
@@ -25,6 +32,10 @@ export const selectTaskId = (id) => ({
 		id,
 	},
 });
+
+export const todosError = (error) => ({
+    type: TODOS_ERROR, payload: { error }
+})
 
 const initialState = {
 	tasks: [
@@ -79,6 +90,9 @@ const todos = (state = initialState, action) => {
 				selectedId: action.payload.id,
 			};
 		}
+		case TODOS_ERROR: return {
+            ...state, message: action.payload.error?.message
+        }
 		default:
 			return state;
 	}
