@@ -6,6 +6,10 @@ const TodosServices = class {
       return axios.get('/todos')
         .then(({ data }) => data)
     }
+    getSearchTodos(searchText) {
+       return axios.get(`/todos?q=${searchText}`)
+         .then(({ data }) => data);
+    }
     getTodo(id) {
       return axios.get(`/todos/${id}`)
         .then(({ data }) => data)

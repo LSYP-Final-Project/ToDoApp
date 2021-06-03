@@ -61,7 +61,7 @@ const DetailsTask = () => {
 					</Link>
 				</div>
 				<div className="container col-sm">
-					<div className="card">
+					<div className="card mb-3">
 						<div className="card-header">Comments:</div>
 
 						<div className="list-group list-group-flush">
