@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import { UsersList } from '../components/UsersList'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchUsers } from '../../../redux/actions'
+import { UsersList } from '../components/UsersList'
+import { fetchUsers } from 'Redux/actions'
 
 export const UsersView = () => {
     const dispatch = useDispatch()
@@ -19,7 +19,7 @@ export const UsersView = () => {
                         <UsersList users={users} />
                     </div>
                     <div className="col-6">
-                        
+
                     </div>
                 </div>
             </div>

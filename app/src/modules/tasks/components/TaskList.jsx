@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllTodos, fetchTodos } from "Redux/reducers/todos";
 import TaskCard from "./TaskCard";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllTodos } from "../../../redux/reducers/todos";
-import { fetchTodos } from "../../../redux/reducers/todos";
 
 const TaskList = () => {
 	const dispatch = useDispatch();

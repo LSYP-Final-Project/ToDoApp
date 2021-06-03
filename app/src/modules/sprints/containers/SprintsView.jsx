@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
-import { Sprints, StyledAddButton, StyledFinishedContainer, StyledOngoingContainer } from '../styled-components/index';
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchSprints } from '../../../redux/actions';
+import { Sprints, StyledAddButton, StyledFinishedContainer, StyledOngoingContainer } from '../styled-components/index';
+import { fetchSprints } from 'Redux/actions';
+import { getAllSprints } from 'Redux/reducers/sprints';
 import SprintOngoingTab from '../components/SprintOngoingTab';
 import SprintFinishedTab from '../components/SprintsFinishedTab';
-import { getAllSprints } from '../../../redux/reducers/sprints';
 
 
 function SprintsView(props) {
-    
+
     const dispatch = useDispatch()
     const sprints = useSelector(getAllSprints)
-    
+
 
     useEffect(() => {
         dispatch(fetchSprints())
@@ -55,11 +55,11 @@ function SprintsView(props) {
 
                     </div>
                     <div className="col-4 border border-darken-1 m-0 p-0">
-                        <Sprints  />
+                        <Sprints />
                     </div>
                     <div className='col-1'></div>
                     <div className="col-4 border border-darken-1">
-                        
+
                     </div>
                     <div className='col-1'></div>
                 </div>

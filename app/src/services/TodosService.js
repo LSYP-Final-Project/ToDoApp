@@ -1,4 +1,4 @@
-import axios from '../core/config/axios'
+import axios from 'Core/config/axios'
 
 
 const TodosServices = class {

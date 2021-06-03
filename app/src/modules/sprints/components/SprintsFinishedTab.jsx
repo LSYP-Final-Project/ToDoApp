@@ -2,7 +2,7 @@ import React from 'react'
 import { StyledFinishedSprint } from '../styled-components'
 import { STATUSES } from '../../../constants';
 import { useDispatch } from 'react-redux';
-import { selectedSprintId } from '../../../redux/reducers/sprints';
+import { selectedSprintId } from 'Redux/reducers/sprints';
 
 const StyledFinishedTab = ({ sprints }) => {
     const dispatch = useDispatch()
@@ -17,9 +17,9 @@ const StyledFinishedTab = ({ sprints }) => {
             {sprints.length && sprints.map(({ name, status, id }) =>
                 status === STATUSES.FINISHED &&
                 <div className='sprint-item'>
-                    <StyledFinishedSprint 
-                    key={id} 
-                    onClick={() => onSprintClick(name, id)}>
+                    <StyledFinishedSprint
+                        key={id}
+                        onClick={() => onSprintClick(name, id)}>
                         {name}
                     </StyledFinishedSprint>
                 </div>

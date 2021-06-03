@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import { useHistory } from "react-router-dom";
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import Swal from 'sweetalert2'
+import { yupResolver } from '@hookform/resolvers/yup';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { addUser, fetchUsers } from '../../redux/actions'
-import { getUsers } from '../../redux/selectors'
-import UsersServices from '../../services/UsersService'
+import { useHistory } from "react-router-dom";
+import { useForm } from 'react-hook-form';
+import { addUser, fetchUsers } from 'Redux/actions'
+import { getUsers } from 'Redux/selectors'
+import UsersServices from 'Services/UsersService'
 
 function RegisterForm() {
     const dispatch = useDispatch()

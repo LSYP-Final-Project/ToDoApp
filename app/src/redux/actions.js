@@ -1,6 +1,5 @@
-import { ADD_TODO, TOGGLE_TODO, SET_FILTER, ADD_USER, GET_USERS, GET_SPRINTS } from "./actionTypes";
-import Axios from "axios";
-import { UsersService, SprintsService } from "../services";
+import { UsersService, SprintsService } from "Services";
+import { SET_FILTER, ADD_USER, GET_USERS, GET_SPRINTS } from "./actionTypes";
 
 export const setFilter = filter => ({
   type: SET_FILTER,

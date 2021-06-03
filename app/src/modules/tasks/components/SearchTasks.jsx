@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { fetchTodos } from "../../../redux/reducers/todos";
+import { fetchTodos } from "Redux/reducers/todos";
 
 
 const SearchTasks = () => {
 	const dispatch = useDispatch();
 
-   const [searchText, setSearchText] = useState("");
-   const [filterType, setFilterType] = useState("title");
+	const [searchText, setSearchText] = useState("");
+	const [filterType, setFilterType] = useState("title");
 
 	const onInputSearch = (e) => {
 		setSearchText(e.target.value);
@@ -15,7 +15,7 @@ const SearchTasks = () => {
 
 	const onSearch = () => {
 		if (searchText.length === 0) return;
-      dispatch(fetchTodos(searchText, filterType));
+		dispatch(fetchTodos(searchText, filterType));
 	};
 
 	return (
