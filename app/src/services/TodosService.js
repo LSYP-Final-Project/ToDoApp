@@ -1,6 +1,5 @@
 import axios from 'Core/config/axios'
 
-
 const TodosServices = class {
     getTodos() {
       return axios.get('/todos')
