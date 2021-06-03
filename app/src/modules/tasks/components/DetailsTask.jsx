@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import CommentsCard from "./CommentsCard";
+import { CommentsService } from "../../../services/";
+
 import { getTodo } from "../../../redux/reducers/todos";
 import { useDispatch, useSelector } from "react-redux";
-import { getTaskComments } from "../../../redux/reducers/comments";
+import { addComment, getTaskComments } from "../../../redux/reducers/comments";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { fetchComments } from "../../../redux/reducers/comments";
@@ -13,6 +15,8 @@ const Container = styled.div`
 
 const DetailsTask = () => {
 	const dispatch = useDispatch();
+	const [addingComment, setAddingComment] = useState(false);
+	const [newTaskTitle, setNewTaskTitle] = useState("");
 
 	useEffect(() => {
 		dispatch(fetchComments());
@@ -23,6 +27,24 @@ const DetailsTask = () => {
 	const date = new Date(task.createdAt);
 
 	const comments = useSelector(getTaskComments);
+
+	const addNewComment = () => {
+		const date = new Date().getTime();
+
+		const comment = {
+			id: date,
+			userId: task.userId,
+			taskId: task.id,
+			content: newTaskTitle,
+			createdAt: date,
+		};
+
+		dispatch(addComment(comment));
+		CommentsService.postComment(comment);
+      
+      setAddingComment(false);
+		setNewTaskTitle("");
+	};
 
 	return (
 		<Container className="container mt-3">
@@ -48,8 +70,28 @@ const DetailsTask = () => {
 							))}
 						</div>
 						<div className="card-body text-center">
-							<button className="btn btn-primary">Add Comment</button>
+							<button className="btn btn-primary" onClick={() => setAddingComment(true)}>
+								Add Comment
+							</button>
 						</div>
+						{addingComment ? (
+							<div className="input-group mb-3 p-3">
+								<input
+									type="text"
+									className="form-control"
+									placeholder="Add your opinion..."
+									value={newTaskTitle}
+									onChange={(e) => setNewTaskTitle(e.target.value)}
+								/>
+								<div className="input-group-append">
+									<button className="btn btn-primary" type="button" onClick={addNewComment}>
+										Add
+									</button>
+								</div>
+							</div>
+						) : (
+							""
+						)}
 					</div>
 				</div>
 			</div>
