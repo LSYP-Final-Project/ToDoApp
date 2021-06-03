@@ -36501,6 +36501,33 @@
           "points": "5"
         }
       ]
+    },
+    {
+      "id": 6,
+      "name": "APPLE PIE",
+      "status": "ONGOING",
+      "tasks": [
+        {
+          "description": "Posypać kruszonką",
+          "points": "1"
+        },
+        {
+          "description": "Wstawić ciasto do piekarnika",
+          "points": "2"
+        },
+        {
+          "description": "Dodać przecier jabłkowy",
+          "points": "3"
+        },
+        {
+          "description": "Zagnieść ciasto",
+          "points": "4"
+        },
+        {
+          "description": "Kupić składniki",
+          "points": "5"
+        }
+      ]
     }
   ]
 }
