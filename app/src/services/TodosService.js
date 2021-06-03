@@ -22,6 +22,10 @@ const TodosServices = class {
       return axios.delete(`/todos/${id}`)
         .then(({ data }) => data)
     }
+    getUserTodos(userId) {
+      return axios.get(`/todos?userId=${userId}`)
+        .then(({ data }) => data)
+    }
   }
   
   export default new TodosServices();

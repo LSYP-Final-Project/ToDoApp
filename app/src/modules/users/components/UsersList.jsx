@@ -2,16 +2,16 @@ import React from 'react'
 import {UserCard} from './UserCard'
 
 
-export const UsersList = (props) => {
+export const UsersList = ({users, showUserDetails, showUserTasks}) => {
 
     return (
         <div>
-            <div className="row row-cols-sm-1 mt-3">
-                {props.users.items.map((user, index) =>
+            <div className="row row-cols-sm-1 mt-3 users-list">
+                {users.items?.map((user, index) =>
                     <div className="col mb-4" key={index}>
                         <UserCard user={user}
-                                  showUserDetails={props.showUserDetails}
-                                  showUserTasks={props.showUserTasks}
+                                  showUserDetails={showUserDetails}
+                                  showUserTasks={showUserTasks}
                         />
                     </div>
                 )}

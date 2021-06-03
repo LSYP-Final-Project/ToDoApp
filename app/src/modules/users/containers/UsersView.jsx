@@ -1,29 +1,33 @@
 import React, { useEffect, useCallback } from 'react'
 import { UsersList } from '../components/UsersList'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchUser, fetchUsers } from '../../../redux/actions'
+import { fetchUser, fetchUsers, fetchUserTodos } from '../../../redux/actions'
 import { UserDetails } from '../components/UserDetails'
 import { UserTasks } from '../components/UserTasks'
-import { Route, Switch, useHistory } from 'react-router'
-import { getUsers, getUser } from '../../../redux/selectors'
+import { Route, Switch, useHistory, useParams } from 'react-router'
+import { getUsers, getSelectedUser, getUserTodos } from '../../../redux/selectors'
 
 export const UsersView = () => {
-
-    const { push } = useHistory()
+    // router
+    const { replace } = useHistory()
+    
+    // store
     const dispatch = useDispatch()
-
     const users = useSelector(getUsers)
-    const selectedUser = useSelector(getUser)
+    const selectedUser = (useSelector(getSelectedUser))
+    const userTasks = useSelector(getUserTodos)
 
-    const showUserDetails = useCallback((id) => {
+    // functions
+    const showUserDetails = (id) => {
         dispatch(fetchUser(id))
-        push('/users/details/' + id)
-    }, [])
+        replace('/users/' + id + '/details')
+    }
 
-    const showUserTasks = useCallback((id) => {
+    const showUserTasks = (id) => {
+        dispatch(fetchUserTodos(id))
         dispatch(fetchUser(id))
-        push('/users/tasks/' + id)
-    }, [])
+        replace('/users/' + id + '/tasks')
+    }
 
     useEffect(() => {
         dispatch(fetchUsers())
@@ -31,14 +35,10 @@ export const UsersView = () => {
 
     return (
         <div>
-            <div className="container">
-                <div className="row vh-100">
+            <div className="container users-view">
+                <div className="row">
                     <h2>Users</h2>
                     <div className="col-6 overflow-auto">
-
-                        <div class="input-group mt-2 mb-3">
-                            <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1"/>
-                        </div>
 
                         <UsersList users={users}
                                    showUserDetails={showUserDetails}
@@ -47,8 +47,8 @@ export const UsersView = () => {
                     </div>
                     <div className="col-6">
                         <Switch>
-                            {selectedUser && <Route path="/users/details/:user_id" render={() => <UserDetails user={selectedUser}/>}/>}
-                            {selectedUser && <Route path="/users/tasks/:user_id" render={() => <UserTasks user={selectedUser}/>}/>}
+                            {selectedUser && <Route path="/users/:user_id/details" render={() => <UserDetails user={selectedUser}/>}/>}
+                            {selectedUser && <Route path="/users/:user_id/tasks" render={() => <UserTasks user={selectedUser} tasks={userTasks}/>}/>}
                         </Switch>
                     </div>
                 </div>
