@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { fetchTodos } from "Redux/reducers/todos";
+import { searchTodos } from "Redux/reducers/todos";
 
 
 const SearchTasks = () => {
@@ -15,7 +15,7 @@ const SearchTasks = () => {
 
 	const onSearch = () => {
 		if (searchText.length === 0) return;
-		dispatch(fetchTodos(searchText, filterType));
+		dispatch(searchTodos(searchText));
 	};
 
 	return (

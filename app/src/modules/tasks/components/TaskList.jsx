@@ -11,13 +11,14 @@ const TaskList = () => {
 	}, []);
 
 	const tasksTab = useSelector(getAllTodos);
+	console.log(tasksTab);
 
 	return (
 		<div>
 			<div className="list-group">
-				{tasksTab?.map((t) => (
-					<TaskCard key={t.id} task={t} />
-				))}
+				{typeof tasksTab !== "string" &&
+					tasksTab &&
+					tasksTab.map((t) => <TaskCard key={t.id} task={t} />)}
 			</div>
 		</div>
 	);

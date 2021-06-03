@@ -5,26 +5,23 @@ export const SELECT_TASK_ID = "SELECT_TASK_ID";
 export const ADD_TODO = "ADD_TODO";
 export const GET_TODOS = "GET_TODOS";
 export const TODOS_ERROR = "TODOS_ERROR";
+export const SEARCH_TODOS = "SEARCH_TODOS";
+export const SEARCH_SUCCESS = "SEARCH_SUCCESS";
 
 export const setTodos = (todos) => ({
 		type: GET_TODOS,
 		payload: todos,
 });
 
-export const fetchTodos = (searchText, filterType) => {
-	return async (dispatch, getState) => {
-		let todos = [];
-		if (searchText) {
-			todos = await TodosService.getSearchTodos(searchText);
-		} else {
-			todos = await TodosService.getTodos();
-		}
-		dispatch({
-			type: GET_TODOS,
-			payload: todos,
-		});
-	};
-};
+export const searchTodos = ( query ) => ({
+			type: SEARCH_TODOS,
+			payload: { query }
+});
+
+export const searchSuccess = (results) => ({
+   type: SEARCH_SUCCESS,
+   payload: results
+});
 
 export const selectTaskId = (id) => ({
 	type: SELECT_TASK_ID,
@@ -73,6 +70,18 @@ const initialState = {
 const todos = (state = initialState, action) => {
 	switch (action.type) {
 		case GET_TODOS: {
+			return {
+				...state,
+				tasks: action.payload,
+			};
+		}
+      case SEARCH_TODOS: {
+			return {
+				...state,
+				tasks: action.payload,
+			};
+		}
+      case SEARCH_SUCCESS: {
 			return {
 				...state,
 				tasks: action.payload,
