@@ -3,15 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllTodos, fetchTodos } from "Redux/reducers/todos";
 import TaskCard from "./TaskCard";
 
-const TaskList = (filterType) => {
+const TaskList = () => {
 	const dispatch = useDispatch();
-	const tasksTab = useSelector(getAllTodos);
 
 	useEffect(() => {
 		dispatch(fetchTodos());
 	}, []);
 
-	console.log(filterType);
+	const tasksTab = useSelector(getAllTodos);
 
 	return (
 		<div>

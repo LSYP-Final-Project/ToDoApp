@@ -610,60 +610,172 @@
       "createdAt": 1621853932
     },
     {
-      "id": 2,
+      "id": 1,
       "userId": 2,
       "taskId": 1,
       "content": "Easy job!",
       "createdAt": 1621853954
     },
     {
-      "id": 3,
+      "id": 1,
       "userId": 2,
       "taskId": 1,
       "content": "Be careful",
       "createdAt": 1621853953
     },
     {
-      "id": 4,
+      "id": 2,
       "userId": 1,
       "taskId": 2,
       "content": "Bad job.",
       "createdAt": 1621853964
     },
     {
-      "id": 5,
+      "id": 2,
       "userId": 1,
       "taskId": 2,
       "content": "Great!",
       "createdAt": 1621853912
     },
     {
-      "id": 6,
+      "id": 2,
       "userId": 1,
       "taskId": 2,
       "content": "Error on MainPage!",
       "createdAt": 1621853951
     },
     {
-      "id": 7,
+      "id": 3,
       "userId": 3,
       "taskId": 3,
       "content": "Nothing special...",
       "createdAt": 1621853942
     },
     {
-      "id": 8,
+      "id": 3,
       "userId": 3,
       "taskId": 3,
       "content": "That was so good...",
       "createdAt": 1621853954
     },
     {
-      "id": 9,
+      "id": 3,
       "userId": 3,
       "taskId": 3,
       "content": "Um....",
       "createdAt": 1621853955
+    },
+    {
+      "id": 1622648047713,
+      "userId": 1,
+      "taskId": 1,
+      "content": "afaf",
+      "createdAt": 1622648047713
+    },
+    {
+      "id": 1622648051306,
+      "userId": 1,
+      "taskId": 1,
+      "content": "cxvxvxc",
+      "createdAt": 1622648051306
+    },
+    {
+      "id": 1622648055988,
+      "userId": 1,
+      "taskId": 1,
+      "content": "xvxcv",
+      "createdAt": 1622648055988
+    },
+    {
+      "id": 1622648118954,
+      "userId": 1,
+      "taskId": 1,
+      "content": "cbcb",
+      "createdAt": 1622648118954
+    },
+    {
+      "id": 1622648140100,
+      "userId": 1,
+      "taskId": 1,
+      "content": "poiuhygtfd",
+      "createdAt": 1622648140100
+    },
+    {
+      "id": 1622649163866,
+      "userId": 1,
+      "taskId": 1,
+      "content": "New comment",
+      "createdAt": 1622649163866
+    },
+    {
+      "id": 1622649177190,
+      "userId": 2,
+      "taskId": 2,
+      "content": "New comment",
+      "createdAt": 1622649177190
+    },
+    {
+      "id": 1622649203707,
+      "userId": 1,
+      "taskId": 1,
+      "content": "That is very good solution!",
+      "createdAt": 1622649203707
+    },
+    {
+      "id": 1622649227126,
+      "userId": 3,
+      "taskId": 3,
+      "content": "I like this solution",
+      "createdAt": 1622649227126
+    },
+    {
+      "id": 1622649413209,
+      "userId": 1,
+      "taskId": 1,
+      "content": "Are you crazy?!",
+      "createdAt": 1622649413209
+    },
+    {
+      "id": 1622649540247,
+      "userId": 2,
+      "taskId": 2,
+      "content": "Test comment",
+      "createdAt": 1622649540247
+    },
+    {
+      "id": 1622649570590,
+      "userId": 3,
+      "taskId": 3,
+      "content": "I can't belive, it works!",
+      "createdAt": 1622649570590
+    },
+    {
+      "id": 1622649589704,
+      "userId": 1,
+      "taskId": 1,
+      "content": "yes, I am",
+      "createdAt": 1622649589704
+    },
+    {
+      "id": 1622711568802,
+      "userId": 3,
+      "taskId": 3,
+      "content": "When will you do it again?",
+      "createdAt": 1622711568802
+    },
+    {
+      "id": 1622711806891,
+      "userId": 1,
+      "taskId": 1,
+      "content": "What are you doing in line 23?",
+      "createdAt": 1622711806891
+    },
+    {
+      "id": 1622711867998,
+      "userId": 2,
+      "taskId": 2,
+      "content": "Good job :)",
+      "createdAt": 1622711867998
     }
   ],
   "profile": {
@@ -36476,6 +36588,10 @@
         {
           "description": "Jako zalogowany na widoku sprints moge dodać sprint",
           "points": "3"
+        },
+        {
+          "description": "Jako zalogowany na ekranie szczegółów zadania widzę komentarze (Comment - id, userId, content, createdAt) do zadania",
+          "points": "4"
         }
       ]
     },
@@ -36545,10 +36661,6 @@
         {
           "description": "Jako zalogowany na ekranie szczegółów zadania mogę dodawać komentarze(Comment) do zadania",
           "points": "3"
-        },
-        {
-          "description": "Jako zalogowany na ekranie szczegółów zadania widzę komentarze (Comment - id, userId, content, createdAt) do zadania",
-          "points": "4"
         }
       ]
     },
@@ -36571,6 +36683,33 @@
         },
         {
           "description": "System weryfikuje uzytkownik z email i hasło istnieje lub komunikat",
+          "points": "5"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "APPLE PIE",
+      "status": "ONGOING",
+      "tasks": [
+        {
+          "description": "Posypać kruszonką",
+          "points": "1"
+        },
+        {
+          "description": "Wstawić ciasto do piekarnika",
+          "points": "2"
+        },
+        {
+          "description": "Dodać przecier jabłkowy",
+          "points": "3"
+        },
+        {
+          "description": "Zagnieść ciasto",
+          "points": "4"
+        },
+        {
+          "description": "Kupić składniki",
           "points": "5"
         }
       ]

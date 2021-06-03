@@ -4,10 +4,14 @@ export const SELECT_TASK_ID = "SELECT_TASK_ID";
 export const ADD_TODO = "ADD_TODO";
 export const GET_TODOS = "GET_TODOS";
 
-export const fetchTodos = () => {
+export const fetchTodos = (searchText, filterType) => {
 	return async (dispatch, getState) => {
-		const todos = await TodosService.getTodos();
-
+		let todos = [];
+		if (searchText) {
+			todos = await TodosService.getSearchTodos(searchText);
+		} else {
+			todos = await TodosService.getTodos();
+		}
 		dispatch({
 			type: GET_TODOS,
 			payload: todos,

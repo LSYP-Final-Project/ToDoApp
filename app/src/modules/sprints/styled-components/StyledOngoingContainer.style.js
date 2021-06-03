@@ -8,7 +8,7 @@ const StyledOngoingContainer = styled.div`
     border: 1px solid #F79696;
     position: relative;
     margin-bottom: 10px;
-    padding-top: 52px;
+    padding-top: 49.5px;
     
     &::after{
         content: '';
