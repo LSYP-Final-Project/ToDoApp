@@ -7,7 +7,7 @@ import { UsersView } from 'Modules/users/containers/UsersView';
 import { MainPage } from 'Modules/MainPage';
 import { DetailsTask, TaskView } from "Modules/tasks";
 import RegisterForm from 'Core/components/RegisterForm';
-import SprintsView from 'Modules/sprints/SprintsView';
+import SprintsView from 'Modules/sprints/containers/SprintsView';
 
 function App() {
   return (
