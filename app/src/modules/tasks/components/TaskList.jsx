@@ -4,16 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllTodos } from "../../../redux/reducers/todos";
 import { fetchTodos } from "../../../redux/reducers/todos";
 
-const TaskList = (searchtext, filterType) => {
+const TaskList = () => {
 	const dispatch = useDispatch();
-	const tasksTab = useSelector(getAllTodos);
 
 	useEffect(() => {
 		dispatch(fetchTodos());
 	}, []);
 
-   console.log(filterType);
-   
+	const tasksTab = useSelector(getAllTodos);
+
 	return (
 		<div>
 			<div className="list-group">

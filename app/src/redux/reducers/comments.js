@@ -1,5 +1,7 @@
 import { CommentsService } from "../../services";
 import { SELECT_TASK_ID } from "./todos";
+
+//actions types
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const SELECT_COMMENT_ID = 'SELECT_COMMENT_ID';
 export const GET_COMMENTS = 'GET_COMMENTS';
@@ -16,10 +18,10 @@ export const fetchComments = () => {
 };
 
 //actions
-export const addComment = draft => ({
+export const addComment = comment => ({
    type: ADD_COMMENT,
    payload: {
-     draft
+      comment
    }
  });
 
@@ -36,6 +38,7 @@ const initialState = {
    selectedId: null
 };
 
+// reducer
 const comments = (state = initialState, action) => {
 	switch (action.type) {
       case GET_COMMENTS: {
@@ -47,7 +50,7 @@ const comments = (state = initialState, action) => {
 		case ADD_COMMENT: {
 			return {
             ...state,
-				tasks: [...state, action.payload.draft],
+            comments: [...state.comments, action.payload.comment]
 			};
 		}
       case SELECT_TASK_ID: {
