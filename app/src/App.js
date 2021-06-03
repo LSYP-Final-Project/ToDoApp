@@ -11,8 +11,8 @@ function App() {
       {/* <ExampleServices/> */}
       <NavBar />
       <Switch>
-        <Route path="/users/" component={UsersView}/>
-        <Route path="/users/:user_id/" component={UsersView}/>
+        {/* <Route path="/users/" component={UsersView}/> */}
+        <Route path="/users/:user_id?" component={UsersView}/>
       </Switch>
     </>
   );

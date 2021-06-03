@@ -1,8 +1,9 @@
-import { GET_USERS, GET_USER } from "../actionTypes";
+import { GET_USERS, GET_USER, GET_USER_START } from "../actionTypes";
 
 const initState = {
     items: [],
-    selectedUser: {}
+    selectedUser: {},
+    isLoading: false
 }
 
 const usersReducer = (
@@ -15,10 +16,17 @@ const usersReducer = (
                 ...state,
                 items: action.payload
             }
+        case GET_USER_START:
+            return {
+                ...state,
+                selectedUser: null,
+                isLoading: true
+            }
         case GET_USER:
             return {
                 ...state,
-                selectedUser: action.payload
+                selectedUser: action.payload,
+                isLoading: false
             }
         default:
             return state

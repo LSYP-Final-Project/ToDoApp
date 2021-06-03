@@ -3,7 +3,7 @@ import { ADD_TODO, TOGGLE_TODO, GET_USER_TODOS } from "../actionTypes";
 const initialState = {
   allIds: [],
   byIds: {},
-  byUserId: []
+  selectedUserTasks: []
 };
 
 const todos = (state = initialState, action) => {
@@ -38,8 +38,8 @@ const todos = (state = initialState, action) => {
     case GET_USER_TODOS: {
       return {
         ...state,
-        byUserId: action.payload
-      }        
+        selectedUserTasks: action.payload
+      }
     }
     default:
       return state;

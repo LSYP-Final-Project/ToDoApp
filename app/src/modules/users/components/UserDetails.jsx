@@ -7,6 +7,8 @@ export const UserDetails = ({user}) => {
 
     return useMemo(() => (
         <div className="card mt-2">
+            
+            {console.log('userDetails', user.id)}
 
             <div className="card-header bg-white d-flex align-items-center">
                 <h4 className="me-auto">

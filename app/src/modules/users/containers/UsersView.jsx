@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchUser, fetchUsers, fetchUserTodos } from '../../../redux/actions'
 import { UserDetails } from '../components/UserDetails'
 import { UserTasks } from '../components/UserTasks'
-import { Route, Switch, useHistory } from 'react-router'
+import { Route, Switch, useHistory, useParams } from 'react-router'
 import { getUsers, getSelectedUser, getUserTodos } from '../../../redux/selectors'
 import SearchBar from '../../../core/components/SearchBar'
 
 export const UsersView = () => {
     // router
     const { replace } = useHistory()
+    const { user_id } = useParams()
     
     // store
     const dispatch = useDispatch()
@@ -20,19 +21,23 @@ export const UsersView = () => {
 
     // functions
     const showUserDetails = (id) => {
-        dispatch(fetchUser(id))
         replace('/users/' + id + '/details')
     }
-
+    
     const showUserTasks = (id) => {
-        dispatch(fetchUserTodos(id))
-        dispatch(fetchUser(id))
         replace('/users/' + id + '/tasks')
     }
-
+    
     const search = useCallback((query) => {
         console.log(query)
     }, [])
+    
+    useEffect(() => {
+        if (!user_id) { return }
+        
+        dispatch(fetchUser(user_id))
+        dispatch(fetchUserTodos(user_id))
+    }, [user_id])
 
     useEffect(() => {
         dispatch(fetchUsers())
