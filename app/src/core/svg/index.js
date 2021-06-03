@@ -1,0 +1,1 @@
+export {default as SvgPageNotFound} from './404/SvgPageNotFound'

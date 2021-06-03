@@ -1,10 +1,14 @@
-import axios from '../core/config/axios'
+import axios from 'Core/config/axios'
 
 
 const TodosServices = class {
     getTodos() {
       return axios.get('/todos')
         .then(({ data }) => data)
+    }
+    getSearchTodos(searchText) {
+       return axios.get(`/todos?q=${searchText}`)
+         .then(({ data }) => data);
     }
     getTodo(id) {
       return axios.get(`/todos/${id}`)

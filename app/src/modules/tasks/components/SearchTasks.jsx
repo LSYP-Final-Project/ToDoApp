@@ -1,16 +1,21 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchTodos } from "Redux/reducers/todos";
 
-const SearchTasks = (setSearchText, setFilterType) => {
-	const [searchInput, setSearchInput] = useState("");
+
+const SearchTasks = () => {
+	const dispatch = useDispatch();
+
+	const [searchText, setSearchText] = useState("");
+	const [filterType, setFilterType] = useState("title");
 
 	const onInputSearch = (e) => {
-		setSearchInput(e.target.value);
+		setSearchText(e.target.value);
 	};
 
 	const onSearch = () => {
-		if (searchInput.length === 0) return;
-      setSearchText(searchInput);
-		setSearchInput("");
+		if (searchText.length === 0) return;
+		dispatch(fetchTodos(searchText, filterType));
 	};
 
 	return (
@@ -20,7 +25,7 @@ const SearchTasks = (setSearchText, setFilterType) => {
 					className="form-control"
 					type="text"
 					placeholder="Type something"
-					value={searchInput}
+					value={searchText}
 					onChange={onInputSearch}
 					autoFocus={true}
 				/>
@@ -31,13 +36,13 @@ const SearchTasks = (setSearchText, setFilterType) => {
 			<div className="row mb-5">
 				<div className="col-sm mb-3">
 					<p>Filter by:</p>
-					<select className="form-select">
+					<select className="form-select" onChange={(e) => setFilterType(e.target.value)}>
 						<option defaultValue value="">
 							Select filter type
 						</option>
 						<option value="title">Title</option>
 						<option value="userId">UserId</option>
-						<option value="Status">Status</option>
+						<option value="status">Status</option>
 					</select>
 				</div>
 				<div className="col-sm">
