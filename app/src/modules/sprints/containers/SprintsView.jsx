@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react'
-import { StyledAddButton, StyledFinishedContainer, StyledOngoingContainer, StyledOngoingSprint, StyledFinishedSprint } from './index';
+import { Sprints, StyledAddButton, StyledFinishedContainer, StyledOngoingContainer } from '../styled-components/index';
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchSprints } from '../../redux/actions';
-import SprintOngoingTab from './SprintOngoingTab';
-import SprintFinishedTab from './SprintsFinishedTab';
-import { getAllSprints } from '../../redux/reducers/sprints';
+import { fetchSprints } from '../../../redux/actions';
+import SprintOngoingTab from '../components/SprintOngoingTab';
+import SprintFinishedTab from '../components/SprintsFinishedTab';
+import { getAllSprints } from '../../../redux/reducers/sprints';
 
 
 function SprintsView(props) {
+    
     const dispatch = useDispatch()
     const sprints = useSelector(getAllSprints)
+    
 
     useEffect(() => {
         dispatch(fetchSprints())
@@ -28,7 +30,9 @@ function SprintsView(props) {
                             <p>Add Sprint</p>
                         </StyledAddButton>
                     </div>
-                    <div className="col-4">{/* PLACEHOLDER NA TYTUŁ 'KLIKNIĘTEGO' SPRINTU */}</div>
+                    <div className="col-4 text-center"><h1 className='text-secondary task-title'>
+                        SELECT SPRINT
+                    </h1></div>
                     <div className='col-1'></div>
                     <div className="col-4 text-center"><h1 className='text-secondary'>BACKLOG</h1></div>
                     <div className='col-1'></div>
@@ -50,11 +54,12 @@ function SprintsView(props) {
                         </StyledFinishedContainer>
 
                     </div>
-                    <div className="col-4 border border-darken-1">
-
+                    <div className="col-4 border border-darken-1 m-0 p-0">
+                        <Sprints  />
                     </div>
                     <div className='col-1'></div>
                     <div className="col-4 border border-darken-1">
+                        
                     </div>
                     <div className='col-1'></div>
                 </div>

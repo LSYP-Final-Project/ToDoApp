@@ -36563,6 +36563,10 @@
         {
           "description": "Jako zalogowany na widoku sprints moge dodać sprint",
           "points": "3"
+        },
+        {
+          "description": "Jako zalogowany na ekranie szczegółów zadania widzę komentarze (Comment - id, userId, content, createdAt) do zadania",
+          "points": "4"
         }
       ]
     },
@@ -36632,10 +36636,6 @@
         {
           "description": "Jako zalogowany na ekranie szczegółów zadania mogę dodawać komentarze(Comment) do zadania",
           "points": "3"
-        },
-        {
-          "description": "Jako zalogowany na ekranie szczegółów zadania widzę komentarze (Comment - id, userId, content, createdAt) do zadania",
-          "points": "4"
         }
       ]
     },
@@ -36658,6 +36658,33 @@
         },
         {
           "description": "System weryfikuje uzytkownik z email i hasło istnieje lub komunikat",
+          "points": "5"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "APPLE PIE",
+      "status": "ONGOING",
+      "tasks": [
+        {
+          "description": "Posypać kruszonką",
+          "points": "1"
+        },
+        {
+          "description": "Wstawić ciasto do piekarnika",
+          "points": "2"
+        },
+        {
+          "description": "Dodać przecier jabłkowy",
+          "points": "3"
+        },
+        {
+          "description": "Zagnieść ciasto",
+          "points": "4"
+        },
+        {
+          "description": "Kupić składniki",
           "points": "5"
         }
       ]

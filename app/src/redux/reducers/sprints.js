@@ -1,11 +1,34 @@
-import { GET_SPRINTS } from '../actionTypes';
+import { GET_SPRINTS, SELECT_SPRINT_ID } from '../actionTypes';
 
-const initState = []
+export const selectedSprintId = (id) => ({
+	type: SELECT_SPRINT_ID,
+	payload: {
+		id,
+	},
+});
 
-const sprintsReducer = (state = initState, action) => {
+
+const initState = {
+    sprints: [],
+    selectedId: null,
+}    
+
+
+const sprintsReducer = (
+  state = initState, 
+  action
+  ) => {
     switch (action.type) { 
         case GET_SPRINTS:
-            return action.payload
+            return {
+              ...state,
+              sprints: action.payload
+            }
+        case SELECT_SPRINT_ID:
+            return {
+              ...state,
+              selectedId: action.payload.id
+            }
         default:
             return state
     }
@@ -13,4 +36,10 @@ const sprintsReducer = (state = initState, action) => {
 
 export default sprintsReducer;
 
-export const getAllSprints = (state) => state.sprints
+
+
+
+export const getAllSprints = (state) => state.sprints.sprints
+export const getSprint = (state) => {
+  return state.sprints.sprints.find((s) => s.id === state.sprints.selectedId);
+}
