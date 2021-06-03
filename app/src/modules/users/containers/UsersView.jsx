@@ -1,12 +1,12 @@
 import React, { useEffect, useCallback } from 'react'
 import { UsersList } from '../components/UsersList'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchUser, fetchUsers, fetchUserTodos } from '../../../redux/actions'
+import { fetchUser, fetchUsers, fetchUserTodos } from '../../../Redux/actions'
 import { UserDetails } from '../components/UserDetails'
 import { UserTasks } from '../components/UserTasks'
 import { Route, Switch, useHistory, useParams } from 'react-router'
-import { getUsers, getSelectedUser, getUserTodos } from '../../../redux/selectors'
-import SearchBar from '../../../core/components/SearchBar'
+import { getUsers, getSelectedUser, getUserTodos } from '../../../Redux/selectors'
+import SearchBar from '../../../Core/components/SearchBar'
 
 export const UsersView = () => {
     // router

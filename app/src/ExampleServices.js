@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { CommentsService, PostsService, ProfileService, TodosService, UsersService } from './services'
+import { CommentsService, PostsService, ProfileService, TodosService, UsersService } from 'Services'
 
 export default function ExampleServices() {
     async function getComments() {

@@ -25,7 +25,7 @@ export const UserCard = ({user, showUserDetails, showUserTasks}) => {
                         {getUserInitials(user.name)}
                     </UserBadge>
                 </div>
-                <div className="col-7">
+                <div className="col-6">
                     <h5 className="card-title">{user.name}</h5>
                     <p className="card-text">{user.email}</p>
                     <p className="card-text">
@@ -34,7 +34,7 @@ export const UserCard = ({user, showUserDetails, showUserTasks}) => {
                         </small>
                     </p>
                 </div>       
-                <div className="col-2">                    
+                <div className="col-3">                    
                     <button className="btn btn-sm btn-outline-primary w-100"
                             onClick={() => showUserDetails(user.id)}>
                         Details

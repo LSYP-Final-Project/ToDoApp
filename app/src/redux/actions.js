@@ -1,28 +1,13 @@
-import { ADD_TODO, TOGGLE_TODO, SET_FILTER, GET_USERS, GET_USER, GET_USER_TODOS, GET_USER_START, GET_USER_TODOS_START } from "./actionTypes";
-import { UsersService, TodosService } from "../services";
+import { ADD_TODO, SET_FILTER, GET_USERS, GET_USER, GET_USER_TODOS, GET_USER_START, GET_SPRINTS, ADD_USER} from "./actionTypes";
+import { UsersService, TodosService, SprintsService } from "../Services";
 
-let nextTodoId = 0;
-
-export const addTodo = content => ({
-  type: ADD_TODO,
-  payload: {
-    id: ++nextTodoId,
-    content
-  }
-});
-
-export const toggleTodo = id => ({
-  type: TOGGLE_TODO,
-  payload: { id }
-});
-
-export const setFilter = filter => ({ 
+export const setFilter = filter => ({
   type: SET_FILTER,
   payload: { filter }
 });
 
 export const fetchUsers = () => {
-  
+
   return async (dispatch, getState) => {
     const users = await UsersService.getUsers()
 
@@ -60,3 +45,24 @@ export const fetchUserTodos = (userId) => {
     })
   }
 };
+
+export const fetchSprints = () => {
+  return async(dispatch, getState) => {
+    const sprints = await SprintsService.getSprints();
+
+    dispatch({
+      type: GET_SPRINTS,
+      payload: sprints
+    })
+  }
+}
+
+export const addUser = user => ({
+  type: ADD_USER,
+  payload: {
+    id: new Date().getTime(),
+    name: user.name,
+    email: user.email,
+    password: user.password,
+  }
+});

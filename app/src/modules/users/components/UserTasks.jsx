@@ -14,8 +14,6 @@ export const UserTasks = ({user, tasks}) => {
 
     return useMemo(() => (
         <div className="card mt-2">
-            
-            {console.log('userTasks:', user.id)}
 
             <div className="card-header bg-white d-flex align-items-center">
                 <h4 className="me-auto">
@@ -25,7 +23,7 @@ export const UserTasks = ({user, tasks}) => {
             </div>
 
             <div className="card-body">
-                {hasTasks && tasks.map((task, index) => 
+                {hasTasks && tasks?.map((task, index) => 
                     <div className="card mb-3" key={index}>
                         <div className="card-body row">
                             <div className="col-6">
