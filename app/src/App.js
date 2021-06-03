@@ -2,10 +2,9 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './App.css';
 import { UsersView } from './modules/users/containers/UsersView';
 import { Redirect, Route, Switch } from 'react-router'
-import ExampleServices from './ExampleServices'
 import NavBar from './core/components/index';
 import RegisterForm from './core/components/RegisterForm';
-import SprintsView from './modules/sprints/SprintsView';
+import SprintsView from './modules/sprints/containers/SprintsView';
 import PageDoesNotExist from './core/components/PageDoesNotExist';
 import DetailsTask from "./modules/tasks/components/DetailsTask";
 import TaskView from './modules/tasks/containers/TaskView';

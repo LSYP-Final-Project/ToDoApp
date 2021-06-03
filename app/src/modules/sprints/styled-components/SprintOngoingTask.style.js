@@ -17,42 +17,51 @@ const SprintOngoingTask = styled.div`
 
     .points-1{
         min-width: 40px;
-        border-left: 1px solid black;
-        background-color: #8CC9FD;
+        background-color: #AAEEAA;
         font-weight: 700;
         color: black;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 10px;
     }
     .points-2{
         min-width: 40px;
-        border-left: 1px solid black;
-        background-color: #0cf574;
+        background-color: #FBFB74;
         font-weight: 700;
         color: black;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 10px;
     }
     .points-3{
         min-width: 40px;
-        border-left: 1px solid black;
-        background-color: #f3ca40;
+        background-color: #F79C9C;
         font-weight: 700;
         color: black;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 10px;
     }
     .points-4{
         min-width: 40px;
-        border-left: 1px solid black;
-        background-color: #f08a4b;
+        background-color: #F77171;
         font-weight: 700;
         color: black;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 10px;
     }
     .points-5{
         min-width: 40px;
-        border-left: 1px solid black;
-        background-color: #e63462;
+        background-color: #E34242;
         font-weight: 700;
         color: black;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 10px;
     }
 
     .minus-sign{
-        border-right: 1px solid black;
         min-width: 40px;
         text-align: center;
         padding-top: 2px;

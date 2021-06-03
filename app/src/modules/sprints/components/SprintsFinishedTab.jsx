@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { StyledFinishedSprint } from '.'
-import { STATUSES } from '../../constants';
+import React from 'react'
+import { StyledFinishedSprint } from '../styled-components'
+import { STATUSES } from '../../../constants';
 import { useDispatch } from 'react-redux';
-import { selectedSprintId } from '../../redux/reducers/sprints';
+import { selectedSprintId } from '../../../redux/reducers/sprints';
 
 const StyledFinishedTab = ({ sprints }) => {
     const dispatch = useDispatch()

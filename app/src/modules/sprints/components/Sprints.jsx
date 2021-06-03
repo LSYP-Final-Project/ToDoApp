@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
-import { getSprint } from '../../redux/reducers/sprints';
-import { useDispatch, useSelector } from "react-redux";
-import { selectedSprintId } from '../../redux/reducers/sprints';
-import { SprintOngoingTask } from './index';
+import React from 'react'
+import { getSprint } from '../../../redux/reducers/sprints';
+import { useSelector } from "react-redux";
+import { SprintOngoingTask } from '../styled-components/index';
 
 function Sprints() {
     const sprint = useSelector(getSprint);
@@ -20,12 +19,6 @@ function Sprints() {
                 </SprintOngoingTask>
             </div>
         )}
-                
-{/* 
-
-            <p>{sprint && sprint.tasks[0].description} {sprint && sprint.tasks[0].points}</p>
-            <p>{sprint && sprint.tasks[1].description} {sprint && sprint.tasks[1].points}</p>
-            <p>{sprint && sprint.tasks[2].description} {sprint && sprint.tasks[2].points}</p> */}
         </div>
     )
 

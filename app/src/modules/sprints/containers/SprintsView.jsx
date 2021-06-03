@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { Sprints, StyledAddButton, StyledFinishedContainer, StyledOngoingContainer, StyledOngoingSprint, StyledFinishedSprint } from './index';
+import React, { useEffect } from 'react'
+import { Sprints, StyledAddButton, StyledFinishedContainer, StyledOngoingContainer } from '../styled-components/index';
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchSprints } from '../../redux/actions';
-import SprintOngoingTab from './SprintOngoingTab';
-import SprintFinishedTab from './SprintsFinishedTab';
-import { getAllSprints } from '../../redux/reducers/sprints';
-import Modali, { useModali } from 'modali';
-import { selectedSprintId } from '../../redux/reducers/sprints';
+import { fetchSprints } from '../../../redux/actions';
+import SprintOngoingTab from '../components/SprintOngoingTab';
+import SprintFinishedTab from '../components/SprintsFinishedTab';
+import { getAllSprints } from '../../../redux/reducers/sprints';
 
 
 function SprintsView(props) {
@@ -17,7 +15,6 @@ function SprintsView(props) {
 
     useEffect(() => {
         dispatch(fetchSprints())
-        dispatch(selectedSprintId());
 
     }, [])
 

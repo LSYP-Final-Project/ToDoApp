@@ -1,4 +1,4 @@
-import { GET_SPRINTS, GET_SPRINT, SELECT_SPRINT_ID } from '../actionTypes';
+import { GET_SPRINTS, SELECT_SPRINT_ID } from '../actionTypes';
 
 export const selectedSprintId = (id) => ({
 	type: SELECT_SPRINT_ID,

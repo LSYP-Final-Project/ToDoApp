@@ -13,28 +13,13 @@ const StyledOngoingSprint = styled.div`
     color: white;
     font-weight: 700;
     cursor: pointer;
-
-    margin-bottom: 2.5px;
-
-    &::after{
-        content: '';
-        position: absolute;
-        top:-1px;
-        left: -2px;
-        width: 30px;
-        height: 50px;
-        border: 5px solid #8BE78B;
-        background-color: lightgrey;
-    }
+    z-index: 10;
+    border-bottom: 2px solid #8BE78B;
+    transition: all 0.2s ease-in-out;
 
     &:hover{
-        ::after{
-            background-color: #8BE78B;
-        }
-        
+        background: #8BE78B;
     }
-
-    z-index: 10;
 `
 
 export default StyledOngoingSprint
