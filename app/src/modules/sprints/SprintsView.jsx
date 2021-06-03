@@ -34,7 +34,7 @@ function SprintsView(props) {
                         </StyledAddButton>
                     </div>
                     <div className="col-4 text-center"><h1 className='text-secondary task-title'>
-                        WYBIERZ SPRINT
+                        SELECT SPRINT
                     </h1></div>
                     <div className='col-1'></div>
                     <div className="col-4 text-center"><h1 className='text-secondary'>BACKLOG</h1></div>
@@ -57,7 +57,7 @@ function SprintsView(props) {
                         </StyledFinishedContainer>
 
                     </div>
-                    <div className="col-4 border border-darken-1">
+                    <div className="col-4 border border-darken-1 m-0 p-0">
                         <Sprints  />
                     </div>
                     <div className='col-1'></div>
