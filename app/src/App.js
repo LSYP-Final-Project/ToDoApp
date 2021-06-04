@@ -13,10 +13,11 @@ function App() {
   return (
     <>
       <NavBar />
+
       <MainContainer>
         <Switch>
           <Route exact path="/" component={MainPage} />
-          <Route exact path="/users" component={UsersView} />
+          <Route path="/users/:user_id?" component={UsersView} />
           <Route exact path="/tasks/" component={TaskView} />
           <Route exact path='/sprints' component={SprintsView} />
           <Route exact path="/tasks/:task_id/" component={DetailsTask} />

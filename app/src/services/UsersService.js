@@ -22,6 +22,10 @@ const UsersServices = class {
     return axios.delete(`/users/${id}`)
       .then(({ data }) => data)
   }
+  filterUsers(query) {
+    return axios.get(`/users?q=${query}`)
+      .then(({ data }) => data)
+  }
 }
 
 export default new UsersServices();
