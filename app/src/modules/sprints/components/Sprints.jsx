@@ -8,26 +8,38 @@ function Sprints() {
     const sprint = useSelector(getSprint);
     const [modalShow, setModalShow] = useState(false);
 
+    const fetchTaskInfo = (task_id) => {
+        setModalShow(true)
+
+        // przekazać task_id do funkcji, która findem znajdzie konkretny opis.
+    }
+
     return (
         <div>
-            {sprint && sprint.tasks.map((e) =>
+            {sprint && sprint.tasks.map((sprint) =>
                 <div className="border-bottom border-black">
-                    <SprintOngoingTask onClick={() => setModalShow(true)}>
+                    <SprintOngoingTask >
                         <div className="minus-sign">&minus;</div>
-                        <p>{e.description}</p>
-                        <div className={`points-${e.points}`}>{e.points}</div>
+                        <p onClick={() => fetchTaskInfo(sprint.id)}>{sprint.description}</p>
+                        <div className={`points-${sprint.points}`}>{sprint.points}</div>
 
-                        
+                        <ModalInfo
+                            description={sprint.description}
+                            points={sprint.points}
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                        />
                     </SprintOngoingTask>
-
-                    <ModalInfo
-                        description={e.description}
-                        points={e.points}
-                        show={modalShow}
-                        onHide={() => setModalShow(false)}
-                    />
                 </div>
             )}
+
+                        {/* <ModalInfo
+                            description={sprint.description}
+                            points={sprint.points}
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                        />   */}
+
         </div>
     )
 }
