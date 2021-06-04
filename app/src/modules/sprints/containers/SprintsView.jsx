@@ -15,7 +15,6 @@ function SprintsView(props) {
 
     useEffect(() => {
         dispatch(fetchSprints())
-
     }, [])
 
     return (
@@ -59,7 +58,7 @@ function SprintsView(props) {
                     </div>
                     <div className='col-1'></div>
                     <div className="col-4 border border-darken-1">
-
+                        
                     </div>
                     <div className='col-1'></div>
                 </div>

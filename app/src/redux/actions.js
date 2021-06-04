@@ -19,7 +19,7 @@ export const fetchUsers = () => {
 }
 
 export const fetchSprints = () => {
-  return async(dispatch, getState) => {
+  return async(dispatch) => {
     const sprints = await SprintsService.getSprints();
 
     dispatch({

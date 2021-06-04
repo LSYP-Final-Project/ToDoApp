@@ -7,6 +7,7 @@ const SprintOngoingTask = styled.div`
     overflow-wrap: break-word;
     display: flex;
     overflow: hidden;
+    cursor: pointer;
     
     p{
         margin-left: 5px;
@@ -69,6 +70,16 @@ const SprintOngoingTask = styled.div`
         font-size: 25px;
         color: white;
         background: #F79696;
+
+        &:hover{
+            background-color: #DC3545;
+            cursor: pointer;
+        }
+    }
+
+    &:hover{
+        background-color: #fffdf4;
+        
     }
 `
 export default SprintOngoingTask

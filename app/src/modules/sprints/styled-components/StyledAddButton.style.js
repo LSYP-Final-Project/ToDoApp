@@ -20,12 +20,7 @@ const StyledAddButton = styled.button`
     }
 
     &:hover{
-        background-color: #198754;
-        border-color: #198754;
-        .plusSignWrapper{
-            background-color: #198754;
-            border-color: #198754;
-        }
+        opacity: 0.8;
     }
 
     p{  

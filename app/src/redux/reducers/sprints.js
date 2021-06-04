@@ -1,4 +1,4 @@
-import { GET_SPRINTS, SELECT_SPRINT_ID } from '../actionTypes';
+import { GET_BACKLOG, GET_SPRINTS, SELECT_SPRINT_ID } from '../actionTypes';
 
 export const selectedSprintId = (id) => ({
 	type: SELECT_SPRINT_ID,
@@ -12,7 +12,6 @@ const initState = {
     sprints: [],
     selectedId: null,
 }    
-
 
 const sprintsReducer = (
   state = initState, 
@@ -35,9 +34,6 @@ const sprintsReducer = (
 }
 
 export default sprintsReducer;
-
-
-
 
 export const getAllSprints = (state) => state.sprints.sprints
 export const getSprint = (state) => {
