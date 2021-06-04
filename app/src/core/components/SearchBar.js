@@ -1,7 +1,8 @@
+import { useInput } from 'Core/hooks/useInput';
 import React, { useState, useEffect } from 'react'
 
 function SearchBar({onSearch}) {
-    const [query, setQuery] = useState('')
+    const [query, bindQuery] = useInput('')
 
     useEffect(() => {
         
@@ -17,8 +18,7 @@ function SearchBar({onSearch}) {
             <div className="input-group mb-3 mt-2">
 
                 <input type="text" className="form-control" placeholder="Search" id="query_id" autoFocus
-                    value={query}
-                    onChange={e => setQuery(e.target.value)}
+                    { ...bindQuery }
                     onKeyUp={e => {
                         e.key === 'Enter' && onSearch(query)
                     }}

@@ -6,11 +6,14 @@ export const setFilter = filter => ({
   payload: { filter }
 });
 
-export const fetchUsers = () => {
-
-  return async (dispatch, getState) => {
-    const users = await UsersService.getUsers()
-
+export const fetchUsers = (query) => {
+  return async (dispatch) => {
+    let users = [];
+    if (query) {
+      users = await UsersService.filterUsers(query)
+    } else {
+      users = await UsersService.getUsers()
+    }
     dispatch({
       type: GET_USERS,
       payload: users
