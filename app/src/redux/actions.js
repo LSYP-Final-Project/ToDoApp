@@ -60,12 +60,20 @@ export const fetchSprints = () => {
   }
 }
 
-export const addUser = user => ({
-  type: ADD_USER,
-  payload: {
-    id: user.id,
-    name: user.name,
-    email: user.email,
-    password: user.password,
+export const addUser = (user) => {
+
+  return async (dispatch) => {
+
+    const newUser = await UsersService.postUser(user)
+
+    dispatch({
+      type: ADD_USER,
+      payload: {
+        id: newUser.id,
+        name: newUser.name,
+        email: newUser.email,
+        password: newUser.password,
+      }
+    })
   }
-});
+};
