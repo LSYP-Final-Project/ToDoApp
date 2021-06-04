@@ -28,6 +28,10 @@ export const getTodosByVisibilityFilter = (store, visibilityFilter) => {
   }
 };
 
-export const getBacklogState = store => store.backlog;
-export const getSprintsState = store => store.sprints;
 export const getUsers = store => store.users;
+
+export const getSelectedUser = store => store.users.selectedUser;
+
+export const getUserTodos = store => store.todos.selectedUserTasks
+
+export const getSprintsState = store => store.sprints;
