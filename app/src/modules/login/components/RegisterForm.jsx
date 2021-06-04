@@ -41,6 +41,7 @@ function RegisterForm() {
     });
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm({
+        mode: "onChange",
         resolver: yupResolver(validationSchema)
     });
 
