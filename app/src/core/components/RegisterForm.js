@@ -1,7 +1,7 @@
-import * as Yup from 'yup';
-import Swal from 'sweetalert2'
-import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useEffect } from 'react';
+import Swal from 'sweetalert2'
+import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom";
 import { useForm } from 'react-hook-form';
@@ -47,6 +47,7 @@ function RegisterForm() {
     const onSubmit = (data, e) => {
         const fullData = {
             ...data,
+            id: Math.floor(new Date().getTime() * Math.random()),
             username: "",
             address: {
                 street: "",
