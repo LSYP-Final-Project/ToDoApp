@@ -1,3 +1,4 @@
+import { GET_USER_TODOS } from "../actionTypes";
 import { TodosService } from "Services";
 
 export const SELECT_TASK_ID = "SELECT_TASK_ID";
@@ -56,7 +57,8 @@ const initialState = {
 			createdAt: 1612190585501,
 		},
 	],
-   selectedId: null
+   selectedId: null,
+   selectedUserTasks: []
 };
 
 const todos = (state = initialState, action) => {
@@ -78,6 +80,12 @@ const todos = (state = initialState, action) => {
 				...state,
 				selectedId: action.payload.id,
 			};
+		}
+		case GET_USER_TODOS: {
+			return {
+			  ...state,
+			  selectedUserTasks: action.payload
+			}
 		}
 		default:
 			return state;
