@@ -3,8 +3,8 @@ import { useParams } from 'react-router';
 import { UserBadge } from '../styled-components/UserBadge';
 
 
-export const UserCard = ({user, showUserDetails, showUserTasks}) => {
-    
+const UserCard = ({ user, showUserDetails, showUserTasks }) => {
+
     const getUserInitials = (name) => {
 
         let rgx = new RegExp(/(\p{L}{1})\p{L}+/, 'gu');
@@ -16,7 +16,6 @@ export const UserCard = ({user, showUserDetails, showUserTasks}) => {
 
         return initials;
     }
-
     return (
         <div className="card">
             <div className="card-body row align-items-center">
@@ -33,19 +32,20 @@ export const UserCard = ({user, showUserDetails, showUserTasks}) => {
                             {user.address.city}
                         </small>
                     </p>
-                </div>       
-                <div className="col-3">                    
+                </div>
+                <div className="col-3">
                     <button className="btn btn-sm btn-outline-primary w-100"
-                            onClick={() => showUserDetails(user.id)}>
+                        onClick={() => showUserDetails(user.id)}>
                         Details
                     </button>
 
                     <button className="btn btn-sm btn-primary mt-3 w-100"
-                            onClick={() => showUserTasks(user.id)}>
+                        onClick={() => showUserTasks(user.id)}>
                         Tasks
                     </button>
-                </div>             
+                </div>
             </div>
         </div>
     )
 }
+export default UserCard

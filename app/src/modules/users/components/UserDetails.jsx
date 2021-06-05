@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { useHistory } from 'react-router'
 
-export const UserDetails = ({user}) => {
+const UserDetails = ({ user }) => {
 
     const { push } = useHistory()
 
@@ -19,7 +19,7 @@ export const UserDetails = ({user}) => {
                 <dl>
                     <dt>Username:</dt>
                     <dd aria-label="User Name">{user.username}</dd>
-                    
+
                     <dt>Phone number:</dt>
                     <dd aria-label="User phone number">{user.phone}</dd>
 
@@ -34,3 +34,4 @@ export const UserDetails = ({user}) => {
         </div>
     ), [user])
 }
+export default UserDetails
