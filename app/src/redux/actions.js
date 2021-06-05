@@ -6,11 +6,14 @@ export const setFilter = filter => ({
   payload: { filter }
 });
 
-export const fetchUsers = () => {
-
-  return async (dispatch, getState) => {
-    const users = await UsersService.getUsers()
-
+export const fetchUsers = (query) => {
+  return async (dispatch) => {
+    let users = [];
+    if (query) {
+      users = await UsersService.filterUsers(query)
+    } else {
+      users = await UsersService.getUsers()
+    }
     dispatch({
       type: GET_USERS,
       payload: users
@@ -38,7 +41,7 @@ export const fetchUserTodos = (userId) => {
   return async (dispatch) => {
 
     const userTodos = await TodosService.getUserTodos(userId)
-  
+
     dispatch({
       type: GET_USER_TODOS,
       payload: userTodos
@@ -47,7 +50,7 @@ export const fetchUserTodos = (userId) => {
 };
 
 export const fetchSprints = () => {
-  return async(dispatch, getState) => {
+  return async (dispatch, getState) => {
     const sprints = await SprintsService.getSprints();
 
     dispatch({
@@ -57,12 +60,20 @@ export const fetchSprints = () => {
   }
 }
 
-export const addUser = user => ({
-  type: ADD_USER,
-  payload: {
-    id: new Date().getTime(),
-    name: user.name,
-    email: user.email,
-    password: user.password,
+export const addUser = (user) => {
+
+  return async (dispatch) => {
+
+    const newUser = await UsersService.postUser(user)
+
+    dispatch({
+      type: ADD_USER,
+      payload: {
+        id: newUser.id,
+        name: newUser.name,
+        email: newUser.email,
+        password: newUser.password,
+      }
+    })
   }
-});
+};

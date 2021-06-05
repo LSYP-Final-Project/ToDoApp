@@ -10,7 +10,7 @@ import SearchBar from '../../../Core/components/SearchBar'
 
 export const UsersView = () => {
     // router
-    const { replace } = useHistory()
+    const { replace, push } = useHistory()
     const { user_id } = useParams()
     
     // store
@@ -29,7 +29,8 @@ export const UsersView = () => {
     }
     
     const search = useCallback((query) => {
-        console.log(query)
+        push('/users')
+        dispatch(fetchUsers(query))
     }, [])
     
     useEffect(() => {

@@ -1,7 +1,7 @@
-import * as Yup from 'yup';
-import Swal from 'sweetalert2'
-import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useEffect } from 'react';
+import Swal from 'sweetalert2'
+import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom";
 import { useForm } from 'react-hook-form';
@@ -41,12 +41,14 @@ function RegisterForm() {
     });
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm({
+        mode: "onChange",
         resolver: yupResolver(validationSchema)
     });
 
     const onSubmit = (data, e) => {
         const fullData = {
             ...data,
+            id: Math.floor(new Date().getTime() * Math.random()),
             username: "",
             address: {
                 street: "",
@@ -68,6 +70,7 @@ function RegisterForm() {
         }
 
         dispatch(addUser(fullData))
+        // NOTE: adding to data.json:
         UsersServices.postUser(fullData)
 
         Swal.fire(
@@ -75,18 +78,17 @@ function RegisterForm() {
             'Your account is created',
             'success'
         )
-            .then(() => { history.push("/home") })
+            .then(() => { history.push("/") })
     };
 
     return (
         <div className="container d-flex justify-content-center">
-            <div className="card m-3 w-75">
+            <div className="card">
                 <h5 className="card-header">Create account</h5>
                 <div className="card-body">
                     <form onSubmit={handleSubmit(onSubmit)} className="needs-validation">
                         <div className="row mb-3">
                             <div className="col">
-                                {/* TODO: extract Input to class component */}
                                 <label className="form-label" htmlFor="name">Name</label>
                                 <input {...register("name", { required: true })} className={`form-control ${errors.name ? 'is-invalid' : ''}`} name="name" type="text" id="name" />
                                 {errors.name && <p className="invalid-feedback">{errors.name?.message}</p>}
