@@ -12,6 +12,7 @@
     "json-server": "^0.16.3",
     "modali": "^1.2.0",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.6.5",
     "react-modal": "^3.13.1",
@@ -35,8 +36,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:debug": "react-scripts --inspect test --runInBand --no-cache",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -68,12 +67,6 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.2.9",
-    "@storybook/addon-essentials": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/node-logger": "^6.2.9",
-    "@storybook/preset-create-react-app": "^3.1.7",
-    "@storybook/react": "^6.2.9",
     "@testing-library/react": "^11.2.7"
   }
 }

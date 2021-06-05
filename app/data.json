@@ -441,19 +441,23 @@
       "name": "END GAME",
       "status": "ONGOING",
       "tasks": [
-        {
+        { 
+          "id": 1,
           "description": "Jako zalogowany na widoku sprints moge dodać zadanie do sprintu, lub je usunac do backloga",
           "points": "5"
         },
-        {
+        { 
+          "id": 2,
           "description": "Jako zalogowany na widoku sprints moge wyswietlic sprint i liste zadan",
           "points": "4"
         },
-        {
+        { 
+          "id": 3,
           "description": "Jako zalogowany na widoku sprints moge dodać sprint",
           "points": "3"
         },
-        {
+        { 
+          "id": 4,
           "description": "Jako zalogowany na ekranie szczegółów zadania widzę komentarze (Comment - id, userId, content, createdAt) do zadania",
           "points": "4"
         }
@@ -465,18 +469,22 @@
       "status": "FINISHED",
       "tasks": [
         {
+          "id": 1,
           "description": "As Thor I go for the head",
           "points": "5"
         },
         {
+          "id": 2,
           "description": "As Thanos I collect all the inifinity stones",
           "points": "5"
         },
         {
+          "id": 3,
           "description": "As Dr.Strange I move my hands in a weird way and call it magic",
           "points": "2"
         },
         {
+          "id": 4,
           "description": "As Spiderman I use my spiderweb to attract huge objects to me",
           "points": "1"
         }
@@ -488,18 +496,22 @@
       "status": "FINISHED",
       "tasks": [
         {
+          "id": 1,
           "description": "Jako zalogowany wybierając zadanie z (dowolnej) listy przechodzę na ekran szczegółów",
           "points": "4"
         },
         {
+          "id": 2,
           "description": "Jako zalogowany na ekranie wszystkich zadań pole wyszukiwania jest focused",
           "points": "2"
         },
         {
+          "id": 3,
           "description": "Jako zalogowany na ekranie wszystkich zadań mogę filtrować zadania wg. title, status(new,inprogress,review,done), userId i sortować wg. userId lub createdAt",
           "points": "4"
         },
         {
+          "id": 4,
           "description": "Jako zalogowany na ekranie użytkowników mogę przeglądać użytkowników",
           "points": "3"
         }
@@ -511,18 +523,22 @@
       "status": "FINISHED",
       "tasks": [
         {
+          "id": 1,
           "description": "Jako zalogowany na widoku kanban widze zadania w kolumnach wg. statusu (przeciąganie zadań niewymagane)",
           "points": "2"
         },
         {
+          "id": 2,
           "description": "Jako zalogowany korzystając z menu rozwijanego mogę przekazać wybrane zadanie innemu użytkownikowi (zmiana historii!)",
           "points": "2"
         },
         {
+          "id": 3,
           "description": "Jako zalogowany na ekranie szczegółów zadania widzę historię zmian w zadaniu (zmiana danych, uzytkownika, dodano komentarz)",
           "points": "1"
         },
         {
+          "id": 4,
           "description": "Jako zalogowany na ekranie szczegółów zadania mogę dodawać komentarze(Comment) do zadania",
           "points": "3"
         }
@@ -534,19 +550,23 @@
       "status": "FINISHED",
       "tasks": [
         {
+          "id": 1,
           "description": "Jako gość mogę założyć profil użytkownika (User) używając imienia, email i hasła",
           "points": "5"
         },
         {
+          "id": 2,
           "description": "System weryfikuje poprawność email i hasło (7 znaków min, litery i cyfry) i wyświetla komunikat",
           "points": "5"
         },
         {
+          "id": 3,
           "description": "Jako gość mogę się zalogować (email i hasło) i przejść do ekranu głownego",
           "points": "5"
         },
         {
-          "description": "System weryfikuje uzytkownik z email i hasło istnieje lub komunikat",
+          "id": 4,
+          "description": "System weryfikuje czy uzytkownik z email i hasło istnieje lub komunikat",
           "points": "5"
         }
       ]
@@ -556,27 +576,75 @@
       "name": "APPLE PIE",
       "status": "ONGOING",
       "tasks": [
-        {
+        { 
+          "id": 1,
           "description": "Posypać kruszonką",
           "points": "1"
         },
-        {
+        { 
+          "id": 2,
           "description": "Wstawić ciasto do piekarnika",
           "points": "2"
         },
-        {
+        { 
+          "id": 3,
           "description": "Dodać przecier jabłkowy",
           "points": "3"
         },
-        {
+        { 
+          "id": 4,
           "description": "Zagnieść ciasto",
           "points": "4"
         },
-        {
+        { 
+          "id": 5,
           "description": "Kupić składniki",
           "points": "5"
         }
       ]
+    }
+  ],
+  "backlog": [
+    {
+      "id": 10,
+      "description": "Topping dessert cake gingerbread marzipan. Pastry pastry cookie lemon drops lollipop soufflé cookie.",
+      "points": "1"
+    },
+    {
+      
+      "id": 20,
+      "description": "Apple pie pie powder pudding.",
+      "points": "1"
+    },
+    {
+      
+      "id": 30,
+      "description": "Topping dessert cake gingerbread marzipan. Pastry pastry cookie lemon drops lollipop soufflé cookie.",
+      "points": "2"
+    },
+    {
+      
+      "id": 40,
+      "description": "Chocolate bar caramels caramels cheesecake caramels sweet roll.",
+      "points": "5"
+    },
+    {
+      
+      "id": 50,
+      "description": "Halvah carrot cake dessert.",
+      "points": "4"
+    },
+    {
+      
+      "id": 60,
+      "description": "Jujubes wafer biscuit jelly cake jelly beans soufflé cupcake gingerbread. ",
+      "points": "3"
+    },
+    {
+      
+      "id": 70,
+      "description": "Marzipan carrot cake wafer cotton candy sesame snaps dragée cake cupcake. ",
+      "points": "3"
     }
   ]
 }

@@ -1,31 +1,54 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { getSprint } from 'Redux/reducers/sprints';
 import { useSelector } from "react-redux";
 import { SprintOngoingTask } from '../styled-components/index';
+import { ModalInfo } from './ModalInfo';
 
 function Sprints() {
     const sprint = useSelector(getSprint);
+    const [modalShow, setModalShow] = useState(false);
+    
+    const [modalInfo, setModalInfo] = useState({
+        description: 'no description provided',
+        points: 0
+    });
 
     return (
         <div>
-            {sprint && sprint.tasks.map((e) =>
+            {sprint && sprint.tasks.map((sprint) =>
                 <div className="border-bottom border-black">
-                    {/* <div className="lead my-3">{e.description} <b>{e.points}</b></div> */}
-                    <SprintOngoingTask>
+                    <SprintOngoingTask key={Date.now()}>
                         <div className="minus-sign">&minus;</div>
-                        <p>{e.description}</p>
-                        <div className={`points-${e.points}`}>{e.points}</div>
 
+                        <p onClick={() => {
+                            setModalShow(true)
+                            setModalInfo({
+                                description: sprint.description, 
+                                points: sprint.points
+                            })
+                        }}>
+                            {sprint.description}
+                        </p>
+
+                        <div 
+                            className={`points-${sprint.points}`} 
+                        > 
+                            {sprint.points}
+                        </div>
+
+                        <ModalInfo
+                            description={modalInfo.description}
+                            points={modalInfo.points}
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                        />
                     </SprintOngoingTask>
                 </div>
             )}
+
         </div>
     )
-
-
-
-
-
 }
 
 export default Sprints
+
