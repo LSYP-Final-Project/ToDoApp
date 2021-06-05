@@ -8,6 +8,7 @@ import { MainPage } from 'Modules/MainPage';
 import { DetailsTask, TaskView } from "Modules/tasks";
 import RegisterView from 'Modules/login/containers/RegisterView';
 import SprintsView from 'Modules/sprints/containers/SprintsView';
+import AddSprint from 'Modules/sprints/components/AddSprint';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route exact path='/sprints' component={SprintsView} />
           <Route exact path="/tasks/:task_id/" component={DetailsTask} />
           <Route exact path='/register' component={RegisterView} />
+          <Route exact path='/addsprint' component={AddSprint} />
           <Route component={PageNotFound} />
         </Switch>
       </MainContainer>

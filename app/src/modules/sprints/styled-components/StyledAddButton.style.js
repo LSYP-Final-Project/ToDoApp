@@ -6,8 +6,8 @@ const StyledAddButton = styled.button`
     position: relative;
     width: 200px;
     height: 50px;
-    background-color: #8CC9FD;
-    border: 2px solid #2699FB;
+    background-color: #0D6EFD;
+    border: 2px solid #0D6EFD;
 
     .plusSignWrapper{
         position: absolute;
@@ -15,17 +15,12 @@ const StyledAddButton = styled.button`
         left: -2px;
         width: 50px;
         height: 50px;
-        border: 1px solid #2699FB;
-        background-color: #2699FB;
+        border: 1px solid #0D6EFD;
+        background-color: #0D6EFD;
     }
 
     &:hover{
-        background-color: #8BE78B;
-        border-color: #2EA822;
-        .plusSignWrapper{
-            background-color: #2EA822;
-            border-color: #2EA822;
-        }
+        opacity: 0.8;
     }
 
     p{  

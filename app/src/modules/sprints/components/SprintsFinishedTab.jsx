@@ -2,23 +2,23 @@ import React from 'react'
 import { StyledFinishedSprint } from '../styled-components'
 import { STATUSES } from '../../../constants';
 import { useDispatch } from 'react-redux';
-import { selectedSprintId } from 'Redux/reducers/sprints';
+import { selectedSprintId, updateSprintName } from 'Redux/reducers/sprints';
 
 const StyledFinishedTab = ({ sprints }) => {
     const dispatch = useDispatch()
 
     const onSprintClick = (name, id) => {
-        document.querySelector('.task-title').innerText = name
         dispatch(selectedSprintId(id))
+        dispatch(updateSprintName(name));
     }
 
     return (
         <div>
             {sprints.length && sprints.map(({ name, status, id }) =>
                 status === STATUSES.FINISHED &&
-                <div className='sprint-item'>
+                <div className='sprint-item' 
+                key={id}>
                     <StyledFinishedSprint
-                        key={id}
                         onClick={() => onSprintClick(name, id)}>
                         {name}
                     </StyledFinishedSprint>
@@ -26,6 +26,7 @@ const StyledFinishedTab = ({ sprints }) => {
             )}
         </div>
     )
+    
 }
 
 export default StyledFinishedTab

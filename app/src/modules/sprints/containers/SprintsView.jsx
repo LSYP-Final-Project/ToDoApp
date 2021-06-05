@@ -1,21 +1,20 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Sprints, StyledAddButton, StyledFinishedContainer, StyledOngoingContainer } from '../styled-components/index';
 import { fetchSprints } from 'Redux/actions';
-import { getAllSprints } from 'Redux/reducers/sprints';
+import { getAllSprints, getSprintName} from 'Redux/reducers/sprints';
 import SprintOngoingTab from '../components/SprintOngoingTab';
 import SprintFinishedTab from '../components/SprintsFinishedTab';
+import { Link } from "react-router-dom";
 
 
 function SprintsView(props) {
-
     const dispatch = useDispatch()
     const sprints = useSelector(getAllSprints)
-
+    const sprintName = useSelector(getSprintName);
 
     useEffect(() => {
         dispatch(fetchSprints())
-
     }, [])
 
     return (
@@ -24,15 +23,15 @@ function SprintsView(props) {
                 <div className="row">
                     <div className="col-2">
                         <StyledAddButton>
-                            <div className="plusSignWrapper">
-                                <div className='plusSign'></div>
-                            </div>
-                            <p>Add Sprint</p>
+                            <Link to='/addsprint'>
+                                <div className="plusSignWrapper">
+                                    <div className='plusSign'></div>
+                                </div>
+                                <p>Add Sprint</p>
+                            </Link>
                         </StyledAddButton>
                     </div>
-                    <div className="col-4 text-center"><h1 className='text-secondary task-title'>
-                        SELECT SPRINT
-                    </h1></div>
+                    <div className="col-4 text-center"><h1 className='text-secondary sprint-title'>{sprintName}</h1></div>
                     <div className='col-1'></div>
                     <div className="col-4 text-center"><h1 className='text-secondary'>BACKLOG</h1></div>
                     <div className='col-1'></div>
@@ -49,7 +48,6 @@ function SprintsView(props) {
                         <StyledFinishedContainer>
                             <p>finished</p>
                             <SprintFinishedTab sprints={sprints} />
-                            {/* wstawić funkcję drukującą finished sprints */}
 
                         </StyledFinishedContainer>
 
@@ -59,7 +57,7 @@ function SprintsView(props) {
                     </div>
                     <div className='col-1'></div>
                     <div className="col-4 border border-darken-1">
-
+                        
                     </div>
                     <div className='col-1'></div>
                 </div>
