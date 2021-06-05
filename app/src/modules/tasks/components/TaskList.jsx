@@ -1,11 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { getAllTodos } from "Redux/reducers/todos";
 import TaskCard from "./TaskCard";
 
-const TaskList = () => {
-	const tasksTab = useSelector(getAllTodos);
-	if (Array.isArray(tasksTab) && !tasksTab.length) return (
+const TaskList = ({ tasks }) => {
+	if ((Array.isArray(tasks) && !tasks.length) || typeof tasks === 'undefined') return (
 		<div className="alert alert-info" role="alert">
 			No tasks to show 🤷
 		</div>
@@ -14,7 +11,7 @@ const TaskList = () => {
 	return (
 		<div>
 			<div className="list-group">
-				{tasksTab.map((t) => <TaskCard key={t.id} task={t} />)}
+				{tasks.map((t) => <TaskCard key={t.id} task={t} />)}
 			</div>
 		</div>
 	);

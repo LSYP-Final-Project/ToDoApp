@@ -41,9 +41,6 @@ const SearchTasks = () => {
 				<div className="col-sm mb-3">
 					<p>Filter by:</p>
 					<select className="form-select" onChange={(e) => setFilterType(e.target.value)} value={filterType}>
-						<option defaultValue value="">
-							Select filter type
-						</option>
 						<option value="q">All</option>
 						<option value="title">Title</option>
 						<option value="userId">UserId</option>
