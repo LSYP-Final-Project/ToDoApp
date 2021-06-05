@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import { getSprint, getTaskDescription } from 'Redux/reducers/sprints';
-import { useDispatch, useSelector } from "react-redux";
+import { getSprint } from 'Redux/reducers/sprints';
+import { useSelector } from "react-redux";
 import { SprintOngoingTask } from '../styled-components/index';
 import { ModalInfo } from './ModalInfo';
 
@@ -12,11 +12,6 @@ function Sprints() {
         description: 'no description provided',
         points: 0
     });
- 
-    const fetchTaskInfo = (task_id) => {
-        setModalShow(true)
-        // przekazać task_id do funkcji, która findem znajdzie konkretny opis.
-    }
 
     return (
         <div>
@@ -25,12 +20,12 @@ function Sprints() {
                     <SprintOngoingTask >
                         <div className="minus-sign">&minus;</div>
                         <p onClick={() => {
-                            fetchTaskInfo(sprint.id)
+                            setModalShow(true)
                             setModalInfo({description: sprint.description, points: sprint.points})
                             }}>
                                 {sprint.description}
                             </p>
-                        <div className={`points-${sprint.points}`}>{sprint.points}</div>
+                        <div className={`points-${sprint.points}`} key={sprint.id}>{sprint.points}</div>
 
                         <ModalInfo
                             description={modalInfo.description}
@@ -41,13 +36,6 @@ function Sprints() {
                     </SprintOngoingTask>
                 </div>
             )}
-
-                        {/* <ModalInfo
-                            description={chosenTask.description}
-                            points={chosenTask.points}
-                            show={modalShow}
-                            onHide={() => setModalShow(false)}
-                        />   */}
 
         </div>
     )

@@ -1,4 +1,4 @@
-import { GET_SPRINTS, SELECT_SPRINT_ID } from '../actionTypes';
+import { GET_SPRINTS, SELECT_SPRINT_ID, UPDATE_SPRINT_TITLE } from '../actionTypes';
 
 export const selectedSprintId = (id) => ({
 	type: SELECT_SPRINT_ID,
@@ -7,10 +7,18 @@ export const selectedSprintId = (id) => ({
 	},
 });
 
+export const selectedSprintName = (name) => ({
+  type: UPDATE_SPRINT_TITLE,
+  payload: {
+    name,
+  }
+})
+
 
 const initState = {
     sprints: [],
     selectedId: null,
+    name: 'SELECT SPRINT'
 }    
 
 const sprintsReducer = (
@@ -28,6 +36,11 @@ const sprintsReducer = (
               ...state,
               selectedId: action.payload.id
             }
+        case UPDATE_SPRINT_TITLE:
+            return {
+              ...state,
+              name: action.payload.name
+            }
         default:
             return state
     }
@@ -40,7 +53,6 @@ export const getSprint = (state) => {
   return state.sprints.sprints.find((s) => s.id === state.sprints.selectedId);
 }
 
-//takie cudo do wyjęcia opisu taska:
-export const getTaskDescription = (state) =>{
-  return state.sprints.sprints.tasks.find((s) => s.id === state.sprints.tasks.task_id);
+export const getSprintName = (state) => {
+  return state.sprints.sprints.find((s) => s.name === state.sprints.name.name);
 }

@@ -28,9 +28,3 @@ const SprintsServices = class {
 }
 
 export default new SprintsServices();
-
-
-//   getSprintDetails(sprintId) {
-//     return axios.get(`/sprints?tasks.id=${sprintId}`)
-//       .then(({ data }) => data)
-//   }
