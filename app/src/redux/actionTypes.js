@@ -9,3 +9,4 @@ export const ADD_USER = "ADD_USER";
 export const SELECT_SPRINT_ID = "SELECT_SPRINT_ID";
 export const CHOSEN_TASK_ID = "CHOSEN_TASK_ID";
 export const UPDATE_SPRINT_TITLE = 'UPDATE_SPRINT_TITLE';
+export const DELETE_SPRINT = 'DELETE_SPRINT';

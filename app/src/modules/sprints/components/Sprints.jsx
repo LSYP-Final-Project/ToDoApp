@@ -17,7 +17,7 @@ function Sprints() {
         <div>
             {sprint && sprint.tasks.map((sprint) =>
                 <div className="border-bottom border-black">
-                    <SprintOngoingTask >
+                    <SprintOngoingTask key={Date.now()}>
                         <div className="minus-sign">&minus;</div>
 
                         <p onClick={() => {
@@ -32,7 +32,6 @@ function Sprints() {
 
                         <div 
                             className={`points-${sprint.points}`} 
-                            key={Date.now()}
                         > 
                             {sprint.points}
                         </div>

@@ -17,9 +17,9 @@ const SprintOngoingTab = ({ sprints }) => {
         <div>
             {sprints.length && sprints.map(({ name, status, id }) =>
                 status === STATUSES.ONGOING &&
-                <div className='sprint-item'>
+                <div className='sprint-item' 
+                key={id}>
                     <StyledOngoingSprint
-                        key={id}
                         onClick={() => onSprintClick(name, id)}>
                         {name}
                     </StyledOngoingSprint>

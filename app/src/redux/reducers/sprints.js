@@ -1,4 +1,4 @@
-import { GET_SPRINTS, SELECT_SPRINT_ID, UPDATE_SPRINT_TITLE } from '../actionTypes';
+import { GET_SPRINTS, SELECT_SPRINT_ID, UPDATE_SPRINT_TITLE, DELETE_SPRINT } from '../actionTypes';
 
 export const selectedSprintId = (id) => ({
 	type: SELECT_SPRINT_ID,
@@ -18,7 +18,7 @@ export const updateSprintName = (name) => ({
 const initState = {
     sprints: [],
     selectedId: null,
-    name: 'SELECT SPRINT'
+    name: "SELECT SPRINT",
 }    
 
 const sprintsReducer = (
@@ -39,7 +39,7 @@ const sprintsReducer = (
         case UPDATE_SPRINT_TITLE:
             return {
               ...state,
-              name: action.payload.name
+              name: action.payload.name,
             }
         default:
             return state
@@ -48,9 +48,8 @@ const sprintsReducer = (
 
 export default sprintsReducer;
 
-export const getAllSprints = (state) => state.sprints.sprints
+export const getAllSprints = (state) => state.infoSprints.sprints
 export const getSprint = (state) => {
-  return state.sprints.sprints.find((s) => s.id === state.sprints.selectedId);
+  return state.infoSprints.sprints.find((s) => s.id === state.infoSprints.selectedId);
 }
-
-export const getSprintName = (state) => state.name;
+export const getSprintName = (state) => state.infoSprints.name;

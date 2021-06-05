@@ -11,10 +11,7 @@ import { Link } from "react-router-dom";
 function SprintsView(props) {
     const dispatch = useDispatch()
     const sprints = useSelector(getAllSprints)
-    // const [sprintName, setSprintName] = useState('SELECT SPRINT');
     const sprintName = useSelector(getSprintName);
-    console.log(sprintName);
-   
 
     useEffect(() => {
         dispatch(fetchSprints())

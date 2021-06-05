@@ -63,7 +63,7 @@ export const fetchSprints = () => {
 export const addUser = (user) => {
 
   return async (dispatch) => {
-
+  
     const newUser = await UsersService.postUser(user)
 
     dispatch({
