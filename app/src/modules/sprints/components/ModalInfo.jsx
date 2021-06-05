@@ -18,7 +18,7 @@ export const ModalInfo = (props) => {
         <Modal.Body>
         <div className="row m-1">
             <div className="col-10 lead mb-4">{props.description}</div>
-            <div className={`points-${props.points} col-2 display-6 text-center`}>{props.points}</div>
+            <div className={`points-${props.points} col-2 display-4 text-center`}>{props.points}</div>
         </div>
         </Modal.Body>
         <Modal.Footer>
