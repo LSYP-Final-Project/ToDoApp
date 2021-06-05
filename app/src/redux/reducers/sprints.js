@@ -7,7 +7,7 @@ export const selectedSprintId = (id) => ({
 	},
 });
 
-export const selectedSprintName = (name) => ({
+export const updateSprintName = (name) => ({
   type: UPDATE_SPRINT_TITLE,
   payload: {
     name,
@@ -53,6 +53,4 @@ export const getSprint = (state) => {
   return state.sprints.sprints.find((s) => s.id === state.sprints.selectedId);
 }
 
-export const getSprintName = (state) => {
-  return state.sprints.sprints.find((s) => s.name === state.sprints.name.name);
-}
+export const getSprintName = (state) => state.name;

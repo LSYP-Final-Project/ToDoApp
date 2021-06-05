@@ -19,13 +19,23 @@ function Sprints() {
                 <div className="border-bottom border-black">
                     <SprintOngoingTask >
                         <div className="minus-sign">&minus;</div>
+
                         <p onClick={() => {
                             setModalShow(true)
-                            setModalInfo({description: sprint.description, points: sprint.points})
-                            }}>
-                                {sprint.description}
-                            </p>
-                        <div className={`points-${sprint.points}`} key={sprint.id}>{sprint.points}</div>
+                            setModalInfo({
+                                description: sprint.description, 
+                                points: sprint.points
+                            })
+                        }}>
+                            {sprint.description}
+                        </p>
+
+                        <div 
+                            className={`points-${sprint.points}`} 
+                            key={Date.now()}
+                        > 
+                            {sprint.points}
+                        </div>
 
                         <ModalInfo
                             description={modalInfo.description}

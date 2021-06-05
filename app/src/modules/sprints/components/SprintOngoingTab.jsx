@@ -1,15 +1,15 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { StyledOngoingSprint } from '../styled-components'
 import { STATUSES } from '../../../constants';
 import { useDispatch } from 'react-redux';
-import { selectedSprintId, selectedSprintName } from 'Redux/reducers/sprints';
+import { selectedSprintId, updateSprintName} from 'Redux/reducers/sprints';
 
 const SprintOngoingTab = ({ sprints }) => {
     const dispatch = useDispatch();
 
     const onSprintClick = (name, id) => {
         dispatch(selectedSprintId(id))
-        dispatch(selectedSprintName(name))
+        dispatch(updateSprintName(name));
     }
 
 

@@ -1,19 +1,20 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Sprints, StyledAddButton, StyledFinishedContainer, StyledOngoingContainer } from '../styled-components/index';
 import { fetchSprints } from 'Redux/actions';
-import { getAllSprints, getSprintName } from 'Redux/reducers/sprints';
+import { getAllSprints, getSprintName} from 'Redux/reducers/sprints';
 import SprintOngoingTab from '../components/SprintOngoingTab';
 import SprintFinishedTab from '../components/SprintsFinishedTab';
 import { Link } from "react-router-dom";
 
 
 function SprintsView(props) {
-
     const dispatch = useDispatch()
     const sprints = useSelector(getAllSprints)
+    // const [sprintName, setSprintName] = useState('SELECT SPRINT');
     const sprintName = useSelector(getSprintName);
-    console.log(sprintName)
+    console.log(sprintName);
+   
 
     useEffect(() => {
         dispatch(fetchSprints())
@@ -33,7 +34,7 @@ function SprintsView(props) {
                             </Link>
                         </StyledAddButton>
                     </div>
-                    <div className="col-4 text-center"><h1 className='text-secondary sprint-title'>{sprintName ? sprintName : 'SELECT SPRINT'}</h1></div>
+                    <div className="col-4 text-center"><h1 className='text-secondary sprint-title'>{sprintName}</h1></div>
                     <div className='col-1'></div>
                     <div className="col-4 text-center"><h1 className='text-secondary'>BACKLOG</h1></div>
                     <div className='col-1'></div>
