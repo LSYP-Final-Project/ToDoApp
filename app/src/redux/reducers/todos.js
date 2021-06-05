@@ -1,3 +1,4 @@
+import { GET_USER_TODOS } from "../actionTypes";
 export const SELECT_TASK_ID = "SELECT_TASK_ID";
 export const ADD_TODO = "ADD_TODO";
 export const GET_TODOS = "GET_TODOS";
@@ -61,7 +62,8 @@ const initialState = {
 			createdAt: 1612190585501,
 		},
 	],
-   selectedId: null
+   selectedId: null,
+   selectedUserTasks: []
 };
 
 const todos = (state = initialState, action) => {
@@ -91,8 +93,15 @@ const todos = (state = initialState, action) => {
 			};
 		}
 		case TODOS_ERROR: return {
-            ...state, message: action.payload.error?.message
+            ...state, 
+			message: action.payload.error?.message,
         }
+		case GET_USER_TODOS: {
+			return {
+			  ...state,
+			  selectedUserTasks: action.payload,
+			}
+		}
 		default:
 			return state;
 	}

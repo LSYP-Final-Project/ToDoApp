@@ -1,9 +1,10 @@
 import React from 'react'
+import { useParams } from 'react-router';
 import { UserBadge } from '../styled-components/UserBadge';
 
 
-export const UserCard = (props) => {
-
+export const UserCard = ({user, showUserDetails, showUserTasks}) => {
+    
     const getUserInitials = (name) => {
 
         let rgx = new RegExp(/(\p{L}{1})\p{L}+/, 'gu');
@@ -18,21 +19,32 @@ export const UserCard = (props) => {
 
     return (
         <div className="card">
-            <div className="card-body row">
+            <div className="card-body row align-items-center">
                 <div className="col-3">
                     <UserBadge>
-                        {getUserInitials(props.user.name)}
+                        {getUserInitials(user.name)}
                     </UserBadge>
                 </div>
-                <div className="col-9">
-                    <h5 className="card-title">{props.user.name}</h5>
-                    <p className="card-text">{props.user.email}</p>
+                <div className="col-6">
+                    <h5 className="card-title">{user.name}</h5>
+                    <p className="card-text">{user.email}</p>
                     <p className="card-text">
                         <small className="text-muted">
-                            {props.user.city}
+                            {user.address.city}
                         </small>
                     </p>
-                </div>
+                </div>       
+                <div className="col-3">                    
+                    <button className="btn btn-sm btn-outline-primary w-100"
+                            onClick={() => showUserDetails(user.id)}>
+                        Details
+                    </button>
+
+                    <button className="btn btn-sm btn-primary mt-3 w-100"
+                            onClick={() => showUserTasks(user.id)}>
+                        Tasks
+                    </button>
+                </div>             
             </div>
         </div>
     )
