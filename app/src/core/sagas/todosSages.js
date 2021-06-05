@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import { TodosService } from "Services";
-import { setTodos, searchTodos, searchSuccess, todosError, GET_TODOS, SEARCH_TODOS } from "Redux/reducers/todos";
+import { setTodos, searchSuccess, todosError, GET_TODOS, SEARCH_TODOS } from "Redux/reducers/todos";
 
 function* loadTodos() {
 	try {

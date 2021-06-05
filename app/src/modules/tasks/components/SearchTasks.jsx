@@ -36,7 +36,7 @@ const SearchTasks = () => {
 			<div className="row mb-5">
 				<div className="col-sm mb-3">
 					<p>Filter by:</p>
-					<select className="form-select" onChange={(e) => setFilterType(e.target.value)}>
+					<select className="form-select" onChange={(e) => setFilterType(e.target.value)} value={filterType}>
 						<option defaultValue value="">
 							Select filter type
 						</option>

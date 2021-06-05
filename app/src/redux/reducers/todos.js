@@ -1,6 +1,3 @@
-import { TodosService } from "Services";
-
-
 export const SELECT_TASK_ID = "SELECT_TASK_ID";
 export const ADD_TODO = "ADD_TODO";
 export const GET_TODOS = "GET_TODOS";
@@ -9,18 +6,18 @@ export const SEARCH_TODOS = "SEARCH_TODOS";
 export const SEARCH_SUCCESS = "SEARCH_SUCCESS";
 
 export const setTodos = (todos) => ({
-		type: GET_TODOS,
-		payload: todos,
+	type: GET_TODOS,
+	payload: todos,
 });
 
 export const searchTodos = ( query ) => ({
-			type: SEARCH_TODOS,
-			payload: { query }
+	type: SEARCH_TODOS,
+	payload: { query }
 });
 
 export const searchSuccess = (results) => ({
    type: SEARCH_SUCCESS,
-   payload: results
+   payload: {results}
 });
 
 export const selectTaskId = (id) => ({
@@ -75,16 +72,10 @@ const todos = (state = initialState, action) => {
 				tasks: action.payload,
 			};
 		}
-      case SEARCH_TODOS: {
-			return {
-				...state,
-				tasks: action.payload,
-			};
-		}
       case SEARCH_SUCCESS: {
 			return {
 				...state,
-				tasks: action.payload,
+				tasks: action.payload.results,
 			};
 		}
 		case ADD_TODO: {
