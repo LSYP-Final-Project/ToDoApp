@@ -1,18 +1,16 @@
 import React, { useEffect, useCallback } from 'react'
-import { UsersList } from '../components/UsersList'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchUser, fetchUsers, fetchUserTodos } from '../../../Redux/actions'
-import { UserDetails } from '../components/UserDetails'
-import { UserTasks } from '../components/UserTasks'
 import { Route, Switch, useHistory, useParams } from 'react-router'
-import { getUsers, getSelectedUser, getUserTodos } from '../../../Redux/selectors'
-import SearchBar from '../../../Core/components/SearchBar'
+import SearchBar from 'Core/components/SearchBar'
+import { fetchUser, fetchUsers, fetchUserTodos } from 'Redux/actions'
+import { getUsers, getSelectedUser, getUserTodos } from 'Redux/selectors'
+import { UserDetails, UsersList, UserTasks } from 'Modules/users/components'
 
 export const UsersView = () => {
     // router
     const { replace, push } = useHistory()
     const { user_id } = useParams()
-    
+
     // store
     const dispatch = useDispatch()
     const users = useSelector(getUsers)
@@ -21,21 +19,21 @@ export const UsersView = () => {
 
     // functions
     const showUserDetails = (id) => {
-        replace('/users/' + id + '/details')
+        replace(`/users/${id}/details`)
     }
-    
+
     const showUserTasks = (id) => {
-        replace('/users/' + id + '/tasks')
+        replace(`/users/${id}/tasks`)
     }
-    
+
     const search = useCallback((query) => {
         push('/users')
         dispatch(fetchUsers(query))
     }, [])
-    
+
     useEffect(() => {
-        if (!user_id) { return }
-        
+        if (!user_id) return
+
         dispatch(fetchUser(user_id))
         dispatch(fetchUserTodos(user_id))
     }, [user_id])
@@ -54,14 +52,14 @@ export const UsersView = () => {
                         <SearchBar onSearch={search} />
 
                         <UsersList users={users}
-                                   showUserDetails={showUserDetails}
-                                   showUserTasks={showUserTasks}
+                            showUserDetails={showUserDetails}
+                            showUserTasks={showUserTasks}
                         />
                     </div>
                     <div className="col-6">
                         <Switch>
-                            {selectedUser && <Route path="/users/:user_id/details" render={() => <UserDetails user={selectedUser}/>}/>}
-                            {selectedUser && <Route path="/users/:user_id/tasks" render={() => <UserTasks user={selectedUser} tasks={userTasks}/>}/>}
+                            {selectedUser && <Route path="/users/:user_id/details" render={() => <UserDetails user={selectedUser} />} />}
+                            {selectedUser && <Route path="/users/:user_id/tasks" render={() => <UserTasks user={selectedUser} tasks={userTasks} />} />}
                         </Switch>
                     </div>
                 </div>

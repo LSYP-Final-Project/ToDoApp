@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react'
 import { useHistory } from 'react-router'
 
-export const UserTasks = ({user, tasks}) => {
+const UserTasks = ({ user, tasks }) => {
 
     const { push } = useHistory()
-    
+
     const hasTasks = tasks.length > 0
 
     const decodeDate = (date) => {
@@ -23,7 +23,7 @@ export const UserTasks = ({user, tasks}) => {
             </div>
 
             <div className="card-body">
-                {hasTasks && tasks?.map((task, index) => 
+                {hasTasks && tasks?.map((task, index) =>
                     <div className="card mb-3" key={index}>
                         <div className="card-body row">
                             <div className="col-6">
@@ -33,13 +33,14 @@ export const UserTasks = ({user, tasks}) => {
                             <div className="col-6 text-end">
                                 <p className="card-title">{decodeDate(task.createdAt)}</p>
                             </div>
-                        </div>       
+                        </div>
                     </div>
                 )}
 
-                {!hasTasks && <p className="fw-bold text-center">User has no assigned tasks</p> }
+                {!hasTasks && <p className="fw-bold text-center">User has no assigned tasks</p>}
             </div>
 
         </div>
     ), [user, tasks])
 }
+export default UserTasks

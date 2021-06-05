@@ -1,23 +1,21 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getAllTodos, fetchTodos } from "Redux/reducers/todos";
+import React from "react";
+import { useSelector } from "react-redux";
+import { getAllTodos } from "Redux/reducers/todos";
 import TaskCard from "./TaskCard";
 
 const TaskList = () => {
-	const dispatch = useDispatch();
-
-	useEffect(() => {
-		dispatch(fetchTodos());
-	}, []);
-
 	const tasksTab = useSelector(getAllTodos);
+
+	if (!Array.isArray(tasksTab) && !tasksTab.length) return (
+		<div className="alert alert-info" role="alert">
+			No tasks to show 🤷
+		</div>
+	);
 
 	return (
 		<div>
 			<div className="list-group">
-				{tasksTab?.map((t) => (
-					<TaskCard key={t.id} task={t} />
-				))}
+				{tasksTab.map((t) => <TaskCard key={t.id} task={t} />)}
 			</div>
 		</div>
 	);

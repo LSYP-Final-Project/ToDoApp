@@ -1,24 +1,25 @@
 import { GET_USER_TODOS } from "../actionTypes";
-import { TodosService } from "Services";
-
 export const SELECT_TASK_ID = "SELECT_TASK_ID";
 export const ADD_TODO = "ADD_TODO";
 export const GET_TODOS = "GET_TODOS";
+export const TODOS_ERROR = "TODOS_ERROR";
+export const SEARCH_TODOS = "SEARCH_TODOS";
+export const SEARCH_SUCCESS = "SEARCH_SUCCESS";
 
-export const fetchTodos = (searchText, filterType) => {
-	return async (dispatch, getState) => {
-		let todos = [];
-		if (searchText) {
-			todos = await TodosService.getSearchTodos(searchText);
-		} else {
-			todos = await TodosService.getTodos();
-		}
-		dispatch({
-			type: GET_TODOS,
-			payload: todos,
-		});
-	};
-};
+export const setTodos = (todos) => ({
+	type: GET_TODOS,
+	payload: todos,
+});
+
+export const searchTodos = ( query ) => ({
+	type: SEARCH_TODOS,
+	payload: { query }
+});
+
+export const searchSuccess = (results) => ({
+   type: SEARCH_SUCCESS,
+   payload: {results}
+});
 
 export const selectTaskId = (id) => ({
 	type: SELECT_TASK_ID,
@@ -26,6 +27,10 @@ export const selectTaskId = (id) => ({
 		id,
 	},
 });
+
+export const todosError = (error) => ({
+    type: TODOS_ERROR, payload: { error }
+})
 
 const initialState = {
 	tasks: [
@@ -69,6 +74,12 @@ const todos = (state = initialState, action) => {
 				tasks: action.payload,
 			};
 		}
+      case SEARCH_SUCCESS: {
+			return {
+				...state,
+				tasks: action.payload.results,
+			};
+		}
 		case ADD_TODO: {
 			return {
 				...state,
@@ -81,10 +92,14 @@ const todos = (state = initialState, action) => {
 				selectedId: action.payload.id,
 			};
 		}
+		case TODOS_ERROR: return {
+            ...state, 
+			message: action.payload.error?.message,
+        }
 		case GET_USER_TODOS: {
 			return {
 			  ...state,
-			  selectedUserTasks: action.payload
+			  selectedUserTasks: action.payload,
 			}
 		}
 		default:
