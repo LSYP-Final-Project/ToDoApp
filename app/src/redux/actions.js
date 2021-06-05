@@ -69,7 +69,7 @@ export const addUser = (user) => {
     dispatch({
       type: ADD_USER,
       payload: {
-        id: new Date().getTime(),
+        id: newUser.id,
         name: newUser.name,
         email: newUser.email,
         password: newUser.password,
