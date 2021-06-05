@@ -7,7 +7,12 @@ import { ModalInfo } from './ModalInfo';
 function Sprints() {
     const sprint = useSelector(getSprint);
     const [modalShow, setModalShow] = useState(false);
-
+    
+    const [modalInfo, setModalInfo] = useState({
+        description: 'no description provided',
+        points: 0
+    });
+ 
     const fetchTaskInfo = (task_id) => {
         setModalShow(true)
         // przekazać task_id do funkcji, która findem znajdzie konkretny opis.
@@ -19,12 +24,17 @@ function Sprints() {
                 <div className="border-bottom border-black">
                     <SprintOngoingTask >
                         <div className="minus-sign">&minus;</div>
-                        <p onClick={() => fetchTaskInfo(sprint.id)}>{sprint.description}</p>
+                        <p onClick={() => {
+                            fetchTaskInfo(sprint.id)
+                            setModalInfo({description: sprint.description, points: sprint.points})
+                            }}>
+                                {sprint.description}
+                            </p>
                         <div className={`points-${sprint.points}`}>{sprint.points}</div>
 
                         <ModalInfo
-                            description={sprint.description}
-                            points={sprint.points}
+                            description={modalInfo.description}
+                            points={modalInfo.points}
                             show={modalShow}
                             onHide={() => setModalShow(false)}
                         />

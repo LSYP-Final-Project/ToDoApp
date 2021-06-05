@@ -35254,7 +35254,7 @@
         },
         {
           "id": 4,
-          "description": "System weryfikuje uzytkownik z email i hasło istnieje lub komunikat",
+          "description": "System weryfikuje czy uzytkownik z email i hasło istnieje lub komunikat",
           "points": "5"
         }
       ]

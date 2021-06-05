@@ -32,9 +32,7 @@ function SprintsView(props) {
                             </Link>
                         </StyledAddButton>
                     </div>
-                    <div className="col-4 text-center"><h1 className='text-secondary .task-title'>
-                    SELECT SPRINT
-                    </h1></div>
+                    <div className="col-4 text-center"><h1 className='text-secondary sprint-title'>SELECT SPRINT</h1></div>
                     <div className='col-1'></div>
                     <div className="col-4 text-center"><h1 className='text-secondary'>BACKLOG</h1></div>
                     <div className='col-1'></div>
