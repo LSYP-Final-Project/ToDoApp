@@ -8,7 +8,7 @@ const TaskList = () => {
 
 	useEffect(() => {
 		dispatch(fetchTodos());
-	}, []);
+	});
 
 	const tasksTab = useSelector(getAllTodos);
 

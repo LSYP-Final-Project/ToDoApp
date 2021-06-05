@@ -17,7 +17,7 @@ const DetailsTask = () => {
 
 	useEffect(() => {
 		dispatch(fetchComments());
-	}, []);
+	});
 
 	const addNewComment = () => {
 		const date = new Date().getTime();
@@ -39,7 +39,7 @@ const DetailsTask = () => {
 
 	if (!task) return
 	return (
-		<>
+		<div className="container mt-3">
 			<p className="display-6">Details:</p>
 			<div className="row">
 				<div className="col-sm mb-4">
@@ -83,7 +83,7 @@ const DetailsTask = () => {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
