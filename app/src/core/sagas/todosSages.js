@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import { TodosService } from "Services";
-import { setTodos, searchSuccess, todosError, GET_TODOS, SEARCH_TODOS } from "Redux/reducers/todos";
+import { setTodos, searchSuccess, todosError, GET_TODOS, SEARCH_TODOS, SORT_TODOS } from "Redux/reducers/todos";
 
 function* loadTodos() {
 	try {
@@ -13,7 +13,16 @@ function* loadTodos() {
 
 function* searchingTodos(action) {
 	try {
-		const results = yield call(TodosService.getSearchTodos, action.payload.query);
+		const results = yield call(TodosService.getSearchTodos, action.payload.query, action.payload.filterType);
+		yield put(searchSuccess(results));
+	} catch (error) {
+		yield put(todosError(error));
+	}
+}
+
+function* sortTodos(action) {
+	try {
+		const results = yield call(TodosService.getSortTodos, action.payload.sortBy);
 		yield put(searchSuccess(results));
 	} catch (error) {
 		yield put(todosError(error));
@@ -23,4 +32,6 @@ function* searchingTodos(action) {
 export function* todosSaga() {
 	yield takeLatest(GET_TODOS, loadTodos);
 	yield takeLatest(SEARCH_TODOS, searchingTodos);
+	yield takeLatest(SORT_TODOS, sortTodos);
+	
 }
