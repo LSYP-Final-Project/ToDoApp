@@ -27,6 +27,7 @@ const SearchTasks = () => {
 					placeholder="Type something"
 					value={searchText}
 					onChange={onInputSearch}
+					onKeyUp={e => e.key === 'Enter' && onSearch()}
 					autoFocus={true}
 				/>
 				<button tabIndex="0" className="btn btn-primary" onClick={onSearch}>
