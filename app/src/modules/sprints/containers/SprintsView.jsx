@@ -5,6 +5,7 @@ import { fetchSprints } from 'Redux/actions';
 import { getAllSprints } from 'Redux/reducers/sprints';
 import SprintOngoingTab from '../components/SprintOngoingTab';
 import SprintFinishedTab from '../components/SprintsFinishedTab';
+import { Link } from "react-router-dom";
 
 
 function SprintsView(props) {
@@ -23,14 +24,16 @@ function SprintsView(props) {
                 <div className="row">
                     <div className="col-2">
                         <StyledAddButton>
-                            <div className="plusSignWrapper">
-                                <div className='plusSign'></div>
-                            </div>
-                            <p>Add Sprint</p>
+                            <Link to='/addsprint'>
+                                <div className="plusSignWrapper">
+                                    <div className='plusSign'></div>
+                                </div>
+                                <p>Add Sprint</p>
+                            </Link>
                         </StyledAddButton>
                     </div>
-                    <div className="col-4 text-center"><h1 className='text-secondary task-title'>
-                        SELECT SPRINT
+                    <div className="col-4 text-center"><h1 className='text-secondary .task-title'>
+                    SELECT SPRINT
                     </h1></div>
                     <div className='col-1'></div>
                     <div className="col-4 text-center"><h1 className='text-secondary'>BACKLOG</h1></div>
@@ -48,7 +51,6 @@ function SprintsView(props) {
                         <StyledFinishedContainer>
                             <p>finished</p>
                             <SprintFinishedTab sprints={sprints} />
-                            {/* wstawić funkcję drukującą finished sprints */}
 
                         </StyledFinishedContainer>
 
