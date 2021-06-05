@@ -28,7 +28,7 @@ export const getTodosByVisibilityFilter = (store, visibilityFilter) => {
   }
 };
 
-export const getUsers = store => store.users;
+export const getUsers = store => store.users.items;
 
 export const getSelectedUser = store => store.users.selectedUser;
 

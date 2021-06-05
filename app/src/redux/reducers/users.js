@@ -6,19 +6,21 @@ const initState = {
     isLoading: false,
 }
 
-
 const usersReducer = (state = initState, action) => {
     switch (action.type) {
         case ADD_USER: {
             const { id, name, email, password } = action.payload;
             return {
                 ...state,
-                [id]: {
-                    id,
-                    name,
-                    email,
-                    password,
-                }
+                items: [
+                    ...state.items,
+                    {
+                        id,
+                        name,
+                        email,
+                        password,
+                    }
+                ]
             };
         }
         case GET_USERS:
