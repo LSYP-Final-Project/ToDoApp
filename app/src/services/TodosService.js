@@ -5,10 +5,14 @@ const TodosServices = class {
     return axios.get('/todos')
       .then(({ data }) => data)
   }
-  getSearchTodos(searchText) {
-      return axios.get(`/todos?q=${searchText}`)
+  getSearchTodos(searchText,filterType) {
+      return axios.get(`/todos?${filterType}=${searchText}`)
         .then(({ data }) => data);
   }
+  getSortTodos(sortBy) {
+    return axios.get(`/todos?_sort=${sortBy}&_order=asc`)
+      .then(({ data }) => data);
+}
   getTodo(id) {
     return axios.get(`/todos/${id}`)
       .then(({ data }) => data)

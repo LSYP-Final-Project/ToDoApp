@@ -5,8 +5,8 @@ import TaskCard from "./TaskCard";
 
 const TaskList = () => {
 	const tasksTab = useSelector(getAllTodos);
-
-	if (!Array.isArray(tasksTab) && !tasksTab.length) return (
+	console.log(tasksTab)
+	if (Array.isArray(tasksTab) && !tasksTab.length) return (
 		<div className="alert alert-info" role="alert">
 			No tasks to show 🤷
 		</div>

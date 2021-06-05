@@ -4,6 +4,7 @@ export const ADD_TODO = "ADD_TODO";
 export const GET_TODOS = "GET_TODOS";
 export const TODOS_ERROR = "TODOS_ERROR";
 export const SEARCH_TODOS = "SEARCH_TODOS";
+export const SORT_TODOS = "SORT_TODOS";
 export const SEARCH_SUCCESS = "SEARCH_SUCCESS";
 
 export const setTodos = (todos) => ({
@@ -11,9 +12,14 @@ export const setTodos = (todos) => ({
 	payload: todos,
 });
 
-export const searchTodos = ( query ) => ({
+export const searchTodos = ( query, filterType ) => ({
 	type: SEARCH_TODOS,
-	payload: { query }
+	payload: { query, filterType }
+});
+
+export const sortTodos = ( filterType ) => ({
+	type: SORT_TODOS,
+	payload: { sortBy: filterType }
 });
 
 export const searchSuccess = (results) => ({

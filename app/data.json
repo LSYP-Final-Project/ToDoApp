@@ -214,47 +214,56 @@
   "todos": [
     {
       "sprintId": 1,
-      "description": "Description Lorem ipsum dolor sit amet.",
+      "description": "First, solve the problem. Then, write the code",
       "userId": 1,
       "id": 1,
-      "title": "Zrobić Karpatkę x1",
+      "title": "Make a Karpatka x1",
       "status": "inprogress",
       "createdAt": 1621508357
     },
     {
       "sprintId": 1,
-      "description": "Description Lorem ipsum dolor sit amet.",
+      "description": "Experience is the name everyone gives to their mistakes",
       "userId": 2,
       "id": 2,
-      "title": "Zostać mistrzem Reacta",
+      "title": "Becoming a React Master",
       "status": "done",
       "createdAt": 1621858957
     },
     {
       "sprintId": 1,
-      "description": "Description Lorem ipsum dolor sit amet.",
+      "description": "Perfection is achieved not when there is nothing more to add, but rather when there is nothing more to take away.",
       "userId": 3,
       "id": 3,
-      "title": "Zrobić naleśniki z musem truskawkowym",
+      "title": "Make pancakes with strawberry mousse",
       "status": "todo",
       "createdAt": 1621940377
     },
     {
       "sprintId": 1,
-      "description": "Description Lorem ipsum dolor sit amet.",
+      "description": "Java is to JavaScript what car is to Carpet",
       "userId": 1,
       "id": 4,
-      "title": "Zgolić wąsa",
+      "title": "Shave the moustache",
       "status": "todo",
       "createdAt": 1621940377
     },
     {
       "sprintId": 1,
-      "description": "Description Lorem ipsum dolor sit amet.",
+      "description": "Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday’s code.",
       "userId": 3,
       "id": 5,
-      "title": "Ściszyć telewizor",
+      "title": "Mute the TV",
       "status": "todo",
+      "createdAt": 1621940377
+    },
+    {
+      "sprintId": 6,
+      "description": "Code is like humor. When you have to explain it, it’s bad.",
+      "userId": 4,
+      "id": 6,
+      "title": "Simplicity is the soul of efficiency",
+      "status": "done",
       "createdAt": 1621940377
     }
   ],
