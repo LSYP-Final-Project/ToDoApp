@@ -1,6 +1,13 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
-
+const SharedCss = css`
+    min-width: 40px;
+    font-weight: 700;
+    color: black;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 10px;
+`
 const SprintOngoingTask = styled.div`
     max-width: 100%;
     height: 50px;
@@ -17,49 +24,24 @@ const SprintOngoingTask = styled.div`
     }
 
     .points-1{
-        min-width: 40px;
         background-color: #D1E7DD;
-        font-weight: 700;
-        color: black;
-        text-align: center;
-        margin: 0 auto;
-        padding-top: 10px;
+        ${SharedCss};
     }
     .points-2{
-        min-width: 40px;
         background-color: #FFE69C;
-        font-weight: 700;
-        color: black;
-        text-align: center;
-        margin: 0 auto;
-        padding-top: 10px;
+        ${SharedCss};
     }
     .points-3{
-        min-width: 40px;
         background-color: #FECBA1;
-        font-weight: 700;
-        color: black;
-        text-align: center;
-        margin: 0 auto;
-        padding-top: 10px;
+        ${SharedCss};
     }
     .points-4{
-        min-width: 40px;
         background-color: #F1AEB5;
-        font-weight: 700;
-        color: black;
-        text-align: center;
-        margin: 0 auto;
-        padding-top: 10px;
+        ${SharedCss};
     }
     .points-5{
-        min-width: 40px;
         background-color: #EA868F;
-        font-weight: 700;
-        color: black;
-        text-align: center;
-        margin: 0 auto;
-        padding-top: 10px;
+        ${SharedCss};
     }
 
     .minus-sign{
