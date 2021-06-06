@@ -17,7 +17,7 @@ function Sprints() {
         <div>
             {sprint && sprint.tasks.map((sprint) =>
                 <div className="border-bottom border-black">
-                    <SprintOngoingTask key={Date.now()}>
+                    <SprintOngoingTask key={Math.random().toString(36).substring(7)}>
                         <div className="minus-sign">&minus;</div>
 
                         <p onClick={() => {

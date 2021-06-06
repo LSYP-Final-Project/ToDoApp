@@ -21,7 +21,7 @@ function Backlog() {
         <div>
             {backlog && backlog.tasks.map((backlog) => 
                 <div className="border-bottom border-black">
-                    <SprintOngoingTask key={Date.now()}>
+                    <SprintOngoingTask key={Math.random().toString(36).substring(7)}>
                         <p onClick={() => {
                             setModalShow(true)
                             setModalInfo({
