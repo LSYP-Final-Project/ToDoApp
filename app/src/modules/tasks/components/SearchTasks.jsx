@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { searchTodos, sortTodos } from "Redux/reducers/todos";
 
@@ -13,15 +13,16 @@ const SearchTasks = () => {
 		setSearchText(e.target.value);
 	};
 
-	const onSearch = () => {
+	const onSearch = useCallback(() => {
 		dispatch(searchTodos(searchText, filterType));
-	};
+	}, [searchText, filterType]);
 
-	const onSort = (e) => {
+	const onSort = useCallback((e) => {
 		dispatch(sortTodos(e.target.value));
-	};
+	},[]);
 
-	return (
+console.log("render searchType")
+	return useMemo(() => (
 		<>
 			<div className="input-group mb-3">
 				<input
@@ -55,7 +56,7 @@ const SearchTasks = () => {
 				</div>
 			</div>
 		</>
-	);
+	), [searchText, filterType])
 };
 
 export default SearchTasks;

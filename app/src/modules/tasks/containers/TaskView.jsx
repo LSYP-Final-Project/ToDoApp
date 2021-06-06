@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllTodos } from "Redux/reducers/todos";
-import { FETCH_TODOS } from 'Redux/reducers/todos'
+import { getAllTodos,  FETCH_TODOS  } from "Redux/reducers/todos";
 import TaskList from "../components/TaskList";
 import SearchTasks from "../components/SearchTasks";
 

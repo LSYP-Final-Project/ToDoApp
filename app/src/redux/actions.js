@@ -1,4 +1,4 @@
-import { ADD_TODO, SET_FILTER, GET_USERS, GET_USER, GET_USER_TODOS, GET_USER_START, GET_SPRINTS, ADD_USER } from "./actionTypes";
+import { SET_FILTER, GET_USERS, GET_USER, GET_USER_TODOS, GET_USER_START, GET_SPRINTS, ADD_USER} from "./actionTypes";
 import { UsersService, TodosService, SprintsService } from "../Services";
 
 export const setFilter = filter => ({
