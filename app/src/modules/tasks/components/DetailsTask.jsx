@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistoryRouter } from "Core/hooks/useHistoryRouter";
 import { convertMsToLocalDate } from "Core/helpers/functions/timeAndDate";
-import { getTaskComments, fetchComments, addComment } from "Redux/reducers/comments";
+import { getTaskComments, addComment, FETCH_COMMENTS } from "Redux/reducers/comments";
 import { getTodo } from "Redux/reducers/todos";
 import CommentsCard from "./CommentsCard";
 import { CommentsService } from "Services";
@@ -34,8 +34,8 @@ const DetailsTask = () => {
 	};
 
 	useEffect(() => {
-		dispatch(fetchComments());
-	});
+		dispatch({ type: FETCH_COMMENTS })
+	}, [])
 
 	if (!task) return;
 	return (

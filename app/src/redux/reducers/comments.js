@@ -5,17 +5,18 @@ import { SELECT_TASK_ID } from "./todos";
 export const ADD_COMMENT = "ADD_COMMENT";
 export const SELECT_COMMENT_ID = "SELECT_COMMENT_ID";
 export const GET_COMMENTS = "GET_COMMENTS";
+export const FETCH_COMMENTS = "FETCH_COMMENTS";
+export const COMMENTS_ERROR = "COMMENTS_ERROR";
 
-export const fetchComments = () => {
-	return async (dispatch, getState) => {
-		const comments = await CommentsService.getComments();
+export const setComments = (comments) => ({
+	type: GET_COMMENTS,
+	payload: comments,
+});
 
-		dispatch({
-			type: GET_COMMENTS,
-			payload: comments,
-		});
-	};
-};
+export const commentsError = (error) => ({
+	type: COMMENTS_ERROR,
+	payload: { error },
+});
 
 //actions
 export const addComment = (comment) => ({
@@ -35,6 +36,7 @@ export const selectCommentId = (id) => ({
 const initialState = {
 	comments: [],
 	selectedId: null,
+	message: null,
 };
 
 // reducer
@@ -58,6 +60,11 @@ const comments = (state = initialState, action) => {
 				selectedId: action.payload.id,
 			};
 		}
+		case COMMENTS_ERROR:
+			return {
+				...state,
+				message: action.payload.error?.message,
+			};
 		default:
 			return state;
 	}
