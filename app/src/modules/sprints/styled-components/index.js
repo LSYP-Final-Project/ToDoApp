@@ -5,3 +5,4 @@ export { default as StyledOngoingSprint } from './StyledOngoingSprint.style';
 export { default as StyledFinishedSprint } from './StyledFinishedSprint.style';
 export { default as Sprints } from '../components/Sprints';
 export { default as SprintOngoingTask } from './SprintOngoingTask.style';
+export { default as Backlog } from '../components/Backlog';
