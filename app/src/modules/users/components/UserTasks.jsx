@@ -1,8 +1,11 @@
 import React, { useMemo } from 'react'
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router'
+import { Link } from 'react-router-dom';
+import { selectTaskId } from 'Redux/reducers/todos';
 
 const UserTasks = ({ user, tasks }) => {
-
+    const dispatch = useDispatch()
     const { push } = useHistory()
 
     const hasTasks = tasks.length > 0
@@ -11,6 +14,10 @@ const UserTasks = ({ user, tasks }) => {
         const decodedDate = new Date(date).toLocaleDateString('en-Us')
         return decodedDate;
     }
+
+    const onTaskCardClick = (id) => {
+		dispatch(selectTaskId(id));
+	};
 
     return useMemo(() => (
         <div className="card mt-2">
@@ -24,17 +31,19 @@ const UserTasks = ({ user, tasks }) => {
 
             <div className="card-body">
                 {hasTasks && tasks?.map((task, index) =>
-                    <div className="card mb-3" key={index}>
-                        <div className="card-body row">
-                            <div className="col-6">
-                                <h5 className="card-title">{task.title}</h5>
-                                <p className="card-text">{task.description}</p>
-                            </div>
-                            <div className="col-6 text-end">
-                                <p className="card-title">{decodeDate(task.createdAt)}</p>
+                    <Link className="text-decoration-none text-body" to={`/tasks/${task.id}`}>
+                        <div className="card mb-3" key={index} onClick={onTaskCardClick(task.id)}>
+                            <div className="card-body row">
+                                <div className="col-6">
+                                    <h5 className="card-title">{task.title}</h5>
+                                    <p className="card-text">{task.description}</p>
+                                </div>
+                                <div className="col-6 text-end">
+                                    <p className="card-title">{decodeDate(task.createdAt)}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </Link>
                 )}
 
                 {!hasTasks && <p className="fw-bold text-center">User has no assigned tasks</p>}
