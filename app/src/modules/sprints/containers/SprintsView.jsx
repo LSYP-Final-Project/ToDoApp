@@ -18,7 +18,7 @@ function SprintsView(props) {
     }, [])
 
     return (
-        <div>
+        <div data-testid="test-1">
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-2">
