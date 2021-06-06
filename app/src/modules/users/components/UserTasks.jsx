@@ -1,12 +1,8 @@
 import React, { useMemo } from 'react'
-import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router'
-import { Link } from 'react-router-dom';
-import { selectTaskId } from 'Redux/reducers/todos';
 import { convertMsToLocalDate } from 'Core/helpers/functions/timeAndDate'
 
 const UserTasks = ({ user, tasks }) => {
-    const dispatch = useDispatch()
     const { push } = useHistory()
 
     const hasTasks = !!tasks.length
@@ -23,7 +19,7 @@ const UserTasks = ({ user, tasks }) => {
 
             <div className="card-body">
                 {hasTasks && tasks?.map((task, index) =>
-                    <div className="card mb-3" key={index}>
+                    <div className="card mb-3" key={index} aria-label="Task card">
                         <div className="card-body row">
                             <div className="col-6">
                                 <h5 className="card-title">{task.title}</h5>

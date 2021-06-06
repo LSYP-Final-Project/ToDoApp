@@ -1,16 +1,13 @@
-import { getByRole, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { Router } from 'react-router';
 import { createMemoryHistory } from 'history'
 import { UserDetails } from '.'
 
-jest.mock('react-router-dom', () => ({
-    useHistory: () => ({
-      push: jest.fn(),
-    }),
-}));
-
 describe('UserDetails', () => {
     const setup = () => {
+        const history = createMemoryHistory()
+        const pushSpy = jest.spyOn(history, 'push')
+
         const userMock = {
             "id": 1,
             "name": "Leanne Graham",
@@ -23,10 +20,12 @@ describe('UserDetails', () => {
         }
 
         render(
-            <Router history={createMemoryHistory()}>
+            <Router history={history}>
                 <UserDetails user={userMock}/>
             </Router>
         )
+
+        return { pushSpy }
     }
 
     test('header shows user name', () => {
@@ -42,5 +41,15 @@ describe('UserDetails', () => {
         expect(screen.getByLabelText('User phone number')).toHaveTextContent('1-770-736-8031 x56442')
         expect(screen.getByLabelText('User website')).toHaveTextContent('hildegard.org')
         expect(screen.getByLabelText('User company')).toHaveTextContent('Romaguera-Crona')
+    })
+
+    test('button emits history push /users onClick', () => {
+        const { pushSpy } = setup({})
+
+        const closeBtn = screen.getByRole('button')
+        closeBtn.click()
+
+        expect(pushSpy).toHaveBeenCalled()
+        expect(pushSpy).toHaveBeenCalledWith('/users')
     })
 })
