@@ -73,8 +73,7 @@ export default comments;
 
 // selectors
 export const getAllComments = (state) => state.comments.comments;
-export const getLatestComments = (state) =>
-	state.comments.comments.sort((a, b) => a.createdAt + b.createdAt);
+export const getLatestComments = (state) => state.comments.comments.sort((a, b) => a.createdAt + b.createdAt);
 export const getTaskComments = (state) => {
 	return state.comments.comments.filter((c) => c.taskId === state.comments.selectedId);
 };

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { TaskCard, CommentCard } from 'Core/components'
 import { DataList } from '..'
 import { useSelector } from "react-redux";
@@ -10,7 +10,7 @@ export default function ListsView() {
     const latestTasks = useSelector(getLatestTasks);
     const latestComments = useSelector(getLatestComments);
 
-    return (
+    return useMemo(() => (
         <main className="d-flex flex-column flex-lg-row px-2">
             <div className="col-lg-4">
                 <DataList title={'Your tasks'} data={userTasks} Card={TaskCard} />
@@ -22,5 +22,5 @@ export default function ListsView() {
                 <DataList title={'Latest Comments'} data={latestComments} Card={CommentCard} />
             </div>
         </main>
-    )
+    ), [userTasks, latestTasks, latestComments])
 }
