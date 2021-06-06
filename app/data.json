@@ -600,51 +600,56 @@
           "id": 5,
           "description": "Kupić składniki",
           "points": "5"
+        },
+        {
+          "id": 7,
+          "name": "BACKLOG",
+          "status": "BACKLOG",
+          "tasks": [
+            {
+              "id": 10,
+              "description": "Topping dessert cake gingerbread marzipan. Pastry pastry cookie lemon drops lollipop soufflé cookie.",
+              "points": "1"
+            },
+            {
+              
+              "id": 20,
+              "description": "Apple pie pie powder pudding.",
+              "points": "1"
+            },
+            {
+              
+              "id": 30,
+              "description": "Topping dessert cake gingerbread marzipan. Pastry pastry cookie lemon drops lollipop soufflé cookie.",
+              "points": "2"
+            },
+            {
+              
+              "id": 40,
+              "description": "Chocolate bar caramels caramels cheesecake caramels sweet roll.",
+              "points": "5"
+            },
+            {
+              
+              "id": 50,
+              "description": "Halvah carrot cake dessert.",
+              "points": "4"
+            },
+            {
+              
+              "id": 60,
+              "description": "Jujubes wafer biscuit jelly cake jelly beans soufflé cupcake gingerbread. ",
+              "points": "3"
+            },
+            {
+              
+              "id": 70,
+              "description": "Marzipan carrot cake wafer cotton candy sesame snaps dragée cake cupcake. ",
+              "points": "3"
+            }
+          ]
         }
       ]
-    }
-  ],
-  "backlog": [
-    {
-      "id": 10,
-      "description": "Topping dessert cake gingerbread marzipan. Pastry pastry cookie lemon drops lollipop soufflé cookie.",
-      "points": "1"
-    },
-    {
-      
-      "id": 20,
-      "description": "Apple pie pie powder pudding.",
-      "points": "1"
-    },
-    {
-      
-      "id": 30,
-      "description": "Topping dessert cake gingerbread marzipan. Pastry pastry cookie lemon drops lollipop soufflé cookie.",
-      "points": "2"
-    },
-    {
-      
-      "id": 40,
-      "description": "Chocolate bar caramels caramels cheesecake caramels sweet roll.",
-      "points": "5"
-    },
-    {
-      
-      "id": 50,
-      "description": "Halvah carrot cake dessert.",
-      "points": "4"
-    },
-    {
-      
-      "id": 60,
-      "description": "Jujubes wafer biscuit jelly cake jelly beans soufflé cupcake gingerbread. ",
-      "points": "3"
-    },
-    {
-      
-      "id": 70,
-      "description": "Marzipan carrot cake wafer cotton candy sesame snaps dragée cake cupcake. ",
-      "points": "3"
     }
   ]
 }

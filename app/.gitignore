@@ -6,6 +6,9 @@
 /node_modules
 /.pnp
 .pnp.js
+/.storybook
+**storybook
+**.storybook
 
 # testing
 /coverage

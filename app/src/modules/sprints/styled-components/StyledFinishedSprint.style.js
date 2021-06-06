@@ -4,7 +4,7 @@ const StyledOngoingSprint = styled.div`
     box-sizing: border-box;
 
     position: relative;
-    width: 199px;
+    width: 149px;
     height: 50px;
     background-color: #a8f7a8;
     border: 1px solid #8BE78B;

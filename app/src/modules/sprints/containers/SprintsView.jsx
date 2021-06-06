@@ -31,10 +31,9 @@ function SprintsView(props) {
                             </Link>
                         </StyledAddButton>
                     </div>
-                    <div className="col-4 text-center"><h1 className='text-secondary sprint-title'>{sprintName}</h1></div>
-                    <div className='col-1'></div>
+                    <div className="col-5 text-center"><h1 className='text-secondary sprint-title'>{sprintName}</h1></div>
+                    <div className="col-1"></div>
                     <div className="col-4 text-center"><h1 className='text-secondary'>BACKLOG</h1></div>
-                    <div className='col-1'></div>
                 </div>
 
                 <div className="row mt-2">
@@ -52,14 +51,13 @@ function SprintsView(props) {
                         </StyledFinishedContainer>
 
                     </div>
-                    <div className="col-4 border border-darken-1 m-0 p-0">
+                    <div className="col-5 border border-darken-1 m-0 p-0">
                         <Sprints />
                     </div>
-                    <div className='col-1'></div>
+                    <div className="col-1"></div>
                     <div className="col-4 border border-darken-1">
                         
                     </div>
-                    <div className='col-1'></div>
                 </div>
             </div>
         </div>
