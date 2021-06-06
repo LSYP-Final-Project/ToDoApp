@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledOngoingSprint = styled.div`
     box-sizing: border-box;
     position: relative;
-    width: 199px;
+    width: 149px;
     height: 50px;
     background-color: #f2b5b5;
     border: 1px solid #F79696;

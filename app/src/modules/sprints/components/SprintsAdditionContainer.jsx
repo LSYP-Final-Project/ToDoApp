@@ -6,16 +6,14 @@ export default class SprintsAdditionContainer extends Component {
         return (
             <div>
                 <div className="container sprints-addition-container">
-                    <SprintOngoingTask>
-                        <div className="mb-3 mt-5">
+                    <SprintOngoingTask className='mt-5 mb-2'>
                             <div className='minus-sign'>&minus;</div>
-                            <p>
-                                lorem
+                            <p className='text-cetner mt-2'>
+                                Makieta
                             </p>
-                            <div>
-                                points
+                            <div className='text-center mt-2'>
+                                5
                             </div>
-                        </div>
                     </SprintOngoingTask>
                     
                     <div className="btn btn-outline-success text-end">Submit the sprint</div>

@@ -1,11 +1,14 @@
-import React, {useState} from 'react'
-import { getSprint } from 'Redux/reducers/sprints';
-import { useSelector } from "react-redux";
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getBacklog } from 'Redux/reducers/sprints'
 import { SprintOngoingTask } from '../styled-components/index';
 import { ModalInfo } from './ModalInfo';
 
-function Sprints() {
-    const sprint = useSelector(getSprint);
+
+function Backlog() {
+    const dispatch = useDispatch();
+    const backlog = useSelector(getBacklog);
+
     const [modalShow, setModalShow] = useState(false);
     
     const [modalInfo, setModalInfo] = useState({
@@ -13,42 +16,37 @@ function Sprints() {
         points: 0
     });
 
+
     return (
         <div>
-            {sprint && sprint.tasks.map((sprint) =>
+            {backlog && backlog.tasks.map((backlog) => 
                 <div className="border-bottom border-black">
                     <SprintOngoingTask key={Math.random().toString(36).substring(7)}>
-                        <div className="minus-sign">&minus;</div>
-
                         <p onClick={() => {
                             setModalShow(true)
                             setModalInfo({
-                                description: sprint.description, 
-                                points: sprint.points
+                                description: backlog.description, 
+                                points: backlog.points
                             })
-                        }}>
-                            {sprint.description}
+                            }}>
+                            {backlog.description}
                         </p>
 
-                        <div 
-                            className={`points-${sprint.points}`} 
-                        > 
-                            {sprint.points}
+                        <div className={`points-${backlog.points}`}>
+                            {backlog.points}
                         </div>
+                    </SprintOngoingTask>
 
-                        <ModalInfo
+                    <ModalInfo
                             description={modalInfo.description}
                             points={modalInfo.points}
                             show={modalShow}
                             onHide={() => setModalShow(false)}
-                        />
-                    </SprintOngoingTask>
+                    />
                 </div>
             )}
-
         </div>
     )
 }
 
-export default Sprints
-
+export default Backlog

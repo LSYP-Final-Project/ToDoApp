@@ -1,6 +1,6 @@
 import React from 'react'
 import SprintsAdditionContainer from './SprintsAdditionContainer';
-
+import { Link } from 'react-router-dom';
 export default function AddSprint() {
     return (
         <>
@@ -30,6 +30,8 @@ export default function AddSprint() {
                             <SprintsAdditionContainer />
                         </div>
                 </div>
+
+                <Link to='/sprints' className="btn btn-danger mt-2">Cancel</Link>
             </div>
         </>
     )
