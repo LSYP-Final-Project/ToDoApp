@@ -2,6 +2,7 @@ import { GET_USER_TODOS } from "../actionTypes";
 export const SELECT_TASK_ID = "SELECT_TASK_ID";
 export const ADD_TODO = "ADD_TODO";
 export const GET_TODOS = "GET_TODOS";
+export const FETCH_TODOS = "FETCH_TODOS";
 export const TODOS_ERROR = "TODOS_ERROR";
 export const SEARCH_TODOS = "SEARCH_TODOS";
 export const SORT_TODOS = "SORT_TODOS";
@@ -39,37 +40,9 @@ export const todosError = (error) => ({
 })
 
 const initialState = {
-	tasks: [
-		{
-			sprintId: 1,
-			description: "Description Lorem ipsum dolor sit amet.",
-			userId: 1,
-			id: 1,
-			title: "Zrobić Karpatkę",
-			status: "inprogress",
-			createdAt: 1522390525501,
-		},
-		{
-			sprintId: 1,
-			description: "Description Lorem ipsum dolor sit amet.",
-			userId: 2,
-			id: 2,
-			title: "Zostać mistrzem Reacta",
-			status: "done",
-			createdAt: 1622390525501,
-		},
-		{
-			sprintId: 1,
-			description: "Description Lorem ipsum dolor sit amet.",
-			userId: 3,
-			id: 3,
-			title: "Zrobić naleśniki z musem truskawkowym",
-			status: "todo",
-			createdAt: 1612190585501,
-		},
-	],
-   selectedId: null,
-   selectedUserTasks: []
+	tasks: [],
+    selectedId: null,
+    selectedUserTasks: []
 };
 
 const todos = (state = initialState, action) => {
