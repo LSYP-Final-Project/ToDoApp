@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledFinishedContainer = styled.div`
 box-sizing: border-box;
-    width: 200px;
+    width: 150px;
     height: 250px;
     border: 1px solid #198754;
     position: relative;
@@ -10,7 +10,7 @@ box-sizing: border-box;
     
     &::after{
         content: '';
-        width: 200px;
+        width: 150px;
         height: 50px;
         background-color: #198754;
         position: absolute;
@@ -21,7 +21,7 @@ box-sizing: border-box;
     p{
         position: absolute;
         top: 5px;
-        left: 40px;
+        left: 20px;
         color: white;
         font-size: 25px;
         text-transform: uppercase;

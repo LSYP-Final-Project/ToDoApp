@@ -52,4 +52,7 @@ export const getAllSprints = (state) => state.infoSprints.sprints
 export const getSprint = (state) => {
   return state.infoSprints.sprints.find((s) => s.id === state.infoSprints.selectedId);
 }
+export const getBacklog = (state) => {
+  return state.infoSprints.sprints.find((s) => s.id === 7);
+}
 export const getSprintName = (state) => state.infoSprints.name;
