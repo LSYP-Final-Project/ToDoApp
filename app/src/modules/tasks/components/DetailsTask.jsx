@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistoryRouter } from "Core/hooks/useHistoryRouter";
 import { convertMsToLocalDate } from "Core/helpers/functions/timeAndDate";
@@ -15,7 +15,7 @@ const DetailsTask = () => {
 	const comments = useSelector(getTaskComments);
 	const task = useSelector(getTodo);
 
-	const addNewComment = () => {
+	const addNewComment = useCallback(() => {
 		const date = new Date().getTime();
 
 		const comment = {
@@ -31,7 +31,7 @@ const DetailsTask = () => {
 
 		setAddingComment(false);
 		setNewTaskTitle("");
-	};
+	}, [newTaskTitle]);
 
 	useEffect(() => {
 		dispatch({ type: FETCH_COMMENTS })

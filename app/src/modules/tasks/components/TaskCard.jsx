@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { selectTaskId } from 'Redux/reducers/todos';
@@ -6,9 +6,9 @@ import { selectTaskId } from 'Redux/reducers/todos';
 const TaskCard = ({ task }) => {
 	const dispatch = useDispatch();
 
-	const onTaskCardClick = () => {
+	const onTaskCardClick = useCallback(() => {
 		dispatch(selectTaskId(task.id));
-	};
+	},[]);
 
 	return (
 		<Link to={`/tasks/${task.id}`}
