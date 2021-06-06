@@ -18,7 +18,7 @@ const UserDetails = ({ user }) => {
             <div className="card-body">
                 <dl>
                     <dt>Username:</dt>
-                    <dd aria-label="User Name">{user.username}</dd>
+                    <dd aria-label="Username">{user.username}</dd>
 
                     <dt>Phone number:</dt>
                     <dd aria-label="User phone number">{user.phone}</dd>

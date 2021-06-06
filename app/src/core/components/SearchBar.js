@@ -5,7 +5,7 @@ function SearchBar({onSearch}) {
     const [query, bindQuery] = useInput('')
 
     useEffect(() => {
-        if (query.length < 1) { return }
+        if (!query.length) { return }
         
         const handleQuery = setTimeout(() => {
             onSearch(query)
