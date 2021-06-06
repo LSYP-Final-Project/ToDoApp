@@ -1,12 +1,4 @@
-import reducer, { addComment, ADD_COMMENT } from "Redux/reducers/comments";
-import {
-	cleanup,
-	getByAltText,
-	getByLabelText,
-	getByRole,
-	render,
-	screen,
-} from "@testing-library/react";
+import { render } from "@testing-library/react";
 import CommentsCard from "./CommentsCard";
 
 describe("CommentsCard", () => {
