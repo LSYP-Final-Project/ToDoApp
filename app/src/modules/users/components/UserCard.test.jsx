@@ -1,8 +1,6 @@
 import { getByRole, render, screen } from '@testing-library/react'
 import { UserCard } from './'
 
-export {}
-
 describe('UserCard', () => {
     
     const setup = () => {
