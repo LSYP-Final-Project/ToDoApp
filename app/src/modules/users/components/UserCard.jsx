@@ -20,14 +20,14 @@ const UserCard = ({ user, showUserDetails, showUserTasks }) => {
         <div className="card">
             <div className="card-body row align-items-center">
                 <div className="col-3">
-                    <UserBadge>
+                    <UserBadge data-testid="user_badge">
                         {getUserInitials(user.name)}
                     </UserBadge>
                 </div>
                 <div className="col-6">
                     <h5 className="card-title">{user.name}</h5>
-                    <p className="card-text">{user.email}</p>
-                    <p className="card-text">
+                    <p className="card-text" data-testid="user_email">{user.email}</p>
+                    <p className="card-text" data-testid="user_city">
                         <small className="text-muted">
                             {user.address.city}
                         </small>
