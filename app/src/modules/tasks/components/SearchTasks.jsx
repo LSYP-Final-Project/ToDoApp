@@ -19,9 +19,8 @@ const SearchTasks = () => {
 
 	const onSort = useCallback((e) => {
 		dispatch(sortTodos(e.target.value));
-	},[]);
+	}, []);
 
-console.log("render searchType")
 	return useMemo(() => (
 		<>
 			<div className="input-group mb-3">

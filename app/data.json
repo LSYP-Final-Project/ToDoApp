@@ -206,6 +206,13 @@
       "taskId": 2,
       "content": "Good job :)",
       "createdAt": 1622711867998
+    },
+    {
+      "id": 1623006405098,
+      "userId": 4,
+      "taskId": 6,
+      "content": "aaaaaaaaaa",
+      "createdAt": 1623006405098
     }
   ],
   "profile": {
@@ -441,22 +448,22 @@
       "name": "END GAME",
       "status": "ONGOING",
       "tasks": [
-        { 
+        {
           "id": 1,
           "description": "Jako zalogowany na widoku sprints moge dodać zadanie do sprintu, lub je usunac do backloga",
           "points": "5"
         },
-        { 
+        {
           "id": 2,
           "description": "Jako zalogowany na widoku sprints moge wyswietlic sprint i liste zadan",
           "points": "4"
         },
-        { 
+        {
           "id": 3,
           "description": "Jako zalogowany na widoku sprints moge dodać sprint",
           "points": "3"
         },
-        { 
+        {
           "id": 4,
           "description": "Jako zalogowany na ekranie szczegółów zadania widzę komentarze (Comment - id, userId, content, createdAt) do zadania",
           "points": "4"
@@ -576,31 +583,31 @@
       "name": "APPLE PIE",
       "status": "ONGOING",
       "tasks": [
-        { 
+        {
           "id": 1,
           "description": "Posypać kruszonką",
           "points": "1"
         },
-        { 
+        {
           "id": 2,
           "description": "Wstawić ciasto do piekarnika",
           "points": "2"
         },
-        { 
+        {
           "id": 3,
           "description": "Dodać przecier jabłkowy",
           "points": "3"
         },
-        { 
+        {
           "id": 4,
           "description": "Zagnieść ciasto",
           "points": "4"
         },
-        { 
+        {
           "id": 5,
           "description": "Kupić składniki",
           "points": "5"
-        }       
+        }
       ]
     },
     {
@@ -614,37 +621,31 @@
           "points": "1"
         },
         {
-          
           "id": 20,
           "description": "Apple pie pie powder pudding.",
           "points": "1"
         },
         {
-          
           "id": 30,
           "description": "Topping dessert cake gingerbread marzipan. Pastry pastry cookie lemon drops lollipop soufflé cookie.",
           "points": "2"
         },
         {
-          
           "id": 40,
           "description": "Chocolate bar caramels caramels cheesecake caramels sweet roll.",
           "points": "5"
         },
         {
-          
           "id": 50,
           "description": "Halvah carrot cake dessert.",
           "points": "4"
         },
         {
-          
           "id": 60,
           "description": "Jujubes wafer biscuit jelly cake jelly beans soufflé cupcake gingerbread. ",
           "points": "3"
         },
         {
-          
           "id": 70,
           "description": "Marzipan carrot cake wafer cotton candy sesame snaps dragée cake cupcake. ",
           "points": "3"
